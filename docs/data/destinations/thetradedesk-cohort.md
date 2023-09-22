@@ -47,7 +47,7 @@ To sync your first cohort, follow these steps:
 
 ### Q: Why is the size of the cohort in Amplitude different from the number I can see in the TradeDesk?
 
-Amplitude are showing cohort sync as successful even if there are invalid IDs for the integration with the TradeDesk. The number of added users in your cohort sync history may be different from the number you could see on the TradeDesk platform. This may occur for some reason, such as duplication or parsing errors. Thus, the number of users in the TradeDesk is the actual number they can receive from Amplitude.
+Amplitude reports a cohort sync as successful even if there are invalid IDs in the sync. As a result, the number of users in TheTradeDesk may be different than the number you have in Amplitude. If your sync contains duplicate IDs or a parsing error occurs, TheTradeDesk won't add those users.
 
 ### Use cases
 
