@@ -53,10 +53,6 @@ Get all discoverable cohorts for an app. Use the `id` for each cohort returned i
 |----|-----|
 |`includeSyncInfo`|<span class="optional">Optional</span>. Boolean. Set to true to include cohort sync metadata in response (one-time + disabled sync will be excluded) .|
 
-!!!beta "Notes about query parameters"
-
-    - This feature is currently in Beta and requires whitelisting. Please contact Amplitude Support, or your Amplitude account manager for access.
-
 ### Get all cohorts response
 
 The response is a JSON object with this schema:
@@ -116,6 +112,81 @@ Each COHORT_SYNC_METADATA has this schema:
     "last_failure": timestamp,
     "params": { COHORT_SYNC_LEVEL_PARAM }
 }
+```
+
+Below is a sample result:
+
+```json
+
+    "cohorts": [
+        {
+            "appId": 123456,
+            "archived": false,
+            "definition": {
+                "version": 3,
+                "countGroup": {
+                    "name": "User",
+                    "is_computed": false
+                },
+                "cohortType": "UNIQUES",
+                "andClauses": [
+                    {
+                        "negated": false,
+                        "orClauses": [
+                            {
+                                "type": "event",
+                                "time_type": "rolling",
+                                "time_value": 30,
+                                "offset": 0,
+                                "interval": 1,
+                                "type_value": "_active",
+                                "operator": ">=",
+                                "operator_value": 1,
+                                "group_by": [],
+                                "metric": null
+                            }
+                        ]
+                    }
+                ],
+                "referenceFrameTimeParams": {}
+            },
+            "description": "test description",
+            "finished": true,
+            "id": "id_12345",
+            "name": "Test Cohort 1",
+            "owners": [
+                "demo@amplitude.com"
+            ],
+            "viewers": [],
+            "published": true,
+            "size": 111,
+            "type": "redshift",
+            "lastMod": 1679437294,
+            "createdAt": 1679437288,
+            "lastComputed": 1679440233,
+            "hidden": false,
+            "metadata": null,
+            "view_count": null,
+            "popularity": null,
+            "last_viewed": null,
+            "chart_id": null,
+            "edit_id": null,
+            "is_predictive": false,
+            "is_official_content": false,
+            "location_id": null,
+            "shortcut_ids": [],
+            "syncMetadata": [
+                {
+                    "target": "braze",
+                    "frequency": "hourly",
+                    "last_successful": "2023-03-21T16:09:58.848454-07:00",
+                    "last_failure": null,
+                    "params": {
+                        "user_id": "demo@amplitude.com"
+                    }
+                }
+            ]
+        },
 ```
 
 ## Get one cohort
