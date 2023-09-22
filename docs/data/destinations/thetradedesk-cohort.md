@@ -45,6 +45,10 @@ To sync your first cohort, follow these steps:
 4. Choose the sync cadence.
 5. When finished, save your work.
 
+### Q: Why is the size of the cohort in Amplitude different from the number I can see in the TradeDesk?
+
+Amplitude reports a cohort sync as successful even if there are invalid IDs in the sync. As a result, the number of users in TheTradeDesk may be different than the number you have in Amplitude. If your sync contains duplicate IDs or a parsing error occurs, TheTradeDesk won't add those users. The number of users that appears in TheTradeDesk is the number that was successfully imported from Amplitude.
+
 ### Use cases
 
 1. **Improved Audience Targeting:** By sending cohorts or segments of users from Amplitude to The Trade Desk, advertisers can refine their audience targeting. For instance, if Amplitude identifies a group of users who have exhibited certain behaviors or engagement patterns (for example, frequent app usage, specific in-app actions), you can send this cohort can to The Trade Desk for more precise ad targeting. This approach helps advertisers reach users who are more likely to convert based on their past behavior.
