@@ -2,9 +2,7 @@
 <!-- markdown-link-check-disable -->
 <!-- vale off -->
 
-This repository is archived as of September 22, 2023, and is in the process of migrating to a new location.
 
----
 # README
 
 This is the repo for the [Amplitude developer docs site](https://docs.developers.amplitude.com).
