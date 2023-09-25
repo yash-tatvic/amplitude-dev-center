@@ -185,7 +185,9 @@ The SDK client can be configured once on initialization.
     | `debug` | Enable additional debug logging within the SDK. Should be set to false in production builds. | `false` |
     | `fallbackVariant` | The default variant to fall back if a variant for the provided key doesn't exist. | `{}` |
     | `initialVariants` | An initial set of variants to access. This field is valuable for bootstrapping the client SDK with values rendered by the server using server-side rendering (SSR). | `{}` |
-    | `serverUrl` | The host to fetch variants from. | `https://api.lab.amplitude.com` |
+    | `serverZone` | Select the Amplitude data center to get flags and variants from, `us` or `eu`. | `us` |
+    | `serverUrl` | The host to fetch remote evaluation variants from. For hitting the EU data center, use `serverZone`. | `https://api.lab.amplitude.com` |
+    | `flagsServerUrl` | The host to fetch local evaluation flags from. For hitting the EU data center, use `serverZone`. | `https://flag.lab.amplitude.com` |
     | `fetchTimeoutMillis` | The timeout for fetching variants in milliseconds. | `10000` |
     | `retryFetchOnFailure` | Whether to retry variant fetches in the background if the request doesn't succeed. | `true` |
     | `automaticExposureTracking` | If true, calling [`variant()`](#variant) will track an exposure event through the configured `exposureTrackingProvider`. If no exposure tracking provider is set, this configuration option does nothing.  | `true` |
@@ -197,7 +199,7 @@ The SDK client can be configured once on initialization.
     | `instanceName` | Custom instance name for experiment SDK instance. **The value of this field is case-sensitive.** | `null` |
 
 !!!info "EU Data Center"
-    If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
+    If you're using Amplitude's EU data center, configure the `serverZone` option on initialization to `eu`.
 
 #### Integrations
 
