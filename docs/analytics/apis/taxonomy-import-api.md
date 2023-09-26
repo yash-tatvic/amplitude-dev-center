@@ -7,9 +7,9 @@ description: The Taxonomy Import API allows you programmatically change your tra
 
 Taxonomy Import API allows you programmatically change your tracking plan in Amplitude Data using CSV files. 
 
-!!!note
+!!!warning "Access to this API is closed"
 
-    This document is currently a draft. Amplitude welcomes feedback from the community as we develop this new API.
+    The Taxonomy Import API is not generally available, and is built for limited and narrow use cases.
 
 ## Authorization
 
