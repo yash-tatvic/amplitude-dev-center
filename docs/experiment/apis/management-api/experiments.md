@@ -200,7 +200,8 @@ A successful request returns a `200 OK` response and a JSON object with the expe
         "startDate": "2023-07-29",
         "endDate": null,
         "experimentType": "hypothesis-testing",
-        "deleted": false
+        "deleted": false,
+        "tags": []
     }
     ```
 
