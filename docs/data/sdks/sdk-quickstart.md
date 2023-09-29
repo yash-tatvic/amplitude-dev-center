@@ -708,55 +708,104 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
-    ```swift
-    import AmplitudeSwift
+    === "Swift"
 
-    let amplitude = Amplitude(
-        configuration: Configuration(
-            apiKey: "YOUR-API-KEY"
+        ```swift
+        import AmplitudeSwift
+    
+        let amplitude = Amplitude(
+            configuration: Configuration(
+                apiKey: "YOUR-API-KEY"
+            )
         )
-    )
-    ```
+        ```
+
+    === "Objective-C"
+    
+        ```obj-c
+        @import AmplitudeSwift;
+
+        AMPConfiguration* configuration = [AMPConfiguration initWithApiKey:@"YOUR-API-KEY"];
+        Amplitude* amplitude = [Amplitude initWithConfiguration:configuration];
+        ```
+
     --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
 
-    ```swift
-    import AmplitudeSwift
+    === "Swift"
 
-    let amplitude = Amplitude(
-        Configuration(
-            apiKey: "YOUR-API-KEY",
-            serverZone: ServerZone.EU
+        ```swift
+        import AmplitudeSwift
+    
+        let amplitude = Amplitude(
+            Configuration(
+                apiKey: "YOUR-API-KEY",
+                serverZone: ServerZone.EU
+            )
         )
-    )
-    ```
+        ```
+
+    === "Objective-C"
+    
+        ```obj-c
+        @import AmplitudeSwift;
+
+        AMPConfiguration* configuration = [AMPConfiguration initWithApiKey:@"YOUR-API-KEY"];
+        configuration.serverZone = AMPServerZoneEU;
+        Amplitude* amplitude = [Amplitude initWithConfiguration:configuration];
+        ```
 
     --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
 
-    ```swift
-    amplitude.track(
-        eventType: "Button Clicked",
-        eventProperties: ["my event prop key": "my event prop value"]
-    )
-    ```
+    === "Swift"
+
+        ```swift
+        amplitude.track(
+            eventType: "Button Clicked",
+            eventProperties: ["my event prop key": "my event prop value"]
+        )
+        ```
+
+    === "Objective-C"
+    
+        ```obj-c
+        [amplitude track:@"Button Clicked" eventProperties:@{
+            @"my event prop key": @"my event prop value"
+        }];
+        ```
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
-    ```swift
-    import AmplitudeSwift
+    === "Swift"
 
-    let amplitude = Amplitude(
-        configuration: Configuration(
-            apiKey: "YOUR-API-KEY"
+        ```swift
+        import AmplitudeSwift
+    
+        let amplitude = Amplitude(
+            configuration: Configuration(
+                apiKey: "YOUR-API-KEY"
+            )
         )
-    )
+    
+        amplitude.track(
+            eventType: "Button Clicked",
+            eventProperties: ["my event prop key": "my event prop value"]
+        )
+        ```
 
-    amplitude.track(
-        eventType: "Button Clicked",
-        eventProperties: ["my event prop key": "my event prop value"]
-    )
-    ```
+    === "Objective-C"
+    
+        ```obj-c
+        @import AmplitudeSwift;
+
+        AMPConfiguration* configuration = [AMPConfiguration initWithApiKey:@"YOUR-API-KEY"];
+        Amplitude* amplitude = [Amplitude initWithConfiguration:configuration];
+
+        [amplitude track:@"Button Clicked" eventProperties:@{
+            @"my event prop key": @"my event prop value"
+        }];
+        ```
 
     Learn more available functionalities in [iOS SDK](./ios-swift/index.md).
 
