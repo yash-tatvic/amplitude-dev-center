@@ -524,6 +524,12 @@ Every iOS app gets a slice of storage just for itself, meaning that you can read
     )
     ```
 
+=== "Objective-C"
+
+    ```obj-c
+    // Custom storage is not supported in Objective-C
+    ```
+
 ### Reset when user logs out
 
 `reset` is a shortcut to anonymize users after they log out, by:
