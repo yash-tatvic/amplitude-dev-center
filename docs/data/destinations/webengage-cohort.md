@@ -29,9 +29,8 @@ Powered by a robust CDP, build a holistic user profile, and track custom events 
 ## Setup
 
 ### WebEngage setup
-
-1. In WebEngage, navigate to Settings > Integrations > Amplitude.
-2. Copy the API key to your clipboard.
+To configure your Cohort integration from Amplitude to WebEngage, you need the following information from WebEngage:
+1. In WebEngage, navigate to Data Platform > Integrations > REST API in your dashboard to access your unique REST API Key.
 
 ### Amplitude setup
 
