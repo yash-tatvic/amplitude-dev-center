@@ -16,7 +16,7 @@ The Marketo static list destination lets you export cohorts into Marketo as a st
 ## Considerations
 
 - Email values are case-sensitive. If you use email addresses to map users between Amplitude and Marketo, the email address must be consistent between both systems.
-- Marketo automatically generates Amplitude users that don't already exist in Marketo are generated automatically.
+- Marketo generates Amplitude users that don't already exist in Marketo.
 
 ## Setup
 
