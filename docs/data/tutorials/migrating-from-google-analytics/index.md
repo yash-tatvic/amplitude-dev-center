@@ -26,7 +26,7 @@ This solution works as a plugin to the Amplitude Browser SDK. Once the plugin is
 
 ### Initialize Amplitude with Google Analytics events forwarder
 
-Add the Amplitude SDK with Google Analytics events forwarder snippet **before** your Google Tag snippet. Adding it before ensures that all Google Analytics (GA4) events that you collected are forwarded to Amplitude. Placement before the Google Analytics snippet ensures that Amplitude can listen to and receive all events you collect with Google Analytics.
+Add the Amplitude SDK with Google Analytics events forwarder snippet **before** your Google Tag snippet. Adding it before ensures that all Google Analytics (GA4) events that you collected are forwarded to Amplitude. Placement before the Google Analytics snippet ensures that Amplitude can listen to and receive all events you collect with Google Analytics. See 
 
 ```html
 <script type="text/javascript">
@@ -57,7 +57,11 @@ Event names and properties you forward from Google Analytics retain the naming c
 
 Amplitude also tracks the Measurement ID from Google Analytics to help you pinpoint from where an event originates.
 
+For events that both Google Analytics and Amplitude track by default, like `page_view`, the plugin accepts the Amplitude default to avoid duplication.
+
 ## Replace Google Analytics
+
+For more customized implementations, you can replace Google Analytics with Amplitude, and adjust your tracking to ensure events track properly with Amplitude.
 
 ### Initialize Amplitude
 
