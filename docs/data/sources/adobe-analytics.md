@@ -9,6 +9,11 @@ This integration also gives your team better visibility into how raw data comes 
 
 This article helps guide you through the process of ingesting Adobe data into Amplitude.
 
+!!!tip
+
+    This integration is maintained by Adobe. Contact the [Adobe team](https://helpx.adobe.com/customer-care-office-hours/analytics.html) with any questions about this integration.
+
+
 ## Considerations
 
 - This feature is available to customers on the [Enterprise, Growth, and Scholarship](https://amplitude.com/pricing) plans.
