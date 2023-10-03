@@ -1,6 +1,7 @@
 ---
 title: Send Cohorts to Pushwoosh
 description: Sync cohorts from Amplitude to Pushwoosh
+status: new
 ---
 
 !!!beta
