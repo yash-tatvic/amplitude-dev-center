@@ -65,11 +65,11 @@ Amplitude doesn't have a single IP address for forwarding events and users, so e
 {
     "cohort_name": "${input.cohort_name}",
     "cohort_id": "${input.cohort_id}",
-    "in_cohort": ${input.in_cohort?c},
+    "in_cohort": ${input.in_cohort},
     "computed_time": "${input.computed_time}",
      "message_id": "${input.message_id}",
     "users": [
-     <#list input.users as user>
+     <#list input.users.iterator() as user>
      {
          "user_id": "${user.user_id}"
       }<#sep>,
@@ -106,12 +106,10 @@ This template creates and sends this JSON payload to the Webhook endpoint:
 Some webhook destinations need a list of users as a batch. For these cases, you can update the template to match. The example below shows the cohort name and cohort id as a single boolean property which determines if the user is in the cohort or not.
 
 ```text
-[ < #list input.users.iterator() as user > {
-        'user_id': '${user.user_id}',
-        'amplitude_${input.cohort_name}_${input.cohort_id}': $ {
-        input.in_cohort
-        }
-} < #if user_has_next > , < /#if></#list > ]
+[ <#list input.users.iterator() as user > {
+        "user_id": "${user.user_id}",
+        "amplitude_${input.cohort_name}_${input.cohort_id}": ${input.in_cohort}
+} <#if user_has_next > , </#if></#list> ]
 ```
 
 This template creates and sends this JSON payload to the Webhook endpoint:
