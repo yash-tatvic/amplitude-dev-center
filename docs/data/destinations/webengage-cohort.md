@@ -23,7 +23,7 @@ Powered by a robust CDP, build a holistic user profile, and track custom events 
 - This integration is only available for customers who have paid plans with Amplitude.
 - You must enable this integration in each Amplitude project you want to use it in.
 - You need a paid WebEngage plan to enable this integration.
-- Amplitude matches the user_id to the CUID within WebEngage to associated cohorts. If a user with that id doesn't exist within WebEngage, a user is not created. Make sure that the Amplitude user_id field matches the WebEngage id field i.e. CUID to avoid user duplication.
+- Amplitude matches the `user_id` to the `CUID` in WebEngage to associate cohorts. If a user with a specific `user_id` doesn't exist in WebEngage, WebEngage doesn't create a user. Make sure that the Amplitude `user_id` field matches the WebEngage id field (`CUID`) to avoid user duplication.
 
 
 ## Setup
