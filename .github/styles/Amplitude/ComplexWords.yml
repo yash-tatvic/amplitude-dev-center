@@ -1,7 +1,7 @@
 extends: substitution
 message: "Consider using '%s' instead of '%s'."
 ignorecase: false
-level: suggestion
+level: warning
 action:
   name: replace
 swap:
