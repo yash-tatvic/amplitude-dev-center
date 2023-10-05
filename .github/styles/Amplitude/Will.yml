@@ -1,7 +1,7 @@
 extends: existence
 message: "Future tense! Avoid using '%s'."
 ignorecase: true
-level: suggestion
+level: warning
 raw:
   - "(going to( |\n|[[:punct:]])[a-zA-Z]*|"
   - "will( |\n|[[:punct:]])[a-zA-Z]*|"

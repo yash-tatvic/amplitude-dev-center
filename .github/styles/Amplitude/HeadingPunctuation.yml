@@ -1,7 +1,7 @@
 extends: existence
 message: "Don't use end punctuation in headings."
 nonword: true
-level: suggestion
+level: warning
 scope: heading
 action:
   name: edit

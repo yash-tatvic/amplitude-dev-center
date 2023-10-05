@@ -1,6 +1,7 @@
 ---
 title: Pushwoosh Event Streaming
 description: Stream Amplitude events to Pushwoosh
+status: new
 ---
 
 !!!beta "This feature is in open beta"

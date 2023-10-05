@@ -1,7 +1,14 @@
 extends: existence
-message: "Use first person (such as '%s') sparingly."
+message: "Avoid using first-person like '%s'. Use Amplitude, a product name, or the other company name."
 ignorecase: true
-level: suggestion
+level: warning
 nonword: true
+tokens:
+  - we
+  - we'(?:ve|re)
+  - ours?
+  - our
+  - us
+  - let's
 raw:
   - (?:^|\s)I\s(?!want)
