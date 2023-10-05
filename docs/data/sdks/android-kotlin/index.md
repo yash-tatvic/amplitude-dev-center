@@ -23,7 +23,7 @@ The Kotlin Android SDK lets you send events to Amplitude. This library is open-s
     selecting ["Amplitude Android Kotlin SDK"](https://mvnrepository.com/artifact/com.amplitude/analytics-android).
 
 !!! info "Minimum version"
-    Refer to [`build.gradle`](https://github.com/amplitude/Amplitude-Kotlin/blob/90ef21cdcadd69660b51d4f670d25a78835750e2/android/build.gradle#L24) for minimum API level required to use the package.
+    For the minimum supported SDK version of this package, see [`build.gradle`](https://github.com/amplitude/Amplitude-Kotlin/blob/90ef21cdcadd69660b51d4f670d25a78835750e2/android/build.gradle#L24) on GitHub.
     
 ## Getting started
 
