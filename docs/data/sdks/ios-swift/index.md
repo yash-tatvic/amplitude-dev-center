@@ -679,7 +679,7 @@ In destination plugin, you are able to overwrite the track(), identify(), groupI
 
 ### User sessions
 
---8<-- "includes/sdk-next-gen-mobile-session.md"
+A session on iOS is a period of time that a user has the app in the foreground.
 
 Amplitude groups events together by session. Events that are logged within the same session have the same `session_id`. Sessions are handled automatically so you don't have to manually call `startSession()` or `endSession()`.
 
