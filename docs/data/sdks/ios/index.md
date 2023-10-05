@@ -25,6 +25,9 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 --8<-- "includes/size/ios.md"
     `./measure_cocoapod_size.py --cocoapods Amplitude:8.17.1`.
 
+!!! info "Minimum versions"
+    For the minimum supported platform versions of this package, see [`Package.swift`](https://github.com/amplitude/Amplitude-iOS/blob/main/Package.swift#L8-L12) on GitHub.
+
 ## Getting started
 
 Use [this quickstart guide](../../sdks/sdk-quickstart#ios) to get started with Amplitude iOS SDK.
