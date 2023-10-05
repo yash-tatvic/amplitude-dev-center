@@ -3,7 +3,7 @@ title: Migrate to Amplitude from Google Analytics
 description: A step-by-step guide to migrate to Amplitude from Google Analytics
 ---
 
-If you're considering migrating from Google Analytics (GA4) to Amplitude for your analytics and user tracking needs, this guide will help you through the process.
+If you're considering migrating from Google Analytics (GA4) to Amplitude for your analytics user tracking, read this guide to learn more about the options available to you.
 
 Migrating from the Google Analytics (GA4) SDK to the Amplitude SDK requires you to adjust your tracking implementation to align with Amplitude's event structure and capabilities.
 
@@ -22,11 +22,11 @@ For less complex implementations, and to help you migrate more easily, Amplitude
 
 ### Use the Google Analytics events forwarder
 
-This solution works as a plugin to the Amplitude Browser SDK. Once the plugin is installed on your application, it listens for the events that Google Analytics (GA4) tracks. For each event sent to Google Analytics (GA4), a corresponding event is sent to Amplitude.
+This solution works as a plugin to the Amplitude Browser SDK. When you install the plugin on your application, it listens for the events that Google Analytics (GA4) tracks. For each event sent to Google Analytics (GA4), the plugin sends a corresponding event to Amplitude.
 
 ### Initialize Amplitude with Google Analytics events forwarder
 
-Add the Amplitude SDK with Google Analytics events forwarder snippet **before** your Google Tag snippet. Adding it before ensures that all Google Analytics (GA4) events that you collected are forwarded to Amplitude. Placement before the Google Analytics snippet ensures that Amplitude can listen to and receive all events you collect with Google Analytics. See 
+Add the Amplitude SDK with Google Analytics events forwarder snippet **before** your Google Tag snippet. Adding it before ensures that it can forward all Google Analytics (GA4) events to Amplitude. Placement before the Google Analytics snippet ensures that Amplitude can listen to and receive all events you collect with Google Analytics. See 
 
 ```html
 <script type="text/javascript">
@@ -39,7 +39,7 @@ Add the Amplitude SDK with Google Analytics events forwarder snippet **before** 
 Replace `'YOUR_API_KEY'` with your actual Amplitude API key, which you can find in your Amplitude account.
 
 ???code-example "How do I find my Google Tag?"
-    Your Google Tag can be found in every page of your website, immediately after the <head> element. The Google Tag for your account should look like the snippet below.
+    You can find Google Tag can be in every page of your website, immediately after the <head> element. The Google Tag for your account should look like the snippet below.
     ```html
       <!-- Google tag (gtag.js) -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -51,7 +51,7 @@ Replace `'YOUR_API_KEY'` with your actual Amplitude API key, which you can find 
       </script>
     ```
 
-After you add both the Google Analytics and Amplitude snippets, you should start to see Google Analytics events in Amplitude without additional instrumentation.
+After you add both the Google Analytics and Amplitude snippets, you should start to see Google Analytics events in Amplitude without extra instrumentation.
 
 Event names and properties you forward from Google Analytics retain the naming convention set in Google Analytics. For example, if you store the `city` in a custom dimension in Google Analytics, that event property may appear as `ua_dimension_14` in Amplitude.
 
