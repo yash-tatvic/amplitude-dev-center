@@ -22,6 +22,9 @@ This is the official documentation for the Amplitude Analytics Android SDK.
 --8<-- "includes/size/java.md"
     selecting "Android SDK".
 
+!!! info "Minimum version"
+    Refer to [`build.gradle`](https://github.com/amplitude/Amplitude-Android/blob/4e37e0f2d21c437af2b4f4bb58520b061a21a2be/build.gradle#L39) for minimum API level required to use the package.
+
 ## Install
 
 ### Add dependencies
