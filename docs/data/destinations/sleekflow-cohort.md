@@ -6,13 +6,13 @@ status: new
 
 !!!beta
 
-    This integration is currently in beta and is in active development. This integration is maintained by Master Concept Group. Contact the [Master Concept Team](digital_lab@hkmci.com) for support with this integration. 
+    This integration is currently in beta and is in active development. This integration is maintained by Master Concept Group. Contact the Master Concept Team by emailing <digital_lab@hkmci.com> for support with this integration. 
 
 [Sleekflow](https://sleekflow.io/) is an Omni-Channel Social Engagement Platform that helps companies and users manage communication channels such as WhatsApp, Facebook Messenger, WeChat, Line, and Instagram. Sleekflow handles both inbound messaging management as well as outbound messaging campaigns. This integration lets you sync cohorts from Amplitude to Sleekflow. 
 
 ## Considerations
 
-- This integration is only available by request. Reach out to the [Master Concept Team](digital_lab@hkmci.com) to request access.
+- This integration is only available by request. Email <digital_lab@hkmci.com> to request access.
 - You must enable this integration in each Amplitude project you want to use it in.
 - You must have a paid Sleekflow plan to enable this integration.
 - Sleekflow requires at least an email address or a phone number as the unique contact identifier. The phone number needs to have a country code (the ‘+’ in front of the country code is optional). This means the User_ID or user property you select in Amplitude must contain an email address or phone number.
