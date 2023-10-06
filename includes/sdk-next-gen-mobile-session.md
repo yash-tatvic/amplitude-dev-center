@@ -9,5 +9,5 @@ If they would like to not sync user properties on these events we have an option
 Due to the way in which Amplitude manages sessions, there are scenarios where the SDK works expected but it may appear as if events are missing or session tracking is inaccurate:
 
 * If a user doesn't return to the app, Amplitude does not track a session end event to correspond with a session start event.
-* If you disable session tracking and only track few events in the app, the tracked session length will be shorter than the time the user actually spends on the app
+* If you disable session tracking and track a minimal number of events, Amplitude perceives the session length to be shorter than the user spends on the app.
 * If you modify user properties between the last event and the session end event, the session end event will reflect the updated user properties, potentially differing from other properties associated with events in the same session. To address this, you can utilize an enrichment plugin to set `$skip_user_properties_sync` to true on the session end event, preventing the backend from synchronizing properties for that specific event
