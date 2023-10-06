@@ -1,4 +1,4 @@
-Amplitude starts a session when the app is brought into the foreground or when an event is tracked in background.
+Amplitude starts a session when the app is brought into the foreground or when an event is tracked in the background.
 
 Amplitude tracks a session start event upon entering the foreground and starts a countdown set by `setMinTimeBetweenSessionsMillis()`. If a new event is tracked, Amplitude extends the session and restart the countdown with the same duration. If the countdown expires, Amplitude doesn't immediately track a session end event but  waits until the next event.
 
