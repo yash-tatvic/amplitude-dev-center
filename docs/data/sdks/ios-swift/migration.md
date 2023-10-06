@@ -20,7 +20,7 @@ Add `AmplitudeSwift` dependency to `Podfile`.
 
 ```diff
 - pod 'Amplitude', '~> 8.14'
-+ pod 'AmplitudeSwift', '~> 0.6'
++ pod 'AmplitudeSwift', '~> 0.7'
 ```
 
 ### Swift Package Manager
@@ -38,7 +38,7 @@ Add `amplitude/Amplitude-Swift` to your `Cartfile`.
 
 ```diff
 - github "amplitude/Amplitude-iOS" ~> 8.14
-+ github "amplitude/Amplitude-Swift" ~> 0.6
++ github "amplitude/Amplitude-Swift" ~> 0.7
 ```
 
 ## Instrumentation
@@ -49,17 +49,34 @@ This SDK offers an API to instrument events. To migrate to the new SDK, you need
 
 Like all other calls, `instance()` has been removed. Configuration is handled differently between the maintenance iOS and new iOS SDK. The new iOS SDKs use the Configuration object to set the configuration. See [Configuration](#configuration).
 
-```diff
-- import Amplitude
-+ import AmplitudeSwift
+=== "Swift"
 
-- Amplitude.instance().trackingSessionEvents = true
-- Amplitude.instance().initializeApiKey("YOUR-API-KEY")
-+ let amplitude = Amplitude(configuration: Configuration(
-+     apiKey: "YOUR-API-KEY",
-+     trackingSessionEvents: true,
-+ ))
-```
+    ```diff
+    - import Amplitude
+    + import AmplitudeSwift
+    
+    - Amplitude.instance().trackingSessionEvents = true
+    - Amplitude.instance().initializeApiKey("YOUR-API-KEY")
+    + let amplitude = Amplitude(configuration: Configuration(
+    +     apiKey: "YOUR-API-KEY",
+    +     defaultTracking: DefaultTrackingOptions(
+    +         sessions: true
+    +     )
+    + ))
+    ```
+
+=== "Objective-C"
+
+    ```diff
+    - #import "Amplitude.h"
+    + @import AmplitudeSwift;
+    
+    - [Amplitude instance].trackingSessionEvents = true;
+    - [[Amplitude instance] initializeApiKey:@"YOUR-API-KEY"];
+    + AMPConfiguration* configuration = [AMPConfiguration initWithApiKey:@"YOUR-API-KEY"];
+    + configuration.defaultTracking.sessions = true;
+    + Amplitude* amplitude = [Amplitude initWithConfiguration:configuration];
+    ```
 
 ### Configuration
 
@@ -72,7 +89,7 @@ The configurations for the new SDK are simpler and more consistent across runtim
 |`amplitude.setServerUrl("YOUR-SERVER-URL")`|`config.serverUrl`|
 |`amplitude.setServerZone("AMPServerZone.EU or AMPServerZone.US")`|`config.serverZone`|
 |`amplitude.trackingOptions`|`config.trackingOptions`|
-|`amplitude.trackingSessionEvents`|`config.trackingSessionEvents`|
+|`amplitude.trackingSessionEvents`|`config.defaultTracking.sessions`|
 |`amplitude.minTimeBetweenSessionsMillis`|`config.minTimeBetweenSessionsMillis`|
 |`amplitude.eventUploadMaxBatchSize`|`config.flushQueueSize`|
 |`amplitude.eventUploadThreshold`|`config.flushQueueSize`|
@@ -101,6 +118,7 @@ The configurations for the new SDK are simpler and more consistent across runtim
 |`plan.setVersion("YOUR-VERSION")`|`config.plan.version`|
 |`plan.setVersionId("YOUR-VERSION-ID")`|`config.plan.versionId`|
 |`amplitude.setTrackingOptions(options)`|`config.trackingOptions`|
+|`amplitude.setSessionId(timestamp)`|NOT SUPPORTED.|
 
 ### Tracking events
 
@@ -110,69 +128,124 @@ The maintenance iOS SDK offered a variety of `logEvent` APIs with `withEventProp
 
 The `logEvent()` API maps to `track()`.
 
-```diff
-let eventType = "Button Clicked"
-let eventProperties: [String: Any] = ["key": "value"]
+=== "Swift"
 
-- Amplitude.instance().logEvent(
--  eventType, 
--  withEventProperties: eventProperties
-- )
-+ let event = BaseEvent(
-+   eventType: eventType,
-+   eventProperties: eventProperties
-+ )
-+ amplitude.track(event)
-```
+    ```diff
+    let eventType = "Button Clicked"
+    let eventProperties: [String: Any] = ["key": "value"]
+    
+    - Amplitude.instance().logEvent(
+    -  eventType, 
+    -  withEventProperties: eventProperties
+    - )
+    + let event = BaseEvent(
+    +   eventType: eventType,
+    +   eventProperties: eventProperties
+    + )
+    + amplitude.track(event)
+    ```
+
+=== "Objective-C"
+
+    ```diff
+    NSString* eventType = @"Button Clicked";
+    NSDictionary* eventProperties = @{@"key": @"value"};
+    
+    - [[Amplitude instance] logEvent:eventType withEventProperties:eventProperties];
+    + AMPBaseEvent* event = [AMPBaseEvent initWithEventType:eventType
+    +     eventProperties:eventProperties];
+    + [amplitude track:event];
+    ```
 
 #### `logEvent withTimestamp`
 
 The `logEvent()` API maps to `track()`.
 
-```diff
-let eventType = "Button Clicked"
-let timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
-- Amplitude.instance().logEvent(
--  eventType,
--  withTimestamp: timestamp
-- )
-+ let event = BaseEvent(
-+   eventType: eventType,
-+   timestamp: timestamp
-+ )
-+ amplitude.track(event)
-```
+=== "Swift"
+
+    ```diff
+    let eventType = "Button Clicked"
+    let timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
+    - Amplitude.instance().logEvent(
+    -  eventType,
+    -  withTimestamp: timestamp
+    - )
+    + let event = BaseEvent(
+    +   eventType: eventType,
+    +   timestamp: timestamp
+    + )
+    + amplitude.track(event)
+    ```
+
+=== "Objective-C"
+
+    ```diff
+    NSString* eventType = @"Button Clicked";
+    NSNumber* timestamp = [NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970] * 1000];
+    
+    - [[Amplitude instance] logEvent:eventType withTimestamp:timestamp];
+    + AMPBaseEvent* event = [AMPBaseEvent initWithEventType:eventType];
+    + event.timestamp = [timestamp longLongValue];
+    + [amplitude track:event];
+    ```
 
 #### `logEvent withGroup`
 
 The `logEvent()` API maps to `track()`.
 
-```diff
-let eventType = "Button Clicked"
-let eventProperties: [String: Any] = ["key": "value"]
-let groups: [String: Any] = ["orgId": 10]
+=== "Swift"
 
-- Amplitude.instance().logEvent(
--  eventType,
--  withEventProperties: eventProperties,
--  withGroups: groups
-- )
-+ let event = BaseEvent(
-+   eventType: eventType,
-+   eventProperties: eventProperties,
-+   groups: groups
-+ )
-+ amplitude.track(event)
-```
+    ```diff
+    let eventType = "Button Clicked"
+    let eventProperties: [String: Any] = ["key": "value"]
+    let groups: [String: Any] = ["orgId": 10]
+    
+    - Amplitude.instance().logEvent(
+    -  eventType,
+    -  withEventProperties: eventProperties,
+    -  withGroups: groups
+    - )
+    + let event = BaseEvent(
+    +   eventType: eventType,
+    +   eventProperties: eventProperties,
+    +   groups: groups
+    + )
+    + amplitude.track(event)
+    ```
+
+=== "Objective-C"
+
+    ```diff
+    NSString* eventType = @"Button Clicked";
+    NSDictionary* eventProperties = @{@"key": @"value"};
+
+    - NSDictionary* groups = @{@"orgId": @"10"};
+    - [[Amplitude instance] logEvent:eventType
+    -     withEventProperties:eventProperties
+    -     withGroups:groups];
+    + AMPBaseEvent* event = [AMPBaseEvent initWithEventType:eventType
+    +     eventProperties:eventProperties];
+    + [event.groups set:@"orgId" value:@"10"];
+    + [amplitude track:event];
+    ```
 
 #### `uploadEvents()`
 
 The `uploadEvents()` API maps to `flush()`.
 
-```diff
-- Amplitude.instance().uploadEvents()
-+ amplitude.flush()
-```
+=== "Swift"
+
+    ```diff
+    - Amplitude.instance().uploadEvents()
+    + amplitude.flush()
+    ```
+
+=== "Objective-C"
+
+    ```diff
+    - [[Amplitude instance] uploadEvents];
+    + [amplitude flush];
+    ```
 
 ### Set user properties
 
@@ -182,71 +255,118 @@ The APIs for setting user properties are the same, except for the removal of `in
 
 Setting a user ID can be invoked on `amplitude` without calling `getInstance()`.
 
-```diff
-let userId = "TEST-USER-ID"
-- Amplitude.instance().setUserId(userId)
-+ amplitude.setUserId(userId: userId)
-```
+=== "Swift"
+
+    ```diff
+    let userId = "TEST-USER-ID"
+    - Amplitude.instance().setUserId(userId)
+    + amplitude.setUserId(userId: userId)
+    ```
+
+=== "Objective-C"
+
+    ```diff
+    NSString* userId = @"TEST-USER-ID";
+    - [[Amplitude instance] setUserId:userId];
+    + [amplitude setUserId:userId];
+    ```
 
 #### `setDeviceId()`
 
 Set a device ID on `amplitude` without calling `instance()`.
 
-```diff
-let userId = "TEST-DEVICE-ID"
-- Amplitude.instance().setDeviceId(userId)
-+ amplitude.setDeviceId(deviceId: deviceId)
-```
+=== "Swift"
 
-#### `setSessionId()`
+    ```diff
+    let deviceId = "TEST-DEVICE-ID"
+    - Amplitude.instance().setDeviceId(deviceId)
+    + amplitude.setDeviceId(deviceId: deviceId)
+    ```
 
-Set a session ID on `amplitude` without calling `instance()`.
+=== "Objective-C"
 
-```diff
-let timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
-- Amplitude.instance().setSessionId(timestamp)
-+ amplitude.setSessionId(sessionId: timestamp)
-```
+    ```diff
+    NSString* deviceId = @"TEST-DEVICE-ID";
+    - [[Amplitude instance] setDeviceId:deviceId];
+    + [amplitude setDeviceId:deviceId];
+    ```
 
 #### `clearUserProperties()`
 
 The `clearUserProperties` API has been removed, but you can now use the unified `identify` API to remove user properties. 
 
-```diff
-let timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
-- Amplitude.instance().clearUserProperties()
-+ let identify = Identify()
-+ identify.clearAll()
-+ amplitude.identify(identify: identify)
-```
+=== "Swift"
+
+    ```diff
+    - Amplitude.instance().clearUserProperties()
+    + let identify = Identify()
+    + identify.clearAll()
+    + amplitude.identify(identify: identify)
+    ```
+
+=== "Objective-C"
+
+    ```diff
+    - [[Amplitude instance] clearUserProperties];
+    + AMPIdentify* identify = [AMPIdentify new];
+    + [identify clearAll];
+    + [amplitude identify:identify];
+    ```
 
 #### `setUserProperties()`
 
 The `setUserProperties` API has been removed, but you can now use the unified `identify` API to add user properties. 
 
-```diff
-- Amplitude.instance().setUserProperties([
--   "membership": "paid",
--   "payment": "bank",
-- ])
-+ amplitude.identify(userProperties: [
-+   "membership": "paid",
-+   "payment": "bank"
-+ ])
-```
+=== "Swift"
+
+    ```diff
+    - Amplitude.instance().setUserProperties([
+    -   "membership": "paid",
+    -   "payment": "bank",
+    - ])
+    + amplitude.identify(userProperties: [
+    +   "membership": "paid",
+    +   "payment": "bank"
+    + ])
+    ```
+
+=== "Objective-C"
+
+    ```diff
+    - [[Amplitude instance] setUserProperties:@{
+    -     @"membership": @"paid",
+    -     @"payment": @"bank"
+    - }];
+    + AMPIdentify* identify = [AMPIdentify new];
+    + [identify set:@"membership" value:@"paid"];
+    + [identify set:@"payment" value:@"bank"];
+    + [amplitude identify:identify];
+    ```
 
 #### `identify()`
 
 You can now make an identify call on `amplitude` without calling `instance()`.
 
-```diff
-- let identify = AMPIdentify()
-- identify.set("membership", value: "paid")
-- Amplitude.instance().identify(identify)
-+ let identify = Identify()
-+ identify.set(property: "membership", value: "paid")
-+ amplitude.identify(identify: identify)
-```
+=== "Swift"
+
+    ```diff
+    - let identify = AMPIdentify()
+    - identify.set("membership", value: "paid")
+    - Amplitude.instance().identify(identify)
+    + let identify = Identify()
+    + identify.set(property: "membership", value: "paid")
+    + amplitude.identify(identify: identify)
+    ```
+
+=== "Objective-C"
+
+    ```diff
+    AMPIdentify* identify = [AMPIdentify new];
+    [identify set:@"membership" value:@"paid"];
+
+    - [[Amplitude instance] identify:identify];
+    + [amplitude identify:identify];
+    ```
 
 ### Set group properties
 
@@ -254,23 +374,39 @@ You can now make an identify call on `amplitude` without calling `instance()`.
 
 You can now make an identify call on `amplitude` without calling `instance()`.
 
-```diff
-- let identify = AMPIdentify()
-- identify.set("membership", value: "paid")
-- Amplitude.instance().groupIdentify(
--   withGroupType: "TEST-GROUP-TYPE", 
--   groupName: "TEST-GROUP-NAME", 
--   groupIdentify: identify
-- )
+=== "Swift"
 
-+ let identify = Identify()
-+ identify.set(property: "membership", value: "paid")
-+ amplitude.groupIdentify(
-+   groupType: "TEST-GROUP-TYPE", 
-+   groupName: "TEST-GROUP-NAME", 
-+   identify: identify
-+ )
-```
+    ```diff
+    - let identify = AMPIdentify()
+    - identify.set("membership", value: "paid")
+    - Amplitude.instance().groupIdentify(
+    -   withGroupType: "TEST-GROUP-TYPE", 
+    -   groupName: "TEST-GROUP-NAME", 
+    -   groupIdentify: identify
+    - )
+    
+    + let identify = Identify()
+    + identify.set(property: "membership", value: "paid")
+    + amplitude.groupIdentify(
+    +   groupType: "TEST-GROUP-TYPE", 
+    +   groupName: "TEST-GROUP-NAME", 
+    +   identify: identify
+    + )
+    ```
+
+=== "Objective-C"
+
+    ```diff
+    AMPIdentify* identify = [AMPIdentify new];
+    [identify set:@"membership" value:@"paid"];
+
+    - [[Amplitude instance] groupIdentifyWithGroupType:@"TEST-GROUP-TYPE"
+    -     groupName:@"TEST-GROUP-NAME"
+    -     groupIdentify:identify];
+    + [amplitude groupIdentify:@"TEST-GROUP-TYPE"
+    +     groupName:@"TEST-GROUP-NAME"
+    +     identify:identify];
+    ```
 
 ### Tracking revenue
 
@@ -278,19 +414,36 @@ You can now make an identify call on `amplitude` without calling `instance()`.
 
 Track revenue using `revenue()` API on `amplitude` without calling `instance()`.
 
-```diff
-- let revenue = AMPRevenue()
-- revenue.setProductIdentifier("productIdentifier")
-- revenue.setQuantity(3)
-- revenue.setPrice(NSNumber(value: 3.99))
-- Amplitude.instance().logRevenueV2(revenue)
+=== "Swift"
 
-+ let revenue = Revenue()
-+ revenue.productId = "productIdentifier"
-+ revenue.quantity = 3
-+ revenue.price = 3.99
-+ amplitude.revenue(revenue: revenue)
-```
+    ```diff
+    - let revenue = AMPRevenue()
+    - revenue.setProductIdentifier("productIdentifier")
+    - revenue.setQuantity(3)
+    - revenue.setPrice(NSNumber(value: 3.99))
+    - Amplitude.instance().logRevenueV2(revenue)
+    
+    + let revenue = Revenue()
+    + revenue.productId = "productIdentifier"
+    + revenue.quantity = 3
+    + revenue.price = 3.99
+    + amplitude.revenue(revenue: revenue)
+    ```
+
+=== "Objective-C"
+
+    ```diff
+    AMPRevenue* revenue = [AMPRevenue new];
+
+    - [revenue setProductIdentifier:@"productidentifier"];
+    - [revenue setQuantity:3];
+    - [revenue setPrice:@3.99];
+    - [[Amplitude instance] logRevenueV2:revenue];
+    + revenue.productId = @"productidentifier";
+    + revenue.quantity = 3;
+    + revenue.price = 3.99;
+    + [amplitude revenue:revenue];
+    ```
 
 ### Patterns
 
@@ -298,7 +451,7 @@ Track revenue using `revenue()` API on `amplitude` without calling `instance()`.
 
 The configs `amplitude.adSupportBlock` or `amplitude.useAdvertisingIdForDeviceId` were available in `Amplitude-iOS` to allow you to use IDFV or IDFA as the deviceID. Although `Amplitude-Swift` doesn't support these configurations, you can add plugins to the new iOS SDK to enrich event payloads.
 
-=== "Amplitude-Swift"
+=== "Swift"
 
     ```swift
     import AdSupport
@@ -339,23 +492,48 @@ The configs `amplitude.adSupportBlock` or `amplitude.useAdvertisingIdForDeviceId
             return UIDevice.current.identifierForVendor?.uuidString
         }
     }
+
+    ...
+    // To install your custom plugin, use 'add()' with your custom plugin as parameter.
+    amplitude.add(plugin: IDFACollectionPlugin())
     ```
 
-To install your custom plugin, use `add()` with your custom plugin as parameter.
+=== "Objective-C"
 
-=== "Amplitude-Swift"
+    ```obj-c
+    @import AmplitudeSwift;
+    #import <AppTrackingTransparency/AppTrackingTransparency.h>
+    #import <AdSupport/ASIdentifierManager.h>
 
-    ```swift
-    amplitude.add(plugin: IDFACollectionPlugin())
+    [amplitude add:[AMPPlugin initWithType:AMPPluginTypeEnrichment execute:^AMPBaseEvent* _Nullable(AMPBaseEvent* _Nonnull event) {
+        ATTrackingManagerAuthorizationStatus status = ATTrackingManager.trackingAuthorizationStatus;
+ 
+        // fallback to the IDFV value.
+        // this is also sent in event.context.device.id,
+        // feel free to use a value that is more useful to you.
+        NSUUID* idfaUUID = [UIDevice currentDevice].identifierForVendor;
+        
+        if (status == ATTrackingManagerAuthorizationStatusAuthorized) {
+            idfaUUID = [ASIdentifierManager sharedManager].advertisingIdentifier;
+        }
+        
+        NSString* idfa = (idfaUUID != nil) ? idfaUUID.UUIDString : nil;
+
+        // The idfa on simulator is always 00000000-0000-0000-0000-000000000000
+        event.idfa = idfa;
+        // If you want to use idfa for the device_id
+        event.deviceId = idfa;
+        return event;
+    }]];
     ```
 
 #### Callback
 
 `Amplitude-Swift` supports configuration-level and event-level callback functions which are called for success and error upload. Configuration-level callback applies for every success and error event upload. Event-level callback is specific for one Event. Notice that the event-level callbacks are stored in cache, those callbacks are lost if the app crashes.
 
-=== "Amplitude-Swift"
+Configuration-level callbacks:
 
-    Configuration-level callbacks:
+=== "Swift"
 
     ```swift
     let amplitude = Amplitude(
@@ -368,7 +546,19 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
     )
     ```
 
-    Event-level callbacks:
+=== "Objective-C"
+
+    ```obj-c
+    AMPConfiguration* configuration = [AMPConfiguration initWithApiKey:@"YOUR-API-KEY"];
+    configuration.callback = ^(AMPBaseEvent* _Nonnull event, NSInteger code, NSString* _Nonnull message) {
+        NSLog(@"eventCallback: %@, code: %@, message: %@", event.eventType, @(code), message);
+    };
+    Amplitude* amplitude = [Amplitude initWithConfiguration:configuration];
+    ```
+
+Event-level callbacks:
+        
+=== "Swift"
 
     ```swift
     let event = BaseEvent(
@@ -380,7 +570,20 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
     amplitude.track(event: event)
     ```
 
-    or 
+=== "Objective-C"
+
+    ```obj-c
+    AMPBaseEvent* event = [AMPBaseEvent initWithEventType:@"TEST-EVENT-TYPE"];
+    event.callback = ^(AMPBaseEvent* _Nonnull event, NSInteger code, NSString* _Nonnull message) {
+        NSLog(@"eventCallback: %@, code: %@, message: %@", event.eventType, @(code), message);
+    };
+
+    [amplitude track:event];
+    ```
+
+or 
+
+=== "Swift"
 
     ```swift
     let event2 = BaseEvent(eventType:"test")
@@ -390,6 +593,16 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
       callback: { (event: BaseEvent, code: Int, message: String) -> Void in
           print("eventCallback: \(event), code: \(code), message: \(message)")
     })
+    ```
+
+=== "Objective-C"
+
+    ```obj-c
+    AMPBaseEvent* event2 = [AMPBaseEvent initWithEventType:@"test"];
+
+    [amplitude track:event2 callback:^(AMPBaseEvent* _Nonnull event, NSInteger code, NSString* _Nonnull message) {
+        NSLog(@"eventCallback: %@, code: %@, message: %@", event.eventType, @(code), message);
+    }];
     ```
 
 --8<-- "includes/abbreviations.md"
@@ -403,7 +616,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
 | Package | AmplitudeSwift | [Amplitude](https://cocoapods.org/pods/Amplitude-iOS) |
 | Configuration | Configuration is implemented by the configuration object. Configurations need to be passed into Amplitude Object during initialization. [More configurations](../../ios/#configuration). Latest iOS SDK support more configurations. Check [here](../#configuration) for more details. | Supports specific setter methods. [More configurations](../../ios/#configuration) |
 | Logger Provider | ConsoleLogger() by default. Fully customizable. | AMPLITUDE_LOG, config through macro. |
-| Storage Provider | PersistentStorage() by default. File storage and iOS user’s defaults database. Fully customizable. | SQLite Database. |
+| Storage Provider | PersistentStorage() by default. File storage and iOS user’s defaults database. Fully customizable (not supported in Objective-C). | SQLite Database. |
 | Customization | Plugins | Middleware |
 | Server Endpoint | HTTP V2 API | HTTP V1 API |
 | Batch API| Yes, with configuration. | Not supported. |
@@ -412,11 +625,21 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
 
 Existing [maintenance SDK](../../ios) data (events, user/device ID) are moved to the latest SDK by default. It can be disabled by setting `migrateLegacyData` to `false` in the [Configuration](../#configuration).
 
-```swift
-amplitude = Amplitude(
-    Configuration(
-        ...
-        migrateLegacyData: false,
+=== "Swift"
+
+    ```swift
+    amplitude = Amplitude(
+        Configuration(
+            ...
+            migrateLegacyData: false,
+        )
     )
-)
-```
+    ```
+
+=== "Objective-C"
+
+    ```obj-c
+    AMPConfiguration* configuration = [AMPConfiguration initWithApiKey:@"YOUR-API-KEY"];
+    configuration.migrateLegacyData = false;
+    Amplitude* amplitude = [Amplitude initWithConfiguration:configuration];
+    ```
