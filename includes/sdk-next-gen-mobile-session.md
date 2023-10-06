@@ -2,7 +2,7 @@ Amplitude starts a session when the app is brought into the foreground or when a
 
 When the app enters the foreground, Amplitude tracks a session start, and starts a countdown based on `setMinTimeBetweenSessionsMillis()`. Amplitude extends the session and restarts the countdown any time it tracks a new event. If the countdown expires, Amplitude waits until the next event to track a session end event.
 
-Amplitude SDKs don't set user properties to session events directly. Instead `identify()` and `setUserId()` update user properties from the SDK. The user property state is then aggregated on the backend and associated with events during ingestion based on `device_id` or `user_id`.
+Amplitude doesn't set user properties on session events by default. To add these properties, use `identify()` and `setUserId()`. Amplitude aggregates the user property state and associates the user with events based on `device_id` or `user_id`.
 
 If they would like to not sync user properties on these events we have an option of setting "$skip_user_properties_sync": true on the event, and this will stop us from syncing properties on that event in particular.
 
