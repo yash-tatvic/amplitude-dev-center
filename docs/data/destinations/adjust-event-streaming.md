@@ -5,11 +5,11 @@ description: Stream Amplitude events to Adjust
 
 Amplitude CDP's Adjust streaming integration enables you to forward your Amplitude events straight to [Adjust](https://www.adjust.com/) with just a few clicks.
 
-!!!beta "This feature is in Alpha"
+!!!beta "This feature is in Beta"
 
-    This feature is in Alpha and is in active development. Contact Amplitude support team if you would like to get access or support for this integration.
+    This feature is in Beta and is in active development. Contact the Amplitude support team if you would like to get access or support for this integration via integrations@amplitude.com.
 
-## About Kochava
+## About Adjust
 
 [Adjust](https://www.adjust.com/) is a business intelligence platform for mobile app marketers, combining attribution for advertising sources with advanced analytics and store statistics.
 
@@ -46,11 +46,11 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Adju
 
     - Select an Amplitude user property that corresponds to your Adjust ID, from the left dropdown.
     - (Recommended) Map an Amplitude user property to Adjust **User ID**.
-    - It's recommended that you map Amplitude properties to as many of Adjust IDs (iOS IDFA, Google Advertising ID, Amazon Fire Advertising ID, Huawei Open Advertising ID, Adjust Device ID (ADID), IDFA, Android ID).
+    - It's recommended that you map Amplitude properties to as many of the Adjust IDs (iOS IDFA, Google Advertising ID, Amazon Fire Advertising ID, Huawei Open Advertising ID, Adjust Device ID (ADID), IDFA, Android ID).
     - To track Revenue events, map the following parameters:
 
-        - **revenue**: Revenue event value in full currency units. Minimum 0.001
-        - currency: Revenue event [currency code](https://help.adjust.com/resources/lists/supported-currencies)
+        - **revenue**: Revenue event value in full currency units. Minimum 0.001.
+        - **currency**: Revenue event [currency code](https://help.adjust.com/resources/lists/supported-currencies).
         - **environment**: Environment to post the data to (**sandbox** or **production**). If this parameter is not included, it will post to **production**.
 
 3. (optional) In **Select additional properties**, select any more event and user properties you want to send to Adjust. If you don't select any properties here, Amplitude doesn't send any. Transformed event properties and transformed user properties aren't supported.
