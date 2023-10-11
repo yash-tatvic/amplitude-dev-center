@@ -47,6 +47,6 @@ To sync your first cohort:
 
 ### Use cases
 
-1. **Personalized Push Notifications:**  By integrating Amplitude cohorts with Sleekflow, you can send personalized messages to different user segments based on their behavior and preferences. For example, you can create cohorts of users who have abandoned their shopping carts and send them targeted reminders or incentives via WhatsApp, Facebook Messenger, or other communication channels supported by Sleekflow.
+1. **Personalized Push Notifications:**  When you integrate Amplitude cohorts with Sleekflow, you can send personalized messages to different user segments based on their behavior and preferences. For example, you can create a cohort of users who have abandoned their shopping carts then send them targeted reminders or incentives through WhatsApp, Facebook Messenger, or other communication channels that Sleekflow supports. 
 2. **Re-Engagement Campaigns:** Use Amplitude cohorts to identify users who haven't interacted with your brand for a certain period. Sleekflow can send re-engagement messages to these cohorts through supported social media channels, encouraging them to revisit your platform and make a purchase.
 3. **Product Recommendations:** Use Amplitude's user behavior data to create cohorts of users with similar product interests. Then, use Sleekflow to send product recommendations and promotions to these cohorts through channels like Instagram or Facebook Messenger, increasing the likelihood of conversions.
