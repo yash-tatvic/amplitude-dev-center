@@ -21,7 +21,7 @@ status: new
 
 ### Sleekflow setup
 
-1. Log into Sleekflow.
+1. Log in to Sleekflow.
 2. Navigate to Channels > Integrations > More customizable extensions.
 3. Click **Connect** next to **API**.
 4. Copy the Sleekflow API Key.
