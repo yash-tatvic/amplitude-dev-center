@@ -2,6 +2,7 @@
 
 <div class="grid cards" markdown>
 
+- :adjust: [Adjust](/data/destinations/adjust-event-streaming)
 - :appfit: [Appfit](/data/destinations/appfit-event-streaming)
 - :appsflyer: [AppsFlyer](/data/destinations/appsflyer)
 - :amazon-kinesis: [Amazon Kinesis Data Stream](/data/destinations/kinesis-data-stream)
