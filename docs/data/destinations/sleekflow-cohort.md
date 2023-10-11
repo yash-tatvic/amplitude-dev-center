@@ -15,7 +15,7 @@ status: new
 - This integration is available by request. Email [digital_lab@hkmci.com](mailto:digital_lab@hkmci.com) to request access.
 - You must enable this integration in each Amplitude project you want to use it in.
 - You must have a paid Sleekflow plan to enable this integration.
-- Sleekflow requires at least an email address or a phone number as the unique contact identifier. The phone number needs to have a country code (the ‘+’ in front of the country code is optional). This means the User_ID or user property you select in Amplitude must contain an email address or phone number.
+- Sleekflow requires at least an email address or a phone number as the unique contact identifier. The phone number must include a country code (the `+` in front of the country code is optional). This means the `user_ID` or user property you select in Amplitude must contain an email address or phone number.
 
 ## Setup
 
