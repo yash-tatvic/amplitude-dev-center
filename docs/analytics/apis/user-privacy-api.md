@@ -56,14 +56,14 @@ Add a user for deletion using a JSON body. Specify up to 100 users at a time. Yo
 
 The body parameter is required. It's the deletion request object listing the `user_ids` and `amplitude_ids` for the users to delete.
 
-| <div class="big-column">Name</div> | Description                                                                                                                                                                                                                     |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `amplitude_ids`                    | Amplitude IDs for the users to delete.                                                                                                                                                                                          |
-| `user_ids`                         | User IDs for the users to delete.                                                                                                                                                                                               |
-| `requester`                        | The internal user who requested the deletion. This is useful for auditing.                                                                                                                                                      |
-| `ignore_invalid_id`                | When `true`, the job ignores invalid user IDs. Invalid user IDs are users that don't exist in the project.                                                                                                                      |
-| `delete_from_org`                  | Delete user from the entire org instead of a single project. This feature is available in orgs with the Portfolio feature enabled. Requests must be by `user_ids`. Values can be either `True` or `False`. Defaults to `False`. |
-| `include_mapped_user_ids`          | When `true`, this parameter returns the valid `user_id` values that correspond to a supplied `amplitude_id`. To delete mapped users, include each `user_id` of the mapped user in the `user_ids` array.                                                                                                      |
+| <div class="big-column">Name</div> | Description                                                                                                                                                                                                                                                                                                                                            |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `amplitude_ids`                    | Amplitude IDs for the users to delete.                                                                                                                                                                                                                                                                                                                 |
+| `user_ids`                         | User IDs for the users to delete.                                                                                                                                                                                                                                                                                                                      |
+| `requester`                        | The internal user who requested the deletion. This is useful for auditing.                                                                                                                                                                                                                                                                             |
+| `ignore_invalid_id`                | When `true`, the job ignores invalid user IDs. Invalid user IDs are users that don't exist in the project.                                                                                                                                                                                                                                             |
+| `delete_from_org`                  | Delete user from the entire org instead of a single project. This feature is available in orgs with the Portfolio feature enabled. Requests must be by `user_ids`. Values can be either `True` or `False`. Defaults to `False`.                                                                                                                        |
+| `include_mapped_user_ids`          | When `true`, this parameter returns the valid `user_id` values that correspond to a supplied `amplitude_id`. This only changes the response object. To delete mapped users set with the [User Mapping API](https://www.docs.developers.amplitude.com/analytics/apis/aliasing-api/), include each `user_id` of the mapped user in the `user_ids` array. |
 
 ### Example request
 
@@ -309,12 +309,12 @@ The response for a POST request contains these fields:
 
 The `amplitude_ids` key contains these fields:
 
-| <div class="big-column">Name</div> | Description                                                                                                                           |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `amplitude_id`                     | The Amplitude ID of the user to be deleted.                                                                                           |
-| `requester`                        | The person who requested the Amplitude ID to be deleted.                                                                              |
-| `requested_on_day`                 | The day this deletion was requested.                                                                                                  |
-| `user_id`                          | The corresponding User ID. Included when `include_mapped_user_ids` is `true` and the `amplitude_id` is mapped from one of `user_ids`. |
+| <div class="big-column">Name</div> | Description                                                                                                                    |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `amplitude_id`                     | The Amplitude ID of the user to be deleted.                                                                                    |
+| `requester`                        | The person who requested the Amplitude ID to be deleted.                                                                       |
+| `requested_on_day`                 | The day this deletion was requested.                                                                                           |
+| `user_id`                          | The corresponding User ID. Included when `include_mapped_user_ids` is `true` and the `amplitude_id` are matched to `user_ids`. |
 
 ## Get deletion jobs
 
@@ -464,10 +464,10 @@ If the request returns no values, then no jobs are scheduled for that time range
 <!--vale on-->
 ### Query parameters
 
-| Name    | Description                                                                                                                      |
-| ------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `start` | <span class="required">Required</span>. First hour included in data series, formatted `YYYYMMDDTHH`. For example, `20220201T05`. |
-| `end`   | <span class="required">Required</span>. Last hour included in data series, formatted `YYYYMMDDTHH` For example, `20220201T05`.   |
+| Name    | Description                                                                                                                |
+| ------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `start` | <span class="required">Required</span>. First hour included in data series, formatted `YYYYMMDD`. For example, `20220201`. |
+| `end`   | <span class="required">Required</span>. Last hour included in data series, formatted `YYYYMMDD` For example, `20220201`.   |
 
 ### Response
 
