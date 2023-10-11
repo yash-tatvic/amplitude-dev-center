@@ -24,7 +24,7 @@ status: new
 1. Log into Sleekflow.
 2. Navigate to Channels > Integrations > More customizable extensions.
 3. Click **Connect** next to **API**.
-4. Copy the API Key to your clipboard.
+4. Copy the Sleekflow API Key.
 
 ### Amplitude setup
 
