@@ -75,7 +75,7 @@ Install the Experiment JavaScript Client SDK.
     === "Third Party Analytics"
 
         1. [Initialize the experiment client](#initialize)
-        2. [Start the SDK with a user](#fetch)
+        2. [Start the SDK with the user](#start)
         3. [Access a flag's variant](#variant)
 
         ```js
