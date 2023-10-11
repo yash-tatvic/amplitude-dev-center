@@ -65,9 +65,6 @@ The body parameter is required. It's the deletion request object listing the `us
 | `delete_from_org`                  | Delete user from the entire org instead of a single project. This feature is available in orgs with the Portfolio feature enabled. Requests must be by `user_ids`. Values can be either `True` or `False`. Defaults to `False`. |
 | `include_mapped_user_ids`          | When `true`, this parameter returns the valid `user_id` values that correspond to a supplied `amplitude_id`. To delete mapped users, include each `user_id` of the mapped user in the `user_ids` array.                                                                                                      |
 
-!!! info
-
-
 ### Example request
 
 === "cURL"
