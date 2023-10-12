@@ -15,7 +15,8 @@ Load your Amplitude event data into your Snowflake account. You can set up recur
 
 ## Considerations
 
-Depending on your company's network policy, you may need add these IP addresses to your allowlist in order for Amplitude's servers to access your Snowflake instance:
+- Depending on your company's network policy, you may need add these IP addresses to your allowlist in order for Amplitude's servers to access your Snowflake instance:
+
     - Amplitude US IP addresses:
         - 52.33.3.219
         - 35.162.216.242

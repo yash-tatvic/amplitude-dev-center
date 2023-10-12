@@ -25,6 +25,17 @@ You can set up recurring syncs of your Amplitude event data to BigQuery through 
         SELECT * FROM `testProject.testDataset.deduplicated_EVENTS_12345`('2022-01-01', '2022-02-10');
         ```
 
+- Depending on your company's network policy, you may need to add the following IP addresses to your allowlist to allow Amplitude's servers to access your BigQuery instance:
+
+    - Amplitude US IP addresses:
+        - 52.33.3.219
+        - 35.162.216.242
+        - 52.27.10.221 
+    - Amplitude EU IP addresses:
+        - 3.124.22.25
+        - 18.157.59.125
+        - 18.192.47.195
+
 ## Prerequisites
 
 To get started with exporting to BigQuery, you need the following:
