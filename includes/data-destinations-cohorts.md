@@ -42,6 +42,7 @@
 - :salesforce: [Salesforce Marketing Cloud v2](../data/destinations/marketing-cloud-cohort-v2.md)
 - :segment: [Segment](../data/destinations/segment-cohort.md)
 - :sendgrid: [SendGrid](../data/destinations/sendgrid-cohort.md)
+- :sleekflow: [Sleekflow](../data/destinations/sleekflow-cohort.md)
 - :snapchat: [Snapchat](../data/destinations/snapchat-ads-cohort.md)
 - :split: [Split](../data/destinations/split-cohort.md)
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)
