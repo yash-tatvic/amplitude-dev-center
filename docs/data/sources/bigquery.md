@@ -30,9 +30,14 @@ To get started with importing from BigQuery, you need to take care of a few prer
     - **Cloud Storage**:
         - Storage Admin on the GCS bucket you're using for ingestion.
 - Depending on your company's network policy, you may need to add the following IP addresses to your allowlist to allow Amplitude's servers to access your BigQuery instance:
-      - 52.33.3.219
-      - 35.162.216.242
-      - 52.27.10.221
+    - Amplitude US IP addresses:
+        - 52.33.3.219
+        - 35.162.216.242
+        - 52.27.10.221 
+    - Amplitude EU IP addresses:
+        - 3.124.22.25
+        - 18.157.59.125
+        - 18.192.47.195
 
 !!!warning "User and Group Properties Sync"
 
