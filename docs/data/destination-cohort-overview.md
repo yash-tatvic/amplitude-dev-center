@@ -17,7 +17,8 @@ Keep these general considerations in mind when working with cohort destinations.
 - Daily sync cohorts have a maximum of 10 million users.
 - If you archive an existing cohort sync, the next sync will fail and the scheduled sync will be disabled.
 
-Note that individual destinations may have their own specific considerations, so be sure to read their documentation thoroughly.
+!!! info
+    Individual destinations may have their own considerations. For best results, read each destination's documentation.
 
 ## Cohort syncing destinations
 
