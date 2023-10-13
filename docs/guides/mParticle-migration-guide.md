@@ -6,7 +6,7 @@ hide:
   - toc #unhide if more headings are added
 ---
 
-Looking to consolidate on Amplitude for both your [Analytics](https://amplitude.com/amplitude-analytics) and [CDP](https://amplitude.com/customer-data-platform) needs? 
+Looking to combine on Amplitude for both your [Analytics](https://amplitude.com/amplitude-analytics) and [CDP](https://amplitude.com/customer-data-platform) needs? 
 
 This document covers the necessary steps to:
 
