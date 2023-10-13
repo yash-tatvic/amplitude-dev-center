@@ -219,3 +219,4 @@ xcodeproj
 xValues
 XYXxxzz
 Sleekflow
+Mixpanel
