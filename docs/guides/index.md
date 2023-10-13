@@ -73,7 +73,7 @@ Getting started with Amplitude can be daunting. These guides break down sophisti
 
     Learn how to migrate from mParticle to Amplitude CDP.
 
-    [:octicons-arrow-right-24: Read the guide](../guides/mParticle-migration-guide)
+    [:octicons-arrow-right-24: Read the guide](../guides/mparticle-migration-guide)
 
 - :material-tools:{ .lg .middle } __Mixpanel Migration Guide__
 
