@@ -9,7 +9,7 @@ The Amplitude Professional Services team has compiled this [Mixpanel to Amplitud
 
 With the goal of driving tangible conversion, retention, and product outcomes, this guide provides you with **recommended use cases and business questions**, a **proposed taxonom**y, and **example charts** that can be used for your implementation.
 
-## Set up and use the integration
+## Feedback or questions?
 
 !!!tip
 
