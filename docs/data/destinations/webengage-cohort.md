@@ -11,9 +11,6 @@ description: Sync cohorts from Amplitude to WebEngage
 
 WebEngage is a user engagement and retention platform that enables you to send personalized marketing communications across 12+ channels, including email, push notification, WhatsApp, and more.
 
-Powered by a robust CDP, build a holistic user profile, and track custom events and user attributes. Take data-driven decisions based on cohorts, funnel analysis, and more. The platform also lets you leverage marketing automation to orchestrate campaigns, at scale, across multiple touchpoints in a customer lifecycle.
-
-
 !!!tip
 
     This integration is maintained by WebEngage. Contact the WebEngage support team for support with this integration.
@@ -25,14 +22,15 @@ Powered by a robust CDP, build a holistic user profile, and track custom events 
 - You need a paid WebEngage plan to enable this integration.
 - Amplitude matches the `user_id` to the `CUID` in WebEngage to associate cohorts. If a user with a specific `user_id` doesn't exist in WebEngage, WebEngage doesn't create a user. Make sure that the Amplitude `user_id` field matches the WebEngage id field (`CUID`) to avoid user duplication.
 
-
 ## Setup
 
-### WebEngage setup
-To configure your Cohort integration from Amplitude to WebEngage, you need the following information from WebEngage:
-1. In WebEngage, navigate to Data Platform > Integrations > REST API in your dashboard to access your unique REST API Key.
+To configure the Cohort integration from Amplitude to WebEngage, complete the following steps in each platform.
 
-### Amplitude setup
+### WebEngage 
+
+In WebEngage, navigate to Data Platform > Integrations > REST API and copy the REST API key.
+
+### Amplitude
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Cohort section, click **WebEngage**.
@@ -51,6 +49,8 @@ To sync your first cohort, follow these steps:
 5. When finished, save your work.
 
 ### Use cases
-Exporting user or behavioral-based Amplitude cohorts to WebEngage enables you to:
-1. Drive retention-led growth by activating dormant customers, promoting repeat purchases, and driving platform engagement & content consumption. 2. Engage cohort users with highly targeted & personalized messages through their preferred channel. Be it Push, In-app, SMS, Web Overlays, Web Push, Email, or WhatsApp.
 
+Exporting user or behavioral-based Amplitude cohorts to WebEngage enables you to:
+
+1. Drive retention-led growth by activating dormant customers, promoting repeat purchases, and driving platform engagement & content consumption. 
+2. Engage cohort users with highly targeted & personalized messages through their preferred channel. Be it Push, In-app, SMS, Web Overlays, Web Push, Email, or WhatsApp.
