@@ -14,7 +14,6 @@ This guide is your resource for sending cohorts from Amplitude to LiveRamp, a po
 - Amplitude lacks a built-in LiveRamp destination.
 - A paid LiveRamp license is required for this integration.
 
-## Setup
 
 ### Send cohort via Secure File Transfer Protocol (SFTP) 
 
