@@ -30,7 +30,7 @@ To send a cohort from Amplitude to LiveRamp through SFTP:
 To send a cohort from Amplitude to LiveRamp through an Amazon S3 bucket:
 
 1. **Create Cohort in Amplitude:** Create the desired cohort within Amplitude.
-2. **Set Up Amazon S3 Bucket:** Configure your Amazon S3 bucket if you don't have one already, using the AWS Management Console.
+2. **Configure the Amazon S3 Bucket:** Use the AWS Management Console to create an S3 bucket, if you don't have one.
 3. **Send the Cohort to Amazon S3:** Use the [Amazon S3 cohort sync](https://www.docs.developers.amplitude.com/data/destinations/amazon-s3-cohort/) integration to sync cohort data from Amplitude to your Amazon S3 bucket.
 4. **Log Into LiveRamp:** Access your LiveRamp account.
 5. **Find the Cohort:** Locate the cohort within your LiveRamp account.
