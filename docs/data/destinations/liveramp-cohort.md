@@ -20,7 +20,7 @@ This guide is your resource for sending cohorts from Amplitude to LiveRamp, a po
 To send a cohort from Amplitude to LiveRamp through SFTP:
 
 1. **Create the Cohort in Amplitude:** If the cohort you want to send does not exist, create it in Amplitude.
-2. **Export Cohort from Amplitude:** Export the cohort as a CSV file or via the Behavioral Cohorts API. See this [document](https://help.amplitude.com/hc/en-us/articles/360028552471-Amplitude-Audiences-overview-Drive-conversions-with-true-one-to-one-personalization-) for more details.
+2. **Export the Cohort from Amplitude:** Export the cohort as a CSV file or with the Behavioral Cohorts API. See this [document](https://help.amplitude.com/hc/en-us/articles/360028552471-Amplitude-Audiences-overview-Drive-conversions-with-true-one-to-one-personalization-) for more details.
 3. **Upload Cohort to SFTP Server:** Securely upload the exported cohort file to your SFTP server. Refer to your [SFTP server documentation](https://docs.liveramp.com/connect/en/upload-a-file-via-liveramp-s-sftp.html) for guidance around the file requirements.
     - Liveramp can take up to 1-3 days to ingest the data from SFTP into Liveramp.
 4. **Choose Destination Account:** In LiveRamp, select a destination account based on your media plan (e.g., Facebook Ads) for cohort activation.
