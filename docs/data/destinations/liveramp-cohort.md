@@ -40,7 +40,7 @@ To send a cohort from Amplitude to LiveRamp through an Amazon S3 bucket:
 ## Send cohort via Snowflake
 
 1. **Send Cohorts to Amazon S3:** Send cohorts from Amplitude to Amazon S3. See this document for more details.
-2. **Bulk Loading from Amazon S3:** Load cohort data from your Amazon S3 bucket into your Snowflake data warehouse. See this document for more details.
+2. **Bulk Load from Amazon S3:** Load cohort data from your Amazon S3 bucket into your Snowflake data warehouse. See this document for more details.
 3. **Install LiveRamp Native Application on Snowflake:** Install the LiveRamp native application in your Snowflake environment.
 4. **Enable LiveRamp Embedded Identity in Snowflake:** Activate LiveRamp's Identity Resolution in Snowflake to translate identifiers to RampIDs.
 5. **Share Data to LiveRamp Account:** Share the processed data with your LiveRamp account.
