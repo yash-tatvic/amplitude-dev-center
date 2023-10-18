@@ -15,8 +15,11 @@ Keep these general considerations in mind when working with cohort destinations.
 - Some destinations support data centers outside of the US. For more info, refer to the documentation for the specific destination you want to use. 
 - Hourly sync cohorts have a maximum of 1 million users.
 - Daily sync cohorts have a maximum of 10 million users.
+- If you archive an existing cohort sync, the next sync will fail and the scheduled sync will be disabled.
+- When you archive a cohort sync, the next sync fails and Amplitude disables any future scheduled syncs.
 
-Note that individual destinations may have their own specific considerations, so be sure to read their documentation thoroughly.
+!!! info
+    Individual destinations may have their own considerations. For best results, read each destination's documentation.
 
 ## Cohort syncing destinations
 
