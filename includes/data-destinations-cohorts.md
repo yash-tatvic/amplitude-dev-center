@@ -26,6 +26,7 @@
 - :klaviyo: [Klaviyo](../data/destinations/klaviyo-cohort.md)
 - :launchdarkly: [LaunchDarkly](../data/destinations/launchdarkly-cohort.md)
 - :leanplum: [Leanplum](../data/destinations/leanplum-cohort.md)
+- :liveramp: [Liveramp](../data/destinations/liveramp-cohort.md)
 - :mailchimp: [Mailchimp](../data/destinations/mailchimp-cohort.md)
 - :marketo: [Marketo](../data/destinations/marketo-cohort.md)
 - :marketo: [Marketo Static List](../data/destinations/marketo-static-list-cohort.md)
