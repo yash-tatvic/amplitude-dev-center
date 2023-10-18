@@ -25,7 +25,9 @@ To send a cohort from Amplitude to LiveRamp through SFTP:
 4. **Choose Destination Account:** In LiveRamp, select a destination account based on your media plan (e.g., Facebook Ads) for cohort activation.
 5. **Add Cohort to Destination:** Add the uploaded cohort to the chosen destination account in LiveRamp for activation.
 
-### Send cohort via Amazon S3
+### Send a cohort with Amazon S3
+
+To send a cohort from Amplitude to LiveRamp through an Amazon S3 bucket:
 
 1. **Create Cohort in Amplitude:** Create the desired cohort within Amplitude.
 2. **Set Up Amazon S3 Bucket:** Configure your Amazon S3 bucket if you don't have one already, using the AWS Management Console.
