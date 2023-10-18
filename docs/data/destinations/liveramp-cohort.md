@@ -37,7 +37,9 @@ To send a cohort from Amplitude to LiveRamp through an Amazon S3 bucket:
 6. **Choose Destination Account:** Select a destination account aligned with your media plan (e.g., Facebook Ads) for cohort activation.
 7. **Add Cohort to Destination:** Add the cohort to the chosen destination account within LiveRamp to activate it.
 
-## Send cohort via Snowflake
+## Send a cohort with Snowflake
+
+To send a cohort from Amplitude to LiveRamp with Snowflake:
 
 1. **Send Cohorts to Amazon S3:** Send cohorts from Amplitude to Amazon S3. See this document for more details.
 2. **Bulk Load from Amazon S3:** Load cohort data from your Amazon S3 bucket into your Snowflake data warehouse. See this document for more details.
