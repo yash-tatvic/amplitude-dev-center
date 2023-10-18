@@ -15,7 +15,9 @@ This guide is your resource for sending cohorts from Amplitude to LiveRamp, a po
 - A paid LiveRamp license is required for this integration.
 
 
-### Send cohort via Secure File Transfer Protocol (SFTP) 
+## Send a cohort through Secure File Transfer Protocol (SFTP) 
+
+To send a cohort from Amplitude to LiveRamp through SFTP:
 
 1. **Create Cohort in Amplitude:** Start by creating the cohort you want to sync in Amplitude.
 2. **Export Cohort from Amplitude:** Export the cohort as a CSV file or via the Behavioral Cohorts API. See this [document](https://help.amplitude.com/hc/en-us/articles/360028552471-Amplitude-Audiences-overview-Drive-conversions-with-true-one-to-one-personalization-) for more details.
