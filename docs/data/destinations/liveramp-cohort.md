@@ -11,7 +11,7 @@ This guide explains how to integrate Amplitude with LiveRamp, offering three met
 
 ## Considerations
 
-- A paid LiveRamp license is required for this integration.
+A paid LiveRamp license is required for this integration.
 
 ## Send a cohort through Secure File Transfer Protocol (SFTP) 
 
