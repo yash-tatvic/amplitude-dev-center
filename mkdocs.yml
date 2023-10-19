@@ -424,7 +424,7 @@ nav:
         - Python SDK: experiment/sdks/python-sdk.md
         - Evaluation Proxy: experiment/infra/evaluation-proxy.md
         - Maintenance:
-          - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
+          - React Native SDK (legacy): experiment/sdks/react-native-sdk-legacy.md
       - REST APIs:
         - Evaluation API: experiment/apis/evaluation-api.md
         - Management API:
