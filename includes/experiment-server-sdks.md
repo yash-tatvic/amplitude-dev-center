@@ -5,5 +5,6 @@
 - :java: [Java/Kotlin](/experiment/sdks/jvm-sdk)
 - :python: [Python](/experiment/sdks/python-sdk)
 - :ruby: [Ruby](/experiment/sdks/ruby-sdk)
+- :php: [PHP](/experiment/sdks/php-sdk)
 
 </div>
