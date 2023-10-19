@@ -347,6 +347,7 @@ nav:
         - Klaviyo: data/destinations/klaviyo-cohort.md
         - LaunchDarkly: data/destinations/launchdarkly-cohort.md
         - Leanplum: data/destinations/leanplum-cohort.md
+        - Liveramp: data/destinations/liveramp-cohort.md
         - Mailchimp: data/destinations/mailchimp-cohort.md
         - Marketo: data/destinations/marketo-cohort.md
         - Marketo Static List: data/destinations/marketo-static-list-cohort.md
