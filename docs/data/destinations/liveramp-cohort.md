@@ -43,7 +43,7 @@ To send a cohort from Amplitude to LiveRamp with Snowflake:
 1. **Send Cohorts to Amazon S3:** Send cohorts from Amplitude to Amazon S3. See this [document](https://www.docs.developers.amplitude.com/data/destinations/amazon-s3-cohort/) for more details.
 2. **Bulk Load from Amazon S3:** Load cohort data from your Amazon S3 bucket into your Snowflake data warehouse. See this [document](https://docs.snowflake.com/en/user-guide/data-load-s3) for more details.
 3. **Install LiveRamp Native Application on Snowflake:** Install the LiveRamp native application in your Snowflake environment. See this [document](https://docs.liveramp.com/identity/en/set-up-the-liveramp-native-app-in-snowflake.html) for more details.
-4. **Enable LiveRamp Embedded Identity in Snowflake:** Activate LiveRamp's Identity Resolution in Snowflake to translate identifiers to RampIDs. See this [document](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html) for more details.
+4. **Enable LiveRamp Embedded Identity in Snowflake:** Activate LiveRamp's Identity Resolution in Snowflake to translate identifiers to RampIDs. For more information, see LiveRamp's article [Perform Identity Resolution in Snowflake](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html).
 5. **Share Data to LiveRamp Account:** Share the processed data with your LiveRamp account.
 6. **Choose Destination Account:** In LiveRamp, select a destination account based on your media plan (e.g., Facebook Ads) for cohort activation.
 7. **Add Cohort to Destination:** Add the cohort to the chosen destination account within LiveRamp to activate it.
