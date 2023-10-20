@@ -23,9 +23,9 @@ Apphud can send subscription events into Amplitude to help enrich your Amplitude
 
 Before you can add this integration, you must do the following: 
 
-- Add the [Apphud SDK](https://docs.apphud.com/getting-started/sdk-integration#configure-apphud-sdk).
+- Add the [Apphud SDK](https://docs.apphud.com/docs/sdk-integration).
 - Add the [Amplitude SDK](../sources.md#sdks).
-- Match the user IDs between Apphud and Amplitude. See the [Apphud documentation](https://docs.apphud.com/integrations/analytics/amplitude#match-user-ids) for help with this step. 
+- Match the user IDs between Apphud and Amplitude. See the [Apphud documentation](https://docs.apphud.com/docs/amplitude#match-user-ids) for help with this step. 
 
 ### Amplitude setup
 
@@ -35,4 +35,4 @@ There are no other setup steps in Amplitude.
 
 ### Apphud setup
 
-See detailed instructions for this integration in the [Apphud documentation](https://docs.apphud.com/integrations/analytics/amplitude).
+See detailed instructions for this integration in the [Apphud documentation](https://docs.apphud.com/docs/amplitude).

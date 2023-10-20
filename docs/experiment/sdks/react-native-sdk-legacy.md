@@ -12,7 +12,7 @@ icon: simple/react
 Official documentation for Amplitude Experiment's Client-side React Native SDK.
 
 !!!info "SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/experiment-react-native-client) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-react-native-client/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-react-native-client/)
+    [:material-github: Github](https://github.com/amplitude/experiment-react-native-client) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-react-native-client/releases)
 
 ## Install
 

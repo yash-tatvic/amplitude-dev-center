@@ -23,8 +23,6 @@ Copy the Amplitude API key and Secret Key for your project. There are no other s
 
 ### Osano setup
 
-See the [Osano documentation](https://docs.osano.com/data-field-classification-categories) for details and instructions.
-
 1. Log in to the Osano Portal.
 2. From the **Data Discovery** menu, open the **Data Stores** page.
 3. Click **+** to add a new data store.

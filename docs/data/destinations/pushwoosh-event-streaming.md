@@ -8,7 +8,7 @@ status: new
 
     This feature is in open beta and is in active development. Contact the [Pushwoosh Support team](https://www.pushwoosh.com) for support with this integration.
 
-[Pushwoosh](https://www.Pushwoosh.so/) helps marketers build effective communication strategies with the use of push notifications, in-app messages, emails, and cross-channel-triggered campaigns. As a result, businesses get to drive higher-value conversions.
+[Pushwoosh](https://www.Pushwoosh.com/) helps marketers build effective communication strategies with the use of push notifications, in-app messages, emails, and cross-channel-triggered campaigns. As a result, businesses get to drive higher-value conversions.
 
 ## Considerations
 
