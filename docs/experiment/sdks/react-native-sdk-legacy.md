@@ -1,5 +1,5 @@
 ---
-title: Experiment React Native SDK
+title: Experiment React Native SDK (legacy)
 description: Official documentation for Amplitude Experiment's Client-side React Native SDK.
 icon: simple/react
 ---
@@ -19,7 +19,7 @@ Official documentation for Amplitude Experiment's Client-side React Native SDK.
 !!!warning "Web Compatibility"
     Experiment React Native SDK is only compatible with iOS and Android React Native projects. Use the [JavaScript SDK](./javascript-sdk.md) to support all three platforms.
 
-[![npm version](https://badge.fury.io/js/@amplitude%2Fexperiment-react-native-client.svg)](https://badge.fury.io/js/@amplitude%2Fexperiment-react-native-client)
+<a href="https://badge.fury.io/js/@amplitude%2Fexperiment-react-native-client"><img src="https://badge.fury.io/js/@amplitude%2Fexperiment-react-native-client.svg" alt="npm version" height="18"></a>
 
 Install the Experiment JavaScript Client SDK.
 
