@@ -311,7 +311,7 @@ The converter language describes extraction of a value given a JSON element. You
 
     See the [Converter Configuration reference](/data/converter-configuration-reference) for more help.
 
-<!--See a collection of [example converters on GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples/blob/main/README.md) to get inspired. -->
+<!--See a collection of [example converters on GitHub](https://github.com/amplitude/flexible-ingestion-examples/blob/main/README.md) to get inspired. -->
 
 ### Configure converter in Amplitude
 

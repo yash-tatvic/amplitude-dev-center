@@ -42,7 +42,7 @@ toplevel: true
 
     Visit the Amplitude Postman workspace for collections of API calls and examples.
 
-    [:octicons-arrow-right-24: Postman Workspace](https://www.postman.com/amplitude-developer-docs/workspace/amplitude-developers/overview)
+    [:octicons-arrow-right-24: Postman Workspace](https://www.postman.com/amplitude/workspace/amplitude-developers/overview)
 
 - :material-newspaper-variant-multiple:{ .lg .middle } __Product Updates__
 

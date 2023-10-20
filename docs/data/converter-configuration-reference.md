@@ -154,4 +154,4 @@ The converter supports the same user property operators as the Identify API. See
 
 <!-- ## Converter configuration examples
 
-See a collection of [example converters on GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples/blob/main/README.md). -->
+See a collection of [example converters on GitHub](https://github.com/amplitude/flexible-ingestion-examples/blob/main/README.md). -->
