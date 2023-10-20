@@ -641,7 +641,7 @@ Possible reasons for an invalid request:
 
 - The request body isn't valid JSON. The `error` returned is "Invalid JSON request body".
 - The request body is missing required fields. The `error` returned is "Request missing required field", and indicates which fields are missing.  
-- The events object has invalid fields. `events_with_invalid_fields` maps field names the index of the first event that returns an error.
+- The events object has invalid fields. `events_with_invalid_fields` maps field names to the index of the first event that returns an error.
 - Some devices have been silenced.
 
 === "Invalid fields example"
