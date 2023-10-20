@@ -334,7 +334,7 @@ Add your image to the doc:
 
 You can set different titles for a page -- its page title and it's nav title. This is useful if your doc might have a similar name to docs for other Amplitude products, such as "JavaScript SDK". You can set a longer, more descriptive page title to help with SEO and site search and a shorter title to keep the nav looking clean.
 
-<img src="https://raw.githubusercontent.com/Amplitude-Developer-Docs/amplitude-dev-center/main/docs/assets/images/metadocs-page-and-nav-titles.png"  width="600">
+<img src="https://raw.githubusercontent.com/amplitude/amplitude-dev-center/main/docs/assets/images/metadocs-page-and-nav-titles.png"  width="600">
 
 1. Page title
 2. Nav title
