@@ -1082,7 +1082,7 @@ The `conditions` field contains these objects.
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
 |`type`| Required | string | **Must have value: `property`** |
-|`prop`| Required | string | The property to use in the condition. |
+|`prop`| Required | string | The property to use in the condition. Prefix custom and free-form properties with `gp:` |
 |`op`| Required | string | The [operation](#op) to use in this condition. |
 |`values`| Required | string array | The values to use in the operation. |
 
