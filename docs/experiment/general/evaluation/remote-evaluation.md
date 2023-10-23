@@ -102,6 +102,7 @@ Remote evaluation is supported by all SDKs, client-side and server-side.
 -   [:material-language-ruby:{ .lg .middle } __Ruby__](../../sdks/ruby-sdk.md)
 -   [:fontawesome-brands-golang:{ .lg .middle } __Go__](../../sdks/go-sdk.md)
 -   [:material-language-python:{ .lg .middle } __Python__](../../sdks/python-sdk.md)
+-   [:material-language-php:{ .lg .middle } __PHP__](../../sdks/php-sdk.md)
 </div>
 
 ## APIs
