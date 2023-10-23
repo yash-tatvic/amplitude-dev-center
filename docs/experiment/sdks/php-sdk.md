@@ -12,11 +12,10 @@ Official documentation for Amplitude Experiment's server-side PHP SDK implementa
      [:material-github: GitHub](https://github.com/amplitude/experiment-php-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-php-server/releases)
 
 !!!note
-    Currently, only [remote evaluation](../general/evaluation/remote-evaluation.md) is supported. Support for [local evaluation](../general/evaluation/local-evaluation.md) will be available for future releases.
 
 ## Remote evaluation
 
-Implements fetching variants for a user via [remote evaluation](../general/evaluation/remote-evaluation.md).
+This SDK supports and uses [remote evaluation](../general/evaluation/remote-evaluation.md) to fetch variants for users.
 
 ### Install
 
@@ -67,7 +66,7 @@ Install the PHP Server SDK with composer.
 
 ### Initialize
 
-The SDK client should be initialized in your server on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
+Configure the SDK to initialize on server startup. The [deployment key](../general/data-model.md#deployments) argument you pass into the `apiKey` parameter must live within the same project that you send analytics events to.
 
 ```php
 <?php
@@ -76,7 +75,7 @@ initializeRemote(string $apiKey, ?RemoteEvaluationConfig $config): RemoteEvaluat
 
 | Parameter | Requirement | Description |
 | --- | --- | --- |
-| `apiKey` | required | The [deployment key](../general/data-model.md#deployments) which authorizes fetch requests and determines which flags should be evaluated for the user. |
+| `apiKey` | required | The [deployment key](../general/data-model.md#deployments) which authorizes fetch requests and determines which flags to evaluate for the user. |
 | `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
 !!!info "Timeout & Retry Configuration"
@@ -102,15 +101,15 @@ You can configure the SDK client on initialization.
     | --- | --- | --- |
     | `debug` | Enable additional debug logging. | `false` |
     | `serverUrl` | The host to fetch variants from. | `https://api.lab.amplitude.com` |
-    | `fetchTimeoutMillis` | The timeout for fetching variants in milliseconds. This timeout only applies to the initial request, not subsequent retries | `10000` |
+    | `fetchTimeoutMillis` | The timeout for fetching variants in milliseconds. This timeout applies to the initial request, not subsequent retries. | `10000` |
     | `fetchRetries` | The number of retries to attempt if a request to fetch variants fails. | `8` |
-    | `fetchRetryBackoffMinMillis` | The minimum (initial) backoff after a request to fetch variants fails. This delay is scaled by the `fetchRetryBackoffScalar` | `500` |
-    | `fetchRetryBackoffMaxMillis` | The maximum backoff between retries. If the scaled backoff becomes greater than the max, the max is used for all subsequent requests | `10000` |
+    | `fetchRetryBackoffMinMillis` | The minimum (initial) backoff after a request to fetch variants fails. This delay scales according to the the `fetchRetryBackoffScalar` setting. | `500` |
+    | `fetchRetryBackoffMaxMillis` | The maximum backoff between retries. If the scaled backoff becomes greater than the maximum, Experiment uses the  maximum for all subsequent requests. | `10000` |
     | `fetchRetryBackoffScalar` | Scales the minimum backoff exponentially. | `1.5` |
     | `fetchRetryTimeoutMillis` | The request timeout for retrying variant fetches. | `10000` |
 
 !!!info "EU Data Center"
-    If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
+    If you use Amplitude's EU data center, set the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
 
 ### Fetch
 
