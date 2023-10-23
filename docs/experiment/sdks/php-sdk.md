@@ -6,13 +6,13 @@ icon: simple/php
 
 Official documentation for Amplitude Experiment's server-side PHP SDK implementation.
 
-![PyPI version](https://img.shields.io/pypi/v/amplitude-experiment)
+![Packagist](https://img.shields.io/packagist/v/amplitude/experiment-php-server.svg)
 
 !!!info "SDK Resources"
-     [:material-github: GitHub](https://github.com/amplitude/experiment-php-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-php-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-php-server/)
+     [:material-github: GitHub](https://github.com/amplitude/experiment-php-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-php-server/releases)
 
 !!!note
-    Currently, only [remote evaluation](../general/evaluation/remote-evaluation.md) is supported.
+    Currently, only [remote evaluation](../general/evaluation/remote-evaluation.md) is supported. Support for [local evaluation](../general/evaluation/local-evaluation.md) will be available for future releases.
 
 ## Remote evaluation
 
@@ -39,24 +39,28 @@ Install the PHP Server SDK with composer.
     3. [Access a flag's variant](#fetch)
 
     ```php
-    # (1) Initialize the experiment client
-    $experiment = new AmplitudeExperiment\Experiment.initialize_remote('<DEPLOYMENT_KEY>')
+    <?php
+    // (1) Initialize the experiment client
+    $experiment = new \AmplitudeExperiment\Experiment();
+    $client = $experiment->initializeRemote('<DEPLOYMENT_KEY>');
 
-    # (2) Fetch variants for a user
-    $user = (new AmplitudeExperiment\UserBuilder())
-    ->deviceId('abcdefg')
-    ->userId('user@company.com')
-    ->userProperties('premium' => True)
-    ->build();
-    $variants = experiment.fetch(user);
+    // (2) Fetch variants for a user
+    $user = (new \AmplitudeExperiment\UserBuilder())
+        ->deviceId('abcdefg')
+        ->userId('user@company.com')
+        ->userProperties(['premium' => true]) 
+        ->build();
+    $variants = $client->fetch($user)>wait();
 
-    # (3) Access a flag's variant
-    $variant = $variants['YOUR-FLAG-KEY']
-    if $variant:
-        if $variant->value == 'on':
-            # Flag is on
-        else:
-            # Flag is off
+    // (3) Access a flag's variant
+    $variant = $variants['FLAG_KEY']
+    if ($variant) {
+        if ($variant->value == 'on') {
+            // Flag is on
+        } else {
+            // Flag is off
+        }
+    }
     ```
 
     **Not getting the expected variant result for your flag?** Make sure your flag [is activated](../guides/getting-started/create-a-flag.md#activate-the-flag), has a [deployment set](../guides/getting-started/create-a-flag.md#add-a-deployment), and has [users allocated](../guides/getting-started/create-a-flag.md#configure-targeting-rules).
@@ -66,7 +70,8 @@ Install the PHP Server SDK with composer.
 The SDK client should be initialized in your server on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
 
 ```php
-Experiment.initialize_remote(apiKey, config = None) : RemoteEvaluationClient
+<?php
+initializeRemote(string $apiKey, ?RemoteEvaluationConfig $config): RemoteEvaluationClient
 ```
 
 | Parameter | Requirement | Description |
@@ -77,7 +82,15 @@ Experiment.initialize_remote(apiKey, config = None) : RemoteEvaluationClient
 !!!info "Timeout & Retry Configuration"
     Configure the timeout and retry options to best fit your performance requirements.
     ```php
-    experiment = Experiment.initialize_remote('<DEPLOYMENT_KEY>', Config())
+    <?php
+    $experiment = new \AmplitudeExperiment\Experiment();
+    $config = (new \AmplitudeExperiment\Remote\RemoteEvaluationConfigBuilder())
+                ->fetchTimeoutMillis(500)
+                ->fetchRetries(1)
+                ->fetchRetryBackoffMinMillis(0)
+                ->fetchRetryTimeoutMillis(500)
+                ->build();
+    $client = $experiment->initializeRemote('<DEPLOYMENT_KEY>', $config);
     ```
 
 #### Configuration
@@ -104,8 +117,9 @@ You can configure the SDK client on initialization.
 Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
 
 ```php
-fetch(user: User) : PromiseInterface
-// An array of variants is returned on success, an empty array is returned on failure
+<?php
+fetch(User $user): PromiseInterface
+// Upon resolution of the promise, an array of variants is returned on success, an empty array is returned on failure
 ```
 
 | Parameter  | Requirement | Description |
@@ -113,21 +127,25 @@ fetch(user: User) : PromiseInterface
 | `user` | required | The [user](../general/data-model.md#users) to remote fetch variants for. |
 
 ```php
-user = (new AmplitudeExperiment\UserBuilder())
+<?php
+$user = (new \AmplitudeExperiment\UserBuilder())
     ->deviceId('abcdefg')
     ->userId('user@company.com')
-    ->userProperties('premium' => True)
+    ->userProperties(['premium' => true])
     ->build();
-variants = experiment.fetch(user);
+$variants = $client.fetch(user)->wait();
 ```
 
 After fetching variants for a user, you may to access the variant for a specific flag.
 
 ```php
-$variant = $variants['YOUR-FLAG-KEY']
-if $variant:
-    if $variant->value == 'on':
+<?php
+$variant = $variants['FLAG-KEY']
+if ($variant) {
+    if ($variant->value == 'on') {
         // Flag is on
-    else:
+    } else {
         // Flag is off
+    }
+}
 ```
