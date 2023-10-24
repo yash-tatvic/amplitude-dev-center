@@ -68,7 +68,7 @@ Configure the SDK to initialize on server startup. The [deployment key](../gener
 
 ```php
 <?php
-initializeRemote(string $apiKey, ?RemoteEvaluationConfig $config): RemoteEvaluationClient
+initializeRemote(string $apiKey, ?RemoteEvaluationConfig $config = null): RemoteEvaluationClient
 ```
 
 | Parameter | Requirement | Description |
