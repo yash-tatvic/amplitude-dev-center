@@ -625,8 +625,7 @@ By default, revenue events recorded on the Android SDK appear in Amplitude as [
  copy your Google Play License Public Key into the Sources & Destinations section of your project in Amplitude.
  You must put in a key for every single project in Amplitude where you want revenue to be verified.
 
-There are two main Android libraries for revenue verifications: AIDL and Google Play Billing. AIDL is older and deprecated. See [this Google guide](https://developer.android.com/google/play/billing/migrate) on how to migrate,
- as well as the class specification for the [Purchase class](https://developer.android.com/reference/com/android/billingclient/api/Purchase).
+For more information, see the class specification for the [Purchase class](https://developer.android.com/reference/com/android/billingclient/api/Purchase).
 
 After a successful purchase transaction, add the purchase data and receipt signature to the Revenue object:
 

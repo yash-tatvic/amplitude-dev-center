@@ -27,7 +27,7 @@ Keep these things in mind when sending events to Lantern.
 
 ### Lantern setup
 
-Get your webhook ID from Lantern. See the [Lantern documentation](https://www.withlantern.com/integration) for more help. There are no other setup steps in Lantern.
+Get your webhook ID from Lantern.
 
 ### Amplitude setup
 
