@@ -11,8 +11,6 @@ Official documentation for Amplitude Experiment's server-side PHP SDK implementa
 !!!info "SDK Resources"
      [:material-github: GitHub](https://github.com/amplitude/experiment-php-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-php-server/releases)
 
-!!!note
-
 ## Remote evaluation
 
 This SDK supports and uses [remote evaluation](../general/evaluation/remote-evaluation.md) to fetch variants for users.
@@ -44,7 +42,7 @@ Install the PHP Server SDK with composer.
     $client = $experiment->initializeRemote('<DEPLOYMENT_KEY>');
 
     // (2) Fetch variants for a user
-    $user = (new \AmplitudeExperiment\UserBuilder())
+    $user = \AmplitudeExperiment\User::builder()
         ->deviceId('abcdefg')
         ->userId('user@company.com')
         ->userProperties(['premium' => true]) 
@@ -83,7 +81,7 @@ initializeRemote(string $apiKey, ?RemoteEvaluationConfig $config): RemoteEvaluat
     ```php
     <?php
     $experiment = new \AmplitudeExperiment\Experiment();
-    $config = (new \AmplitudeExperiment\Remote\RemoteEvaluationConfigBuilder())
+    $config = \AmplitudeExperiment\Remote\RemoteEvaluationConfig::builder()
                 ->fetchTimeoutMillis(500)
                 ->fetchRetries(1)
                 ->fetchRetryBackoffMinMillis(0)
@@ -127,7 +125,7 @@ fetch(User $user): PromiseInterface
 
 ```php
 <?php
-$user = (new \AmplitudeExperiment\UserBuilder())
+$user = \AmplitudeExperiment\User::builder()
     ->deviceId('abcdefg')
     ->userId('user@company.com')
     ->userProperties(['premium' => true])
