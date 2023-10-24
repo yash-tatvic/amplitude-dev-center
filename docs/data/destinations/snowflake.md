@@ -93,52 +93,46 @@ The **Event** table schema includes the following columns:
 <!--vale off -->
 | <div class="big-column">Column</div>| Type | Description |
 |---|---|---|
-| `Adid` | String | (Android) Google Play Services advertising ID (ADID). Example: AEBE52E7-03EE-455A-B3C4-E57283966239 |
-| `amplitude_event_type` | VARCHAR(1677721) | Amplitude specific identifiers based on events Amplitude generates. This is a legacy field so `event_type` should suffice for all queries  |
-| `amplitude_id` | BIGNUMERIC | The original Amplitude ID for the user. Use this field to automatically handle merged users. Example: 2234540891 |
-| `app` | INT64 | Project ID found in your project's Settings page. Example: 123456 |
-| `city` | STRING | City. Example: “San Francisco” |
-| `client_event_time` | TIMESTAMP | Local timestamp (UTC) of when the device logged the event. Example: `2015-08-10T12:00:00.000000` |
-| `client_upload_time` | TIMESTAMP | The local timestamp (UTC) of when the device uploaded the event. Example: `2015-08-10T12:00:00.000000` |
-| `country` | STRING | Country. Example: "United States" |
+| `amplitude_attribution_ids` | ARRAY | Hashed attribution ids on the event |
+| `amplitude_id` | NUMBER | The original Amplitude ID for the user. Use this field to automatically handle merged users. Example: 2234540891 |
+| `app` | NUMBER | Project ID found in your project's Settings page. Example: 123456 |
+| `city` | VARCHAR | City. Example: “San Francisco” |
+| `client_event_time` | TIMESTAMP_NTZ | Local timestamp (UTC) of when the device logged the event. Example: `2015-08-10T12:00:00.000000` |
+| `client_upload_time` | TIMESTAMP_NTZ | The local timestamp (UTC) of when the device uploaded the event. Example: `2015-08-10T12:00:00.000000` |
+| `country` | VARCHAR | Country. Example: "United States" |
 | `data` | VARIANT | Dictionary where certain fields such as `first_event` and `merged_amplitude_id` are stored |   |
-| `device_brand` | STRING | Device brand. Example: Apple |
-| `device_carrier` | STRING | Device Carrier. Example: Verizon |
-| `device_family` | STRING | Device family. Example: Apple iPhone |
-| `device_id` | STRING | The device specific identifier. Example: C8F9E604-F01A-4BD9-95C6-8E5357DF265D |
-| `device_manufacturer` | STRING | Device manufacturer. Example: Apple |
-| `device_model` | STRING | Device model. Example: iPad Mini |
-| `device_type` | STRING | Device type. Example: Apple iPhone 5s |
-| `dma` | STRING | Designated marketing area (DMA). Example; San Francisco-Oakland-San Jose, CA |
-| `event_id` | INT64 | A counter that distinguishes events. Example: 1 |
+| `device_carrier` | VARCHAR | Device Carrier. Example: Verizon |
+| `device_family` | VARCHAR | Device family. Example: Apple iPhone |
+| `device_id` | VARCHAR | The device specific identifier. Example: C8F9E604-F01A-4BD9-95C6-8E5357DF265D |
+| `device_type` | VARCHAR | Device type. Example: Apple iPhone 5s |
+| `dma` | VARCHAR | Designated marketing area (DMA). Example; San Francisco-Oakland-San Jose, CA |
+| `event_id` | NUMBER | A counter that distinguishes events. Example: 1 |
 | `event_properties` | VARIANT |    |
-| `event_time` | TIMESTAMP | Amplitude timestamp (UTC) which is the `client_event_time` adjusted by the difference between `server_received_time` and `client_upload_time`, specifically: `event_time` = `client_event_time` + (`server_received_time` - `client_upload_time`)   Amplitude uses this timestamp is used to organize events on Amplitude charts. NOTE: If the difference between server_received_time and client_upload_time is less than 60 seconds, the `event_time` isn't adjusted and equals the `client_event_time`. Example: `2015-08-10T12:00:00.000000` |
-| `followed_an_identify` | BOOL | True if there was an identify event between this current SDK event and the last SDK event seen. Example: `True` |
+| `event_time` | TIMESTAMP_NTZ | Amplitude timestamp (UTC) which is the `client_event_time` adjusted by the difference between `server_received_time` and `client_upload_time`, specifically: `event_time` = `client_event_time` + (`server_received_time` - `client_upload_time`)   Amplitude uses this timestamp is used to organize events on Amplitude charts. NOTE: If the difference between server_received_time and client_upload_time is less than 60 seconds, the `event_time` isn't adjusted and equals the `client_event_time`. Example: `2015-08-10T12:00:00.000000` |
+| `event_type` | VARCHAR | Event type |
 | `group_properties` | VARIANT |    |
 | `groups` | VARIANT | Group types. See the Accounts documentation for more information.   |
-| `idfa` | STRING | (iOS) Identifier for Advertiser. Example: AEBE52E7-03EE-455A-B3C4-E57283966239 |
-| `ip_address` | STRING | IP address. Example: "123.11.111.11" |
-| `is_attribution_event` | BOOL |     |
-| `language` | STRING |     |
-| `library` | STRING |     |
-| `location_lat` | FLOAT64 | Latitude. Example: 12.3456789 |
-| `location_lng` | FLOAT64 | Longitude. Example: -123.4567890 |
-| `os_name` | STRING | OS name. Example: ios |
-| `os_version` | STRING | OS version. | 1.0 |
-| `paying` | STRING | True if the user has ever logged any revenue, otherwise (none).   Note: The property value can be modified via the Identify API. Example: true |
-| `platform` | STRING |    |
-| `processed_time` | TIMESTAMP |    |
-| `region` | STRING | Region. Example: California |
-| `sample_rate` | BIGNUMERIC |    |
-| `server_received_time` | TIMESTAMP |    |
-| `server_upload_time` | TIMESTAMP | Amplitude timestamp (UTC) of when Amplitude servers received the event. Example:  `2015-08-10T12:00:00.000000` |
-| `session_id` | BIGNUMERIC | The session start time in milliseconds since epoch. Example: 1396381378123 |
-| `start_version` | STRING | App version the user was first tracked on. Example: 1.0.0 |
-| `user_creation_time` | TIMESTAMP | `event_time` (UTC) of the user's first event. Example: `2015-08-10T12:00:00.000000` |
-| `user_id` | STRING | A readable ID specified by you. Should be something that doesn't change; for that reason, using the user's email address isn't recommended.  |
+| `ip_address` | VARCHAR | IP address. Example: "123.11.111.11" |
+| `language` | VARCHAR |     |
+| `library` | VARCHAR |     |
+| `location_lat` | FLOAT | Latitude. Example: 12.3456789 |
+| `location_lng` | FLOAT | Longitude. Example: -123.4567890 |
+| `os_name` | VARCHAR | OS name. Example: ios |
+| `os_version` | VARCHAR | OS version. | 1.0 |
+| `paying` | VARCHAR | True if the user has ever logged any revenue, otherwise (none).   Note: The property value can be modified via the Identify API. Example: true |
+| `platform` | VARCHAR |    |
+| `processed_time` | TIMESTAMP_NTZ |    |
+| `region` | VARCHAR | Region. Example: California |
+| `sample_rate` | NUMBER |    |
+| `server_received_time` | TIMESTAMP_NTZ |    |
+| `server_upload_time` | TIMESTAMP_NTZ | Amplitude timestamp (UTC) of when Amplitude servers received the event. Example:  `2015-08-10T12:00:00.000000` |
+| `session_id` | NUMBER | The session start time in milliseconds since epoch. Example: 1396381378123 |
+| `start_version` | VARCHAR | App version the user was first tracked on. Example: 1.0.0 |
+| `user_creation_time` | TIMESTAMP_NTZ | `event_time` (UTC) of the user's first event. Example: `2015-08-10T12:00:00.000000` |
+| `user_id` | VARCHAR | A readable ID specified by you. Should be something that doesn't change; for that reason, using the user's email address isn't recommended.  |
 | `user_properties` | VARIANT |    |
-| `uuid` | STRING | A unique identifier per row (event sent). Example: bf0b9b2a-304d-11e6-934f-22000b56058f |
-| `version_name` | STRING | The app version. Example: 1.0.0 |
+| `uuid` | VARCHAR | A unique identifier per row (event sent). Example: bf0b9b2a-304d-11e6-934f-22000b56058f |
+| `version_name` | VARCHAR | The app version. Example: 1.0.0 |
 
 <!-- vale on-->
 
