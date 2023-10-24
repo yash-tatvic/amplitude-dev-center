@@ -1,5 +1,5 @@
 ---
-title: Experiment PHP SDK
+title: Experiment PHP SDK (Beta)
 description: Official documentation for Amplitude Experiment's server-side PHP SDK implementation.
 icon: simple/php
 ---
@@ -8,7 +8,7 @@ Official documentation for Amplitude Experiment's server-side PHP SDK implementa
 
 ![Packagist](https://img.shields.io/packagist/v/amplitude/experiment-php-server.svg)
 
-!!!info "SDK Resources"
+!!!beta "SDK Resources"
      [:material-github: GitHub](https://github.com/amplitude/experiment-php-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-php-server/releases)
 
 ## Remote evaluation
@@ -101,7 +101,7 @@ You can configure the SDK client on initialization.
     | `serverUrl` | The host to fetch variants from. | `https://api.lab.amplitude.com` |
     | `fetchTimeoutMillis` | The timeout for fetching variants in milliseconds. This timeout applies to the initial request, not subsequent retries. | `10000` |
     | `fetchRetries` | The number of retries to attempt if a request to fetch variants fails. | `8` |
-    | `fetchRetryBackoffMinMillis` | The minimum (initial) backoff after a request to fetch variants fails. This delay scales according to the the `fetchRetryBackoffScalar` setting. | `500` |
+    | `fetchRetryBackoffMinMillis` | The minimum (initial) backoff after a request to fetch variants fails. This delay scales according to the `fetchRetryBackoffScalar` setting. | `500` |
     | `fetchRetryBackoffMaxMillis` | The maximum backoff between retries. If the scaled backoff becomes greater than the maximum, Experiment uses the  maximum for all subsequent requests. | `10000` |
     | `fetchRetryBackoffScalar` | Scales the minimum backoff exponentially. | `1.5` |
     | `fetchRetryTimeoutMillis` | The request timeout for retrying variant fetches. | `10000` |
