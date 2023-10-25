@@ -73,8 +73,6 @@ The **Event** table schema includes the following columns:
 | <div class="big-column">Column</div>| Type | Description |
 |---|---|---|
 | `Adid` | STRING | (Android) Google Play Services advertising ID (ADID). Example: AEBE52E7-03EE-455A-B3C4-E57283966239 |
-| `amplitude_attribution_ids` | STRING | Hashed attribution ids on the event  |
-| `amplitude_event_type` | STRING | Amplitude specific identifiers based on events Amplitude generates. This is a legacy field so event_type should suffice for all queries  |
 | `amplitude_id` | BIGNUMERIC | The original Amplitude ID for the user. Use this field to automatically handle merged users. Example: 2234540891 |
 | `app` | INTEGER | Project ID found in your project's Settings page. Example: 123456 |
 | `city` | STRING | City. Example: “San Francisco” |
@@ -82,12 +80,9 @@ The **Event** table schema includes the following columns:
 | `client_upload_time` | TIMESTAMP | The local timestamp (UTC) of when the device uploaded the event. Example: `2015-08-10T12:00:00.000000` |
 | `country` | STRING | Country. Example: "United States" |
 | `data` | JSON | Dictionary where certain fields such as `first_event` and `merged_amplitude_id` are stored |   |
-| `device_brand` | STRING | Device brand. Example: Apple |
 | `device_carrier` | STRING | Device Carrier. Example: Verizon |
 | `device_family` | STRING | Device family. Example: Apple iPhone |
 | `device_id` | STRING | The device specific identifier. Example: C8F9E604-F01A-4BD9-95C6-8E5357DF265D |
-| `device_manufacturer` | STRING | Device manufacturer. Example: Apple |
-| `device_model` | STRING | Device model. Example: iPad Mini |
 | `device_type` | STRING | Device type. Example: Apple iPhone 5s |
 | `dma` | STRING | Designated marketing area (DMA). Example; San Francisco-Oakland-San Jose, CA |
 | `event_id` | INTEGER | A counter that distinguishes events. Example: 1 |
@@ -114,7 +109,6 @@ The **Event** table schema includes the following columns:
 | `server_upload_time` | TIMESTAMP | Amplitude timestamp (UTC) of when Amplitude servers received the event. Example:  `2015-08-10T12:00:00.000000` |
 | `session_id` | BIGNUMERIC | The session start time in milliseconds since epoch. Example: 1396381378123 |
 | `start_version` | STRING | App version the user was first tracked on. Example: 1.0.0 |
-| `user_creation_time` | TIMESTAMP | Event_time (UTC) of the user's first event. Example: `2015-08-10T12:00:00.000000` |
 | `user_id` | STRING | A readable ID specified by you. Should be something that doesn't change; for that reason, using the user's email address isn't recommended.  |
 | `user_properties` | JSON |    |
 | `uuid` | STRING | A unique identifier per row (event sent). Example: bf0b9b2a-304d-11e6-934f-22000b56058f |
