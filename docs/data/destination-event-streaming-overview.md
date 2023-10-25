@@ -31,6 +31,22 @@ Event streaming includes powerful, no-code, configuration-based tools that give 
 2. **RefaceAI:** Utilized Amplitude's Kinesis Data Stream integration for real-time event piping from mobile clients to back-end services. This avoided the complexity of building and maintaining a custom pipeline.
 3. **Invoice Simple:** Leveraged Event Streaming for a robust engagement campaign, customizing messaging based on a series of events to enhance engagement effectiveness.
 
+### What's the IP range of your service?
+
+Amplitude data centers use the following IP addresses, depending on their region:
+
+- Amplitude US IP addresses
+
+    - 52.33.3.219
+    - 35.162.216.242
+    - 52.27.10.221
+
+- Amplitude EU IP addresses
+
+    - 3.124.22.25
+    - 18.157.59.125
+    - 18.192.47.195
+
 ## Event streaming destinations
 
 --8<-- "includes/data-destinations-event-streaming.md"
