@@ -35,7 +35,7 @@ Event streaming includes powerful, no-code, configuration-based tools that give 
 
 Amplitude data centers use the following IP addresses, depending on their region:
 
-- Amplitude US IP address
+- Amplitude US IP addresses
 
     - 52.33.3.219
     - 35.162.216.242
