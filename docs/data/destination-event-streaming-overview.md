@@ -32,12 +32,17 @@ Event streaming includes powerful, no-code, configuration-based tools that give 
 3. **Invoice Simple:** Leveraged Event Streaming for a robust engagement campaign, customizing messaging based on a series of events to enhance engagement effectiveness.
 
 ### What's the IP range of your service?
+
 The IP addresses based on whether you're using EU or US Amplitude data centers.
+
 - Amplitude US IP address
+
     - 52.33.3.219
     - 35.162.216.242
     - 52.27.10.221
+
 - Amplitude EU IP address
+
     - 3.124.22.25
     - 18.157.59.125
     - 18.192.47.195
