@@ -41,7 +41,7 @@ Amplitude data centers use the following IP addresses, depending on their region
     - 35.162.216.242
     - 52.27.10.221
 
-- Amplitude EU IP address
+- Amplitude EU IP addresses
 
     - 3.124.22.25
     - 18.157.59.125
