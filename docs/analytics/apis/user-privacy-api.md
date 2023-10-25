@@ -70,23 +70,9 @@ The body parameter is required. It's the deletion request object listing the `us
 === "cURL"
 
     ```bash
-    curl --location --request POST 'https://amplitude.com/api/2/deletions/users' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}} \ # credentials must be base64-encoded
-    --header 'Content-Type: application/json' \
-    --data-raw '{
-        "amplitude_ids": [
-            356896327775,
-            356896327755
-
-        ],
-        "user_ids": [
-            1000,
-            2999
-        ],
-        "ignore_invalid_id": "true",
-        "delete_from_org": "false",
-        "requester": "employee@yourcompany.com"
-    }'
+    curl -u API_KEY:API_SECRET_KEY \
+    -X POST 'https://amplitude.com/api/2/deletions/users' -H 'Content-Type: application/json' \
+    --data-raw '{"amplitude_ids": [123456], "user_ids":["your-user"], "requester":"employee@yourcompany.com", "delete_from_org":"False"}'
     ```
 
 === "HTTP"
@@ -193,6 +179,7 @@ The body parameter is required. It's the deletion request object listing the `us
     ```python
     import requests
     import json
+    from requests.auth import HTTPBasicAuth
 
     url = "https://amplitude.com/api/2/deletions/users"
 
@@ -209,12 +196,12 @@ The body parameter is required. It's the deletion request object listing the `us
       "delete_from_org": "false",
       "requester": "employee@yourcompany.com"
     })
+    auth = HTTPBasicAuth(API_KEY, SECRET_KEY)
     headers = {
-      'Authorization': 'Basic {{api-key}}:{{secret-key}}', #credentials must be base64-encoded
       'Content-Type': 'application/json'
     }
 
-    response = requests.request("POST", url, headers=headers, data=payload)
+    response = requests.request("POST", url, headers=headers, auth=auth, data=payload)
 
     print(response.text)
     ```
@@ -410,12 +397,13 @@ If the request returns no values, then no jobs are scheduled for that time range
     headers = {
       'Accept': 'application/json'
     }
-
-    r = requests.get('https://amplitude.com/api/2/deletions/users', params={
-      'start_day': 'string',  'end_day': 'string'
-    }, headers = headers)
-
-    print r.json()
+    auth = HTTPBasicAuth(API_KEY, API_SECRET_KEY)
+    
+    r = requests.request("GET", "https://amplitude.com/api/2/deletions/users", data={
+      'start_day': 'YYYY-MM-DD',  'end_day': 'YYYY-MM-DD'
+    }, headers = headers, auth=auth)
+    
+    print(r.json())
     ```
 === "Java"
 
@@ -466,8 +454,8 @@ If the request returns no values, then no jobs are scheduled for that time range
 
 | Name    | Description                                                                                                                |
 | ------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `start` | <span class="required">Required</span>. First hour included in data series, formatted `YYYYMMDD`. For example, `20220201`. |
-| `end`   | <span class="required">Required</span>. Last hour included in data series, formatted `YYYYMMDD` For example, `20220201`.   |
+| `start` | <span class="required">Required</span>. First hour included in data series, formatted `YYYY-MM-DD`. For example, `2022-02-01`. |
+| `end`   | <span class="required">Required</span>. Last hour included in data series, formatted `YYYY-MM-DD` For example, `2022-02-28`.   |
 
 ### Response
 
