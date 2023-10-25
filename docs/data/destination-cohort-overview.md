@@ -17,7 +17,7 @@ Keep these general considerations in mind when working with cohort destinations.
 - Daily sync cohorts have a maximum of 10 million users.
 - If you archive an existing cohort sync, the next sync will fail and the scheduled sync will be disabled.
 - When you archive a cohort sync, the next sync fails and Amplitude disables any future scheduled syncs.
-- If you need to whitelist or configure any network settings, make sure to allow traffic from this specific IP address to ensure seamless. The IP addresses based on whether you're using EU or US Amplitude data centers.
+- Allow traffic from the following IP addresses, based on your region:
     - Amplitude US IP addresses
         - 52.33.3.219
         - 35.162.216.242
