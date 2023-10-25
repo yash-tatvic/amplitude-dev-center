@@ -33,7 +33,7 @@ Event streaming includes powerful, no-code, configuration-based tools that give 
 
 ### What's the IP range of your service?
 
-The IP addresses based on whether you're using EU or US Amplitude data centers.
+Amplitude data centers use the following IP addresses, depending on their region:
 
 - Amplitude US IP address
 
