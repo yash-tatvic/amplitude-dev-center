@@ -1,5 +1,5 @@
 ---
-title: iOS SDK (Beta)
+title: iOS SDK
 description: The Amplitude iOS Swift SDK installation and quick start guide.
 icon: simple/ios
 ---
@@ -8,20 +8,20 @@ icon: simple/ios
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
-!!!beta "iOS Swift SDK Resources (Beta)"
+!!!info "iOS SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-Swift) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Swift/releases) · [:material-book: Examples](https://github.com/amplitude/Amplitude-Swift/tree/main/Examples/AmplitudeSwiftUIExample)
 
 --8<-- "includes/sdk-ios/apple-deprecate-carrier.md"
 
 --8<-- "includes/size/ios.md"
-    `./measure_cocoapod_size.py --cocoapods AmplitudeSwift:0.7.0`.
+    `./measure_cocoapod_size.py --cocoapods AmplitudeSwift:1.0.0`.
 
 !!! info "Minimum versions"
     For the minimum supported platform versions of this package, see [`Package.swift`](https://github.com/amplitude/Amplitude-Swift/blob/main/Package.swift#L8-L12) on GitHub.
 
 ## Getting started
 
-Use [this quickstart guide](../../sdks/sdk-quickstart#ios-beta) to get started with Amplitude iOS SDK.
+Use [this quickstart guide](../../sdks/sdk-quickstart#ios) to get started with Amplitude iOS SDK.
 
 ## Usage
 

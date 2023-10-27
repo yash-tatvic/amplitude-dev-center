@@ -19,9 +19,7 @@ The Node SDK provides:
 By default, the Node SDK uses the [HTTP API V2](../../../analytics/apis/http-v2-api).
 
 !!!deprecated "Maintenance SDK"
-    This is a Maintenance SDK and will only receive bug fixes until deprecation. A new [Analytics SDK for Node.js](../typescript-node/) available in Beta. The new SDK offers an improved code architecture which supports plugins. 
-    
-    The Beta SDK does not yet support the [Ampli Wrapper](/data/ampli/sdk/). If you use Ampli please continue to use the non-Beta SDK at this time.
+    This is a Maintenance SDK and will only receive bug fixes until deprecation. A new [Analytics SDK for Node.js](../typescript-node/) available which offers an improved code architecture and additional features such as plugins and more. See the [Migration Guide](../typescript-node/migration/) for more help.
 
 !!!info "Node SDK Resources (Maintenance)"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-Node) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Node/releases)

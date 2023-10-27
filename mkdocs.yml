@@ -494,10 +494,6 @@ nav:
         - data/sdks/android-kotlin/index.md
         - Ampli Codegen: data/sdks/android-kotlin/ampli.md
       - iOS:
-        - data/sdks/ios/index.md
-        - Ampli Codegen: data/sdks/ios/ampli.md
-        - Migration Guide: data/sdks/ios-swift/migration.md
-      - iOS (Beta):
         - data/sdks/ios-swift/index.md
         - Ampli Codegen: data/sdks/ios-swift/ampli.md
       - Java:
@@ -532,6 +528,10 @@ nav:
         - data/sdks/android/index.md
         - Ampli Codegen: data/sdks/android/ampli.md
         - Migration Guide: data/sdks/android-kotlin/migration.md
+      - iOS:
+        - data/sdks/ios/index.md
+        - Ampli Codegen: data/sdks/ios/ampli.md
+        - Migration Guide: data/sdks/ios-swift/migration.md
       - React Native:
         - data/sdks/react-native/index.md
         - Ampli Codegen: data/sdks/react-native/ampli.md
