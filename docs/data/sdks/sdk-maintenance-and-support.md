@@ -5,27 +5,27 @@ description: This document outlines the maintenance policy for Amplitude Softwar
 
 ## Overview
 
-This document outlines the maintenance policy for Amplitude Software Development Kits (SDKs) and Tools, including Browser and Mobile SDKs, the Ampli CLI, and their underlying dependencies. Amplitude regularly provides the Amplitude SDKs and Tools with updates that may contain support for new or updated Amplitude APIs, new features, enhancements, bug fixes, security patches, or documentation updates. Updates may also address changes with dependencies, language runtimes, and operating systems. Amplitude SDK releases are published to package managers (e.g. NPM, Cocoapods, Maven, PyPI), and are available as source code on GitHub.
+This document outlines the maintenance policy for Amplitude Software Development Kits (SDKs) and Tools, including Browser and Mobile SDKs, the Ampli CLI, and their underlying dependencies. Amplitude regularly provides the Amplitude SDKs and Tools with updates that may contain support for new or updated Amplitude APIs, new features, enhancements, bug fixes, security patches, or documentation updates. Updates may also address changes with dependencies, language runtimes, and operating systems. Amplitude publishes  SDK releases to package managers (for example,  npm, CocoaPods, Maven, PyPI), and are available as source code on GitHub.
 
-We recommend users to stay up-to-date with SDK releases to keep up with the latest features, security updates, and underlying dependencies. Continued use of an unsupported SDK version is not recommended and is done at the user’s discretion.
+Amplitude recommends users to stay up-to-date with SDK releases to keep up with the latest features, security updates, and underlying dependencies. Continued use of an unsupported SDK version isn't recommended, do so at your own discretion.
 
 ## Versioning
 
-The Amplitude SDK and Tools release versions are in the form of `X.Y.Z` where `X` represents the major version. Increasing the major version of an SDK indicates that this SDK underwent significant and substantial changes to support new idioms and patterns in the language. Major versions are introduced when public interfaces (e.g. classes, methods, types, etc.), behaviors, or semantics have changed. Applications need to be updated in order for them to work with the newest SDK version. It is important to update major versions carefully and in accordance with the upgrade guidelines provided by Amplitude.
+The Amplitude SDK and Tools release versions are in the form of `X.Y.Z` where `X` represents the major version. Increasing the major version of an SDK indicates that this SDK underwent significant and large changes to support new idioms and patterns in the language. Amplitude introduces major versions when public interfaces (for example, classes, methods, or types), behaviors, or semantics have changed. Update your applications for them to work with the newest SDK version. It's important to update major versions carefully, following Amplitude's upgrade guidelines.
 
 ## SDK major version life-cycle
 
-The life-cycle for major SDKs and Tools versions consists of 5 phases, which are outlined below.
+The life-cycle for major SDKs and Tools versions consists of 5 phases:
 
-- **Developer Preview (Beta) (Phase 0)** - During this phase, SDKs are fully supported, and can used in production environments, however, there may be breaking changes without a new major version release. If used in a production environment, we recommend setting a fixed version, updating regularly, and testing after each update.  These SDKs provide early access to the latest features and allow for user feedback prior to GA. Once Amplitude identifies a release to be a stable product, it may mark it as GA.
+- **Developer Preview (Beta) (Phase 0)** - During this phase, SDKs are fully supported, and can used in production environments, however, there may be breaking changes without a new major version release. If used in a production environment, Amplitude recommends setting a fixed version, updating regularly, and testing after each update. These SDKs provide early access to the latest features and allow for user feedback prior to GA. Once Amplitude identifies a release to be a stable product, it may mark it as GA.
 
-- **General Availability (GA) (Phase 1)** - During this phase, SDKs are fully supported. Amplitude will provide regular SDK releases that include support for new services, API updates for existing services, as well as bug and security fixes. For Tools, Amplitude will provide regular releases that include new feature updates and bug fixes.
+- **General Availability (GA) (Phase 1)** - During this phase, SDKs are fully supported. Amplitude provides regular SDK releases that include support for new services, API updates for existing services, as well as bug and security fixes. For Tools, Amplitude provides regular releases that include new feature updates and bug fixes.
 
-- **Maintenance Announcement (Phase 2)** - Amplitude will make a public announcement at least 6 months before an SDK or Tool enters maintenance mode. During this period, the SDK will continue to be fully supported. Typically, maintenance mode is announced at the same time as the next major version is transitioned to GA.
+- **Maintenance Announcement (Phase 2)** - Amplitude makes a public announcement at least 6 months before an SDK or Tool enters maintenance mode. During this period, the SDK continues to be fully supported. Typically, Amplitude announces maintenance mode at the same time as the next major version moves to GA.
 
-- **Maintenance (Phase 3)** - During the maintenance mode, Amplitude limits SDK releases to address critical bug fixes and security issues only. An SDK will not receive API updates for new or existing services, or be updated to support new regions. Maintenance mode has a default duration of at least 12 months, unless otherwise specified.
+- **Maintenance (Phase 3)** - During the maintenance mode, Amplitude limits SDK releases to address critical bug fixes and security issues only. An SDK doesn't receive API updates for new or existing services, or updates to support new regions. Maintenance mode has a default duration of at least 12 months, unless otherwise specified.
 
-- **End-of-Support (EOL) (Phase 4)** - When an SDK reaches end-of support, it will no longer receive updates or releases. Previously published releases will continue to be available via public package managers and the code will remain on GitHub. The GitHub repository may be archived. Use of an SDK which has reached end-of-support is done at the user’s discretion. We recommend users upgrade to the new major version.
+- **End-of-Support (EOL) (Phase 4)** - When an SDK reaches end-of support, it no longer receive updates or releases. Already published releases continue to be available through public package managers and the code remains on GitHub. Amplitude may archive the GitHub repository. Use SDKs that have reached end-of-support at your own discretion. Amplitude recommends users upgrade to the new major version.
 
 ## Dependency life-cycle
 
@@ -37,28 +37,30 @@ The following terms are used to classify underlying third party dependencies:
 - **Language Runtime**: Examples include TypeScript 4.1.6, Swift 5.7, Java 8, Python 3.10.4, etc.
 - **Third party Library / Framework**: Examples include OpenSSL, OCLIF, React, etc.
 
-Our policy is to continue supporting SDK dependencies for at least 6 months after the community or vendor ends support for the dependency. This policy, however, could vary depending on the specific dependency.
+Amplitude's policy is to continue supporting SDK dependencies for at least 6 months after the community or vendor ends support for the dependency. This policy, however, could vary depending on the specific dependency.
 
 !!! note
     Amplitude reserves the right to stop support for an underlying dependency without increasing the major SDK version
 
 ## Communication methods
 
-Maintenance announcements are communicated in several ways:
+Amplitude communicates maintenance announcements in several ways:
 
-- An email announcement is sent to affected accounts, announcing our plans to end support for the specific SDK version. The email will outline the path to end-of-support, specify the campaign timelines, and provide upgrade guidance.
+- An email announcement to affected accounts, announcing plans to end support for the specific SDK version. The email outlines the path to end-of-support, specify the campaign timelines, and provide upgrade guidance.
 
-- [Amplitude SDK documentation](./index.md), such as [API reference documentation](../../../analytics/apis/http-v2-api/), user guides, SDK product marketing pages, and GitHub readme(s) are updated to indicate the campaign timeline and provide guidance on upgrading affected applications.
+- Amplitude updates [SDK documentation](./index.md), such as [API reference documentation](../../../analytics/apis/http-v2-api/), user guides, SDK product marketing pages, and GitHub README docs to share the campaign timeline and provide guidance on upgrading affected applications.
 
-- An Amplitude blog post is published in the [Amplitude Community](https://community.amplitude.com/) that outlines the path to end-of-support, as well as reiterates the campaign timelines.
+- Amplitude publishes blog post in the [Amplitude Community](https://community.amplitude.com/) that outlines the path to end-of-support, as well as reiterates the campaign timelines.
 
-- Deprecation warnings are added to the SDKs, outlining the path to end-of-support and linking to the SDK documentation.
+- Amplitude adds deprecation warnings to the SDKs, outlining the path to end-of-support and linking to the SDK documentation.
 
-To see the list of available major versions of Amplitude SDKs and Tools and where they are in their maintenance life cycle, see Amplitude SDKs and Tools version support matrix.
+To see the list of available major versions of Amplitude SDKs and Tools and where they're in their maintenance life cycle, see Amplitude SDKs and Tools version support matrix.
 
 ## SDKs and Tools version support matrix
 
-The matrix below shows the list of available Amplitude SDK and Tools major versions and where they are in the maintenance life cycle with associated timelines. The matrix is updated when a new major version is released or when a major version transitions to a new phase in the maintenance life cycle.
+The matrix below shows the list of available Amplitude SDK and Tools major versions and where they're in the maintenance life cycle with associated timelines. Amplitude updates the matrix with the release of a new major version or when a major version transitions to a new phase in the maintenance life cycle.
+
+<!-- vale off -->
 
 | SDK / Tool                                                                                                                                                                                                                                                                                                                                                                                   | Version   | Phase              | GA Date    | Notes                                       |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------------|------------|---------------------------------------------|
