@@ -57,20 +57,20 @@ To add Snowflake as a data source in your Amplitude project, follow these steps:
       - **Type of data**: This tells Amplitude whether you're ingesting event data, user property data, or group property data.
       - **Type of import:**
         - **Full Sync**: Amplitude periodically ingests the entire dataset, regardless of whether that data has already been imported. This is good for data sets where the row data changes over time, but there is no easy way to tell which rows have changed. Otherwise, the more efficient option would be a time-based import. This option isn't supported for ingesting event data.
-        - **Time-based**: Amplitude periodically ingests the most recent rows in the data, as determined by the provided *Timestamp* column. The first import brings in all available data, and later imports ingest any data with timestamps **after the time of the most recent import**. To use this, you must include the timestamp of when the data was loaded into Snowflake. For more information on how this works, see [the time-based import](#time-based-import) section.
-      - **Frequency**: Choose from several scheduling options ranging from five minutes to one month (when this is selected, ingestion happens on the first of the month).
-      - **SQL query**: This is the code for the query Amplitude uses to determine which data is ingested.
+        - **Time-based**: Amplitude periodically ingests the most recent rows in the data, as determined by the provided *Timestamp* column. The first import brings in all available data, and later imports ingest any data with timestamps **after the time of the most recent import**. To use this, include the timestamp of the data load into Snowflake. For more information on how this works, see [the time-based import](#time-based-import) section.
+      - **Frequency**: Choose from several scheduling options ranging from five minutes to one month. With the one month option, Amplitude ingests data on the first of the month.
+      - **SQL query**: This is the code for the query Amplitude uses to decide which data is ingested.
 
 8. After you've set your configuration options, click **Test SQL** to see how the data is coming through from your Snowflake instance. Errors appear on this screen.
 9. If there are no errors, click **Finish**. 
 
-You'll see a notification indicating you've successfully enabled the new Snowflake source. You'll also be redirected to the Sources listing page, where you'll see the newly created Snowflake source.
+Amplitude displays a notification indicating you enable the new Snowflake source and redirects you to the Sources listing page.
 
 If you have any issues or questions while following this flow, contact the Amplitude team.
 
 ## Time-based import
 
-For Amplitude's time-based import option, it's best practice to use a monotonically increasing timestamp value. This value should indicate **when** the record was loaded into the source table the SQL configuration is querying from (often referred to as a "server upload time"). The warehouse import tool brings data into Amplitude is by continually updating the maximum value of the column referenced in the *Timestamp Column Name* input within the Import Config UI with each subsequent import.
+For Amplitude's time-based import option, it's best practice to use a monotonically increasing timestamp value. This value should show when the record was loaded into the source table the SQL configuration is querying from (often referred to as a "server upload time"). The warehouse import tool brings data into Amplitude by continually updating the maximum value of the column referenced in the *Timestamp Column Name* input within the Import Config UI with each subsequent import.
 
 !!!example
 
@@ -82,43 +82,43 @@ You must include the mandatory fields for the data type when creating the SQL qu
 
 ### Events
 <!-- vale off-->
-| Column name (must be lowercase) | Mandatory | Column data type | Example |
-|---|---|---|---|
-| `user_id` | Yes, unless `device_id` is used | VARCHAR | datamonster@gmail.com |
-| `device_id` | Yes, unless `user_id` is used | VARCHAR | C8F9E604-F01A-4BD9 |
-| `event_type` | Yes | VARCHAR | watch_tutorial | 
-| `time` | Yes | Milliseconds since epoch (Timestamp) | 1396381378123 |
-| `event_properties` | Yes | VARIANT (JSON Object) | {"source":"notification", "server":"host-us"} |
-| `user_properties` | No | VARIANT (JSON Object) | {"city":"chicago", "gender":"female"} |
-| `update_time_column` | No (Yes if using time based import) | TIMESTAMP_NTZ | 2013-04-05 01:02:03.000 |
+| Column name (must be lowercase) | Mandatory                           | Column data type                     | Example                                       |
+| ------------------------------- | ----------------------------------- | ------------------------------------ | --------------------------------------------- |
+| `user_id`                       | Yes, unless `device_id` is used     | VARCHAR                              | datamonster@gmail.com                         |
+| `device_id`                     | Yes, unless `user_id` is used       | VARCHAR                              | C8F9E604-F01A-4BD9                            |
+| `event_type`                    | Yes                                 | VARCHAR                              | watch_tutorial                                |
+| `time`                          | Yes                                 | Milliseconds since epoch (Timestamp) | 1396381378123                                 |
+| `event_properties`              | Yes                                 | VARIANT (JSON Object)                | {"source":"notification", "server":"host-us"} |
+| `user_properties`               | No                                  | VARIANT (JSON Object)                | {"city":"chicago", "gender":"female"}         |
+| `update_time_column`            | No (Yes if using time based import) | TIMESTAMP_NTZ                        | 2013-04-05 01:02:03.000                       |
 
 ### User properties
 
-| Column name (must be lowercase) | Mandatory | Column data type | Example |
-|---|---|---|---|
-| `user_id` | Yes | VARCHAR | datamonster@gmail.com |
-| `user_properties` | Yes | VARIANT (JSON Object) | {"city":"chicago", "gender":"female"} |
-| `update_time_column` | No (Yes if using time based import) | TIMESTAMP_NTZ | 2013-04-05 01:02:03.000 |
+| Column name (must be lowercase) | Mandatory                           | Column data type      | Example                               |
+| ------------------------------- | ----------------------------------- | --------------------- | ------------------------------------- |
+| `user_id`                       | Yes                                 | VARCHAR               | datamonster@gmail.com                 |
+| `user_properties`               | Yes                                 | VARIANT (JSON Object) | {"city":"chicago", "gender":"female"} |
+| `update_time_column`            | No (Yes if using time based import) | TIMESTAMP_NTZ         | 2013-04-05 01:02:03.000               |
 <!--vale on-->
 ### Group properties
 
-| Column name (must be lowercase) | Mandatory | Column data type | Example |
-|---|---|---|---|
-| `groups` | Yes | VARIANT (JSON Object) | {"company":"amplitude", "team":["marketing", "sales"]} |
-| `group_properties` | Yes | VARIANT (JSON Object) | {"location":"seattle", "active":"true"} |
-| `update_time_column` | No (Yes if using time based import) | TIMESTAMP_NTZ | 2013-04-05 01:02:03.000 |
+| Column name (must be lowercase) | Mandatory                           | Column data type      | Example                                                |
+| ------------------------------- | ----------------------------------- | --------------------- | ------------------------------------------------------ |
+| `groups`                        | Yes                                 | VARIANT (JSON Object) | {"company":"amplitude", "team":["marketing", "sales"]} |
+| `group_properties`              | Yes                                 | VARIANT (JSON Object) | {"location":"seattle", "active":"true"}                |
+| `update_time_column`            | No (Yes if using time based import) | TIMESTAMP_NTZ         | 2013-04-05 01:02:03.000                                |
 
-Each group property in `group_properties` would be applied to every group in `groups`
+Each group property in `group_properties` would apply to every group in `groups`
 
 ### Profile properties
 
-| Column name (must be lowercase) | Mandatory | Column data type | Example |
-|---|---|---|---|
-| `user_id` | Yes | VARCHAR | "user123" |
-| `property_name_1` | Yes | (key value) VARCHAR: VARCHAR | "Title": "Data Engineer" |
-| `property_name_1` | Yes | (key value) VARCHAR: VARCHAR | "City": "San Francisco" |
+| Column name (must be lowercase) | Mandatory | Column data type             | Example                  |
+| ------------------------------- | --------- | ---------------------------- | ------------------------ |
+| `user_id`                       | Yes       | VARCHAR                      | "user123"                |
+| `property_name_1`               | Yes       | (key value) VARCHAR: VARCHAR | "Title": "Data Engineer" |
+| `property_name_1`               | Yes       | (key value) VARCHAR: VARCHAR | "City": "San Francisco"  |
 
-Amplitude supports profile properties for known users. A `user_id` value must accompany each profile property.
+Amplitude supports profile properties for known users. A `user_id` value must join each profile property.
 
 ## SQL query examples
 
