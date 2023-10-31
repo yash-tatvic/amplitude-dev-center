@@ -66,7 +66,8 @@ extra_javascript:
 # When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml and insiders.local.build.yml too.
 plugins:
   - search # the search plugin
-  - git-revision-date-localized # enables the git revision date functionality, compatible with macros plugin
+  - git-revision-date-localized: # enables the git revision date functionality, compatible with macros plugin
+      enable_creation_date: !ENV ENABLE_CREATE_DATE
   - macros:
       include_dir: macros
       j2_block_start_string: '@{%'
