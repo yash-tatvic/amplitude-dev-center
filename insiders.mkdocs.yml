@@ -6,7 +6,8 @@ extra_css:
 plugins:
   - search
   - tags #insiders
-  - git-revision-date-localized
+  - git-revision-date-localized: # enables the git revision date functionality, compatible with macros plugin
+      enable_creation_date: true
   - macros:
       include_dir: macros
       j2_block_start_string: '@{%'
