@@ -24,6 +24,7 @@ description: Sync cohorts from Amplitude to TheTradeDesk
 1. In The Trade Desk, navigate to Settings > Integrations.
 2. Click **Add integration**, then find and add Amplitude.
 3. Copy the **Advertiser ID** and **Advertiser Secret Key** to your clipboard.
+    - To find your **Advertiser ID** and **Advertiser Secret Key**, navigate to the Advertiser Preferences page and select Seat Identifiers & Keys. 
 
 ### Amplitude setup
 
@@ -51,7 +52,7 @@ Amplitude reports a cohort sync as successful even if there are invalid IDs in t
 
 ### Use cases
 
-1. **Improved Audience Targeting:** By sending cohorts or segments of users from Amplitude to The Trade Desk, advertisers can refine their audience targeting. For instance, if Amplitude identifies a group of users who have exhibited certain behaviors or engagement patterns (for example, frequent app usage, specific in-app actions), you can send this cohort can to The Trade Desk for more precise ad targeting. This approach helps advertisers reach users who are more likely to convert based on their past behavior.
+1. **Improved Audience Targeting:** By sending cohorts or segments of users from Amplitude to The Trade Desk, advertisers can refine their audience targeting. For instance, if Amplitude identifies a group of users who have exhibited certain behaviors or engagement patterns (for example, frequent app usage, specific in-app actions), you can send this cohort to The Trade Desk for more precise ad targeting. This approach helps advertisers reach users who are more likely to convert based on their past behavior.
 2. **Personalized Ad Creative:** Amplitude's behavioral insights can help inform the creation of personalized ad creatives. When Amplitude sends cohorts to The Trade Desk, advertisers can tailor their ad content to match the interests and preferences of specific user groups, increasing the likelihood of capturing their attention and driving conversions.
 3. **Campaign Optimization:** The behavioral data collected by Amplitude can be used to optimize ongoing advertising campaigns on The Trade Desk. By understanding how different user cohorts respond to various ad creatives, placements, and messaging, advertisers can adjust their campaigns in real-time to maximize performance and ROI.
 4. **Retargeting Strategies:** Amplitude can identify users who have shown interest but haven't completed desired actions, such as making a purchase or signing up. By sending these non-converting cohorts to The Trade Desk, advertisers can design retargeting campaigns that re-engage these users with tailored messaging and incentives.
