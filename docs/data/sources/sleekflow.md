@@ -11,7 +11,7 @@ Sleekflow's integration sends events from Sleekflow to Amplitude.
 
     This integration imports Sleekflow data into Amplitude. Amplitude offers other integrations with Sleekflow: 
 
-    - [Send Amplitude Cohorts to Sleekflow](/data/destinations/Sleekflow-cohort)
+    - [Send Amplitude Cohorts to Sleekflow](/data/destinations/sleekflow-cohort)
 
 ## Considerations
 
