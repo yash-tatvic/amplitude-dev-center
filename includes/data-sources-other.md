@@ -44,6 +44,7 @@
 - :sendgrid: [SendGrid](../data/sources/sendgrid.md)
 - :shopify: [Shopify](../data/sources/shopify.md)
 - :singular: [Singular](../data/sources/singular.md)
+- :sleekflow: [Sleekflow](../data/sources/sleekflow.md)
 - :split: [Split](../data/sources/split.md)
 - :sprig: [Sprig](../data/sources/sprig.md)
 - :survicate: [Survicate](../data/sources/survicate.md)
