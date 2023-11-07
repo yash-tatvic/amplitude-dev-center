@@ -2,5 +2,5 @@
 site/
 .vscode/
 .cache
-
+.env
 .idea

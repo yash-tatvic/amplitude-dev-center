@@ -10,6 +10,104 @@
 {% block site_meta %}
     {{super()}}
     <meta name="google-site-verification" content="UHLjtoO7DV30dx3hVhwTOIWguEUr_VzS41msmq-uYKA" />
+    {% if page.meta %}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "datePublished": "{{ page.meta.git_creation_date_localized_raw_iso_datetime }}",
+            "dateModified": "{{ page.meta.git_revision_date_localized_raw_iso_datetime }}",
+            "headline": "{{ page.meta.title }}",
+            "description": "{{ page.meta.description }}",
+            "url": "{{page.url}}",
+            "primaryImageOfPage": {
+                "@id": "/assets/images/amplitude-default-seo.png"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Amplitude",
+                "legalName": "Amplitude Inc.",
+                "url": "https://amplitude.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://amplitude.com/nextjs-public/amplitude-default-seo.png"
+                },
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "201 3rd St #200",
+                    "addressLocality": "San Francisco",
+                    "addressRegion": "CA",
+                    "postalCode": "94103",
+                    "addressCountry": "USA"
+                },
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "Customer Support",
+                    "telephone": "[+650-988-5131]",
+                    "email": "sales@amplitude.com"
+                },
+                "sameAs": [
+                    "https://twitter.com/Amplitude_HQ",
+                    "https://www.facebook.com/AmplitudeAnalytics/",
+                    "https://www.linkedin.com/company/amplitude-analytics"
+                ]
+            }
+        } 
+
+    {% if page.meta.toplevel != true %}
+
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "{{page.meta.title}}",
+          "description": "{{page.meta.description}}",
+          "url": "{{ page.url }}",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Amplitude",
+            "legalName": "Amplitude, Inc.",
+            "url": "https://amplitude.com",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://amplitude.com/nextjs-public/amplitude-default-seo.png"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "201 3rd St #200",
+              "addressLocality": "San Francisco",
+              "addressRegion": "CA",
+              "postalCode": "94103",
+              "addressCountry": "USA"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "[+650-988-5131]",
+              "contactType": "Customer Support",
+              "email": "sales@amplitude.com"
+            },
+            "sameAs": [
+              "https://twitter.com/Amplitude_HQ",
+              "https://www.facebook.com/AmplitudeAnalytics/",
+              "https://www.linkedin.com/company/amplitude-analytics"
+            ]
+          },
+          "datePublished": "{{ page.meta.git_creation_date_localized_raw_iso_datetime }}",
+          "dateModified": "{{ page.meta.git_revision_date_localized_raw_iso_datetime }}",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ page.url }}"
+          },
+          "author": [
+            {
+              "@type": "Organization",
+              "name": "Amplitude"
+            }
+          ]
+        }
+      </script>
+    {% endif %}
+    {% endif %}
+
 {% endblock %}
 
 {% block scripts %}
