@@ -4,7 +4,7 @@ description: Use this integration to send Amplitude cohort updates to your custo
 ---
 !!!beta
 
-    This feature is in closed beta and is in active development. Contact your Amplitude Success Manager for support with this integration.
+    This feature is in beta and is in active development. Features and functionality may change during the course of the beta period.
 
 Amplitude Cohort webhooks enables customers to receive cohort updates to their own webhook endpoints. This allows for custom data enrichment, filtering, or aggregation based on the specific requirements of the webhook endpoint or internal systems. The transformed cohort data then integrates into marketing automation platforms or other systems, which enables personalized and targeted marketing campaigns with up-to-date cohort insights.
 
