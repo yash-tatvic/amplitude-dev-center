@@ -9,7 +9,7 @@ Amplitude CDP's HubSpot streaming integration enables you to forward your Amplit
 
 !!!info "This integration is managed by Amplitude"
 
-    Contact your Amplitude support team for support with this integration.
+    Contact the Amplitude support team for support with this integration.
 
 ## Considerations
 
