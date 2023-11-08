@@ -333,10 +333,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     <uses-permission android:name="android.permission.INTERNET" />
     ```
 
-    For Android 6.0 (Marshmallow) and above, explicitly add the `READ_PHONE_STATE` permission to fetch phone carrier information. If you don't add this permission, the SDK still works, but doesn't track phone carrier information.
-    ```
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    ```
+    For Android 6.0 (Marshmallow) and higher, explicitly add permission to fetch the device [advertising ID](/data/sdks/android/#advertiser-id). 
 
     The SDK internally uses a few Java 8 language APIs through desugaring. Make sure your project either [enables desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) or requires a minimum API level of 16.
 

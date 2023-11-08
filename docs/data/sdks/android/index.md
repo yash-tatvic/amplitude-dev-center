@@ -45,7 +45,7 @@ This is the official documentation for the Amplitude Analytics Android SDK.
 2. Sync project with Gradle files.
 3. To report events to Amplitude, add the INTERNET permission to your `AndroidManifest.xml` file:
     `<uses-permission android:name="android.permission.INTERNET" />`
-4. For Android 6.0 (Marshmallow) and higher, explicitly add the `READ_PHONE_STATE` permission to fetch phone related information. `<uses-permission android:name="android.permission.READ_PHONE_STATE" />`
+4. For Android 6.0 (Marshmallow) and higher, explicitly add permission to fetch the device [advertising ID](/data/sdks/android/#advertiser-id).
 <!--vale on-->
 After you've installed the SDK and its dependencies, import Amplitude into any file that uses it.
 
