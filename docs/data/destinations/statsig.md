@@ -3,13 +3,13 @@ title: Send Events to Statsig
 description: Send Amplitude events to Statsig to help find more meaningful data insights.
 ---
 
-!!!beta "This feature is in open beta"
-
-    This feature is in open beta and is in active development. Contact the [Statsig support team](https://statsig.com/slack) for support with this integration.
-
 [Statsig](https://statsig.com/) is a modern feature-management and product experimentation platform that helps you to ship faster by providing actionable causal analysis, meaningful data insights, and automatically running 10x more experiments.
 
-!!!info "Other Amplitude + Statsig Integrations"
+!!!info "This integration is maintained by Statsig"
+
+    Contact the [Statsig support team](https://statsig.com/slack) for support with this integration.
+
+!!!note "Other Amplitude + Statsig Integrations"
 
     This integration streams Amplitude events to Statsig. Amplitude offers other integrations with Statsig: [Send Cohorts to Statsig](../../destinations/statsig-cohort)
  

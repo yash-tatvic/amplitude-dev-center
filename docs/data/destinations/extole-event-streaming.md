@@ -3,9 +3,9 @@ title: Extole Event Streaming
 description: Send Amplitude events to Extole campaigns automatically with just a few clicks.
 ---
 
-!!!beta
+!!!info "This integration is managed by Extole"
 
-    This feature is in open beta and is in active development. Contact your Extole Client Success Manager or the [Extole support team](mailto:support@extole.com) for support with this integration.
+    Contact your Extole Client Success Manager or the [Extole support team](mailto:support@extole.com) for support with this integration.
 
 [Extole](https://www.extole.com/) is the Customer-Led Growth platform. With Extole, marketers fight skyrocketing paid media costs by turning their customers into a primary vehicle for acquisition, awareness, and activation. With Extole's SaaS platform and experts, marketers launch programs such as refer-a-friend, friends & family, and challenges, personalized to behavioral segments. Customer-Led Growth drives revenue and generates an important and unique source of first-party data. 
 
@@ -53,8 +53,8 @@ See the [Extole documentation](https://dev.extole.com/reference/client-api-overv
 4. In **REST API Key**, paste your Extole access token. 
 5. Toggle the Send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
 6. Choose your user identifier to map to other properties from Amplitude to Extole.
-6. Use the Event Properties filter to select which event properties you want to send.
-7. When finished, save the destination.
+7. Use the Event Properties filter to select which event properties you want to send.
+8. When finished, save the destination.
 
 ## Use cases
 
