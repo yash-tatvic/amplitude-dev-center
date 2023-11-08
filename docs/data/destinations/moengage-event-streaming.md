@@ -1,14 +1,13 @@
 ---
 title: MoEngage Event Streaming
 description: Send Amplitude events to MoEngage
-status: new
 ---
 
-!!!beta
-
-    This feature is in open beta and is in active development. Contact your MoEngage Client Success Manager or the [MoEngage support team](https://www.google.com/url?q=https://help.moengage.com/hc/en-us/requests/new&sa=D&source=docs&ust=1681371040720339&usg=AOvVaw1tv2Sh69jM7M0Xk-kn77hF) for support with this integration.
-
 [MoEngage](https://www.linkedin.com/company/moengage/) is an insights-led customer engagement platform for the customer-obsessed marketers and product owners. We help you delight your customers and retain them for longer. With MoEngage you can analyze customer behavior and engage them with personalized communication across the web, mobile, and email. MoEngage is a full-stack solution consisting of powerful customer analytics, AI-powered customer journey orchestration, and personalization.
+
+!!!info "This integration is managed by MoEngage"
+
+    Contact your MoEngage Client Success Manager or the [MoEngage support team](https://www.google.com/url?q=https://help.moengage.com/hc/en-us/requests/new&sa=D&source=docs&ust=1681371040720339&usg=AOvVaw1tv2Sh69jM7M0Xk-kn77hF) for support with this integration.
 
 ## Considerations
 

@@ -9,9 +9,9 @@ description: Send Amplitude cohorts to Userlist to send cohort members relevant 
 
 This integration lets you sync cohorts from Amplitude to Userlist. Now you can track user behavior in Amplitude, and then send them relevant email campaigns in Userlist.
 
-!!!info
+!!!info "This integration is maintained by Userlist" 
 
-    This integration is maintained by Userlist. Contact the [Userlist support team](https://userlist.com/) for support with this integration.
+   Contact the [Userlist support team](https://userlist.com/) for support with this integration.
 
 ## Considerations
 

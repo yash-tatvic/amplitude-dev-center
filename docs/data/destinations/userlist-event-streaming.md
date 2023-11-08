@@ -3,13 +3,13 @@ title: Userlist Event Streaming
 description: Stream Amplitude events to Userlist.
 ---
 
-!!!beta "This feature is in open beta"
-
-    This feature is in open beta and is in active development. Contact the [Userlist support team](https://userlist.com/) for support with this integration.
-
 [Userlist](https://userlist.com/) is an email automation platform for SaaS companies. Unlike other email providers, it meets the complexity of your SaaS business. You can track company-level data, and trigger campaigns based on company-level events. It's the best way to onboard, engage, and nurture customers and marketing leads.
 
-!!!info "Other Amplitude + Userlist integrations"
+!!!info "This integration is maintained by Userlist"
+
+    Contact the [Userlist support team](https://userlist.com/) for support with this integration.
+
+!!!note "Other Amplitude + Userlist integrations"
 
     This integration streams Amplitude events to Userlist. There is another integration for [sending cohorts to Userlist](https://www.docs.developers.amplitude.com/data/destinations/userlist-cohort/).
 

@@ -3,13 +3,13 @@ title: HubSpot Event Streaming
 description: Send Amplitude events to HubSpot automatically with just a few clicks.
 ---
 
-!!!beta
-
-    This feature is in open beta and is in active development. Contact your Amplitude support team for support with this integration.
-
 [HubSpot](https://www.hubspot.com/) is an easy to use and powerful CRM platform that enables scaling companies to sell, market and provide customer service from a unified UI. 
 
 Amplitude CDP's HubSpot streaming integration enables you to forward your Amplitude events and event properties straight to HubSpot with just a few clicks.
+
+!!!info "This integration is managed by Amplitude"
+
+    Contact your Amplitude support team for support with this integration.
 
 
 ## Considerations
