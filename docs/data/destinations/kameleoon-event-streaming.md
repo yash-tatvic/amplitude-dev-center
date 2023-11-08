@@ -5,6 +5,10 @@ description: Stream Amplitude events to Kameleoon with just a few clicks.
 
 [Kameleoon](https://www.kameleoon.com/en) is a modern feature-management and product experimentation platform that helps you to ship faster by providing actionable causal analysis, meaningful data insights, and automatically running 10 times more experiments.
 
+!!!info "This integration is managed by Kameleoon"
+
+    Contact the [Kameleoon support team](https://www.kameleoon.com/en/contact) for support with this integration.
+
 ## Considerations
 
 Keep these things in mind before sending events to Kameleoon:
@@ -43,10 +47,6 @@ There are no other setup steps in Kameleoon.
 6. Toggle the Send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
 7. Use the Event Properties filter to select which Event Properties you would like to send.
 8. When finished, save your work.
-
-!!!info "This integration is managed by Kameleoon"
-
-    Contact the [Kameleoon support team](https://www.kameleoon.com/en/contact) for support with this integration.
 
 ## Use cases
 
