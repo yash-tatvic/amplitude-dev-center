@@ -16,7 +16,7 @@ description: Stream Amplitude events to CleverTap
 
 !!!info "This integration is maintained by CleverTap"
 
-    Contact the [CleverTap Support team]((https://www.CleverTap.so/) for support with this integration.
+    Contact the [CleverTap Support team](https://www.clevertap.com/) for support with this integration.
 
 ## Considerations
 
