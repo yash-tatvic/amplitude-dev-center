@@ -518,6 +518,7 @@ curl -X DELETE \
     -H 'Content-Type: application/json' \
   -u API_KEY:API_SECRET
 }'
+```
 
 ### Path variables
 
