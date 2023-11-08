@@ -504,78 +504,47 @@ The `amplitude_ids` key contains these fields:
 ]
 ```
 
-## Delete deletion job
+## Delete a User from a deletion job
 
-Removes the specified ID from a deletion job.
+Removes the specified Amplitude ID ID from a deletion job.
 
 `/api/2/deletions/users/AMPLITUDE_ID/YYYY-MM-DD`
 
 ### Example request
 
-```bash
-DELETE /api/2/deletions/users/12345/ HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64-encoded
+=== "cURL"
 
-{
-  "amplitude_ids": [
-    "amp_id_1",
-    "amp_id_2",
-    "..."
-  ],
-  "user_ids": [
-    "user_id_1",
-    "user_id_2",
-    "..."
-  ],
-  "requester": "employee@yourcompany.com"
-}
-```
+    ```bash
+    curl -X DELETE \
+      'https://amplitude.com/api/2/deletions/users/AMPLITUDE_ID/JOB_START_DAY' \
+        -H 'Content-Type: application/json' \
+      -u API_KEY:API_SECRET
+    }'
 
 ### Path variables
 
 | <div class="big-column">Name</div> | Description                                                                  |
 | ---------------------------------- | ---------------------------------------------------------------------------- |
-| `amplitude_ids` or `user_ids`      | Required. The `user_ids` or `amplitude_ids` to remove from the deletion job. |
-| `date`                             | Required. Day the deletion is schedule for.                                  |
+| `AMPLITUDE_ID`                     | Required. The `amplitude_id` to be removed from a deletion job.              |
+| `JOB_START_DAY`                    | Required. Day the deletion is schedule for. YYYY-MM-DD                       |
 
 ### Response
 
 A successful request returns a response with this schema:
 
-| <div class="big-column">Property</div> | Description                                              |
-| -------------------------------------- | -------------------------------------------------------- |
-| `amplitude_id`                         | The Amplitude ID of the user to be deleted.              |
-| `requester`                            | The person who requested the Amplitude ID to be deleted. |
-| `requested_on_day`                     | The day this deletion was requested.                     |
+| <div class="big-column">Property</div> | Description                                                 |
+| -------------------------------------- | ----------------------------------------------------------- |
+| `amplitude_id`                         | The Amplitude ID of the user that was removed from the job  |
+| `requester`                            | The person who requested the Amplitude ID to be deleted.    |
+| `requested_on_day`                     | The day this deletion was requested.                        |
 
 ```json
-{
-  "day": "string",
-  "amplitude_ids": [
-    {
-      "amplitude_id": 0,
-      "requested_on_day": "string",
-      "requester": "string"
-    }
-  ],
-  "status": "string"
-}
+ {
+   "amplitude_id": 1234567,
+   "requested_on_day": "string",
+   "requester": "string"
+ }
 ```
-
-| <div class="big-column">Property</div> | Description                                                                                                                                                                                                                                                                                                                                                  |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `day`                                  | The day the deletion job is scheduled to begin.                                                                                                                                                                                                                                                                                                              |
-| `status`                               | The deletion job's status.  <br>  <br>**Staging**: The job hasn't started, and you can still modify it. More deletion requests may get scheduled into this job and you can remove requests from this job.  <br>  <br>**Submitted**: The job is submitted to run. You can't modify it. <br>  <br>**Done**: The job has finished running. You can't modify it. |
-| `amplitude_ids`                        | List of the Amplitude Ids of users to delete.                                                                                                                                                                                                                                                                                                                |
-
-The `amplitude_ids` key contains these fields:
-
-| <div class="big-column">Name</div> | Description                                              |
-| ---------------------------------- | -------------------------------------------------------- |
-| `amplitude_id`                     | The Amplitude ID of the user to be deleted.              |
-| `requester`                        | The person who requested the Amplitude ID to be deleted. |
-| `requested_on_day`                 | The day this deletion was requested.                     |
 
 ## Status codes
 
