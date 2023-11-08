@@ -7,11 +7,11 @@ description: Send Amplitude events to MoEngage
 
 !!!info "This integration is managed by MoEngage"
 
-    Contact your MoEngage Client Success Manager or the [MoEngage support team](https://www.google.com/url?q=https://help.moengage.com/hc/en-us/requests/new&sa=D&source=docs&ust=1681371040720339&usg=AOvVaw1tv2Sh69jM7M0Xk-kn77hF) for support with this integration.
+    Contact your MoEngage Client Success Manager or the [MoEngage support team](https://help.moengage.com/hc/en-us/articles/19708702327572-Raise-a-Support-Ticket-Through-MoEngage-Dashboard) for support with this integration.
 
 ## Considerations
 
-Keep these things in mind when sending events to [MoEngage](https://www.moengage.com/?utm_source=linkedin&utm_medium=social&utm_content=profile):
+Keep these things in mind when sending events to [MoEngage](https://www.moengage.com/):
 
 - You must enable this integration in each Amplitude project you want to use it in.
 - You need a MoEngage account to enable this integration.
