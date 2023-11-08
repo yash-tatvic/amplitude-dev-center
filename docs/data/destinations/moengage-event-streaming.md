@@ -3,7 +3,7 @@ title: MoEngage Event Streaming
 description: Send Amplitude events to MoEngage
 ---
 
-[MoEngage](https://www.linkedin.com/company/moengage/) is an insights-led customer engagement platform for the customer-obsessed marketers and product owners. We help you delight your customers and retain them for longer. With MoEngage you can analyze customer behavior and engage them with personalized communication across the web, mobile, and email. MoEngage is a full-stack solution consisting of powerful customer analytics, AI-powered customer journey orchestration, and personalization.
+[MoEngage](https://www.linkedin.com/company/moengage/) is an insights-led customer engagement platform for the customer-obsessed marketers and product owners. With MoEngage you can analyze customer behavior and engage them with personalized communication across the web, mobile, and email. MoEngage is a full-stack solution consisting of powerful customer analytics, AI-powered customer journey orchestration, and personalization.
 
 !!!info "This integration is managed by MoEngage"
 
