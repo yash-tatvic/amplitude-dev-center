@@ -3,7 +3,7 @@ title: Planhat Event Streaming
 description: Stream Amplitude events to Planhat.
 ---
 
-[Planhat](https://www.planhat.com/) is a customer platform built to give insights, manage workflow and drive customer experience. Planhat is helping hundreds of modern technology companies worldwide center their business around their customers in order to maximize customer success and customer lifetime value. 
+[Planhat](https://www.planhat.com/) is a customer platform built to give insights, manage workflow and drive customer experience. Planhat helps hundreds of modern technology companies center their business around their customers to maximize customer success and customer lifetime value. 
 
 !!!info "This integration is maintained by Planhat"
 
