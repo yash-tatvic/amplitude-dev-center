@@ -506,20 +506,18 @@ The `amplitude_ids` key contains these fields:
 
 ## Delete a User from a deletion job
 
-Removes the specified Amplitude ID ID from a deletion job.
+Removes the specified Amplitude ID from a deletion job.
 
 `/api/2/deletions/users/AMPLITUDE_ID/YYYY-MM-DD`
 
 ### Example request
 
-=== "cURL"
-
-    ```bash
-    curl -X DELETE \
-      'https://amplitude.com/api/2/deletions/users/AMPLITUDE_ID/JOB_START_DAY' \
-        -H 'Content-Type: application/json' \
-      -u API_KEY:API_SECRET
-    }'
+```bash
+curl -X DELETE \
+  'https://amplitude.com/api/2/deletions/users/AMPLITUDE_ID/JOB_START_DAY' \
+    -H 'Content-Type: application/json' \
+  -u API_KEY:API_SECRET
+}'
 
 ### Path variables
 
