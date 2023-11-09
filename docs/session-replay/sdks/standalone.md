@@ -2,7 +2,7 @@
 title: Session Replay Standalone SDK
 ---
  
-This article covers the installation of Session Replay using the standalone SDK. If you use a provider other than Amplitude for in-product analytics, choose this option. If your site is already instrumented with Amplitude, you can use the [Session Replay Browser SDK Plugin](/docs/session-replay/sdks/plugin).
+This article covers the installation of Session Replay using the standalone SDK. If you use a provider other than Amplitude for in-product analytics, choose this option. If your site is already instrumented with Amplitude, use the [Session Replay Browser SDK Plugin](/docs/session-replay/sdks/plugin).
 
 ## Before you begin
 
@@ -232,4 +232,4 @@ In general, replays should be available within minutes of ingestion. Delays or e
 - Mismatching API keys or Device IDs. This can happen if Session Replay and standard event instrumentation use different API keys or Device IDs.
 - Session Replay references the wrong project.
 - Short sessions. If a users bounces within a few seconds of initialization, the SDK may not have time to upload replay data.
-- Page instrumentation. If Session Replay isn't implemented on all pages
+- Page instrumentation. If Session Replay isn't implemented on all pages...
