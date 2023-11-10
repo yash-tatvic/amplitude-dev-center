@@ -194,3 +194,78 @@ This is a basic request with only the required parameters. Remember that you can
         **Result**
 
         The users "63629@hmail.com" and "12345@hmail.com" are unmapped from any global user IDs they're mapped to. 
+
+## Get existing user mappings 
+
+Get the list of mappings that involve the provided user ids. 
+NOTE: This is a different url, https://amplitude.com/api/2/usermap, than the map and unmap endpoints above. 
+
+### Query parameters
+
+|<div class="big-column">Name</div>|Description|
+|----|-----------|
+|`api_key`| Required. String. an API Key for any project in your organization.|
+|`secret_key`| Required. String. an API Secret Key for any project in your organization.|
+|`user_ids`| Required. A list of user ids. Minimum 1 user id, maximum 100 user ids in a single request. |
+
+
+=== "python" 
+```python
+    user_ids = ["<REPLACE ME WITH LIST OF USER IDS>"]
+
+    request_data = {
+        "user_ids": user_ids,
+    }
+    url = 'https://amplitude.com/api/2/usermap'
+
+    API_KEY = "REPLACE_ME"
+    SECRET_KEY = "REPLACE_ME"
+    result = requests.get(url, auth=HTTPBasicAuth(API_KEY, SECRET_KEY), data=request_data)
+    if result.status_code != 200:
+        raise AssertionError(
+            "Request failed. Error: code - %s, text - %s" % (result.status_code, result.text))
+    else:
+        print(result.json())
+```
+
+### Response
+
+The response for a POST request contains these fields:
+
+| <div class="big-column">Name</div> | Description                                                                                               |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `user id`                          | A user id in the request list.                                                                            |
+| `mappings`                         | The mappings associated with this user id. See next section. If the user is not found, this will be empty |
+
+The `mappings` key contains these fields:
+
+| <div class="big-column">Name</div> | Description                                                                                                                    |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `amplitude_id`                     | The Amplitude ID of the requested user                                                                                         |
+| `mapped_from`                      | A list of objects that map into the requested user. {"amplitude_id": 1234, "user_id": "mappedUser"}                            |
+| `mapped_to`                        | A list of objects that the requested user maps into {"amplitude_id": 1234, "user_id": "globalUser"}                            |
+
+```json
+ {
+    "user1":
+        {
+           "mapped_from": [{
+               "amplitude_id": 1234567,
+               "user_id": "user3"
+           }],
+           "mapped_to": [{
+               "amplitude_id": 1234567,
+               "user_id": "user2"
+           }]
+         },
+    "user2":
+        {
+           "mapped_from": [{
+               "amplitude_id": 9988676,
+               "user_id": "user1"
+           }],
+           "mapped_to": []
+         }
+}
+ 
+```
