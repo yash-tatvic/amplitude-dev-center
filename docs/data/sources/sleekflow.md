@@ -32,7 +32,7 @@ Sleekflow's integration sends events from Sleekflow to Amplitude.
 8. Under **Add action**, select "Send webhook".
 9. Click **Publish rule**.
 10. In the blank, fill in: https://sleekflow-amplitude-f375paklaq-uc.a.run.app/receive-message?apiKey={api_key}.
-11. Repeat steps 2-8, whereas in step 4, instead of selecting **Incoming Messages**, select **Outgoing Messages**.
+11. Repeat steps 2-8. In step 4, select **Outgoing Messages**.
 12. In the same blank as step 9, fill in: https://sleekflow-amplitude-f375paklaq-uc.a.run.app/send-message?apiKey={api_key}.
 13. Click **Publish rule**.
 
