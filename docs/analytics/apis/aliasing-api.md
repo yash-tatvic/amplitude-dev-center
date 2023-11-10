@@ -198,7 +198,8 @@ This is a basic request with only the required parameters. Remember that you can
 ## Get existing user mappings 
 
 Get the list of mappings that involve the provided user ids. 
-NOTE: This is a different url, https://amplitude.com/api/2/usermap, than the map and unmap endpoints above. 
+!!! info
+    User mappings uses a different URL than the map and unmap endpoints above, `https://amplitude.com/api/2/usermap`.
 
 ### Query parameters
 
