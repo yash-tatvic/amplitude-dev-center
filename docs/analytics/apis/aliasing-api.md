@@ -208,7 +208,6 @@ NOTE: This is a different url, https://amplitude.com/api/2/usermap, than the map
 |`secret_key`| Required. String. an API Secret Key for any project in your organization.|
 |`user_ids`| Required. A list of user ids. Minimum 1 user id, maximum 100 user ids in a single request. |
 
-
 === "python" 
 ```python
     user_ids = ["<REPLACE ME WITH LIST OF USER IDS>"]
