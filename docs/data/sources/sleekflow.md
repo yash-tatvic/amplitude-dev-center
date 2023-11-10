@@ -23,7 +23,7 @@ Sleekflow's integration sends events from Sleekflow to Amplitude.
 ## Setup
 
 1. In Sleekflow, click on the **Automation** tab.
-2. Click on **Create new rule**.
+2. Click **Create new rule**.
 3. Click **Customized a rule**.
 4. Click on **Incoming messages**.
 5. Under **Conditions**, click on **Add condition**, and select **Phone Number**.
