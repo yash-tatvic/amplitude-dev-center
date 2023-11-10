@@ -38,6 +38,6 @@ Sleekflow's integration sends events from Sleekflow to Amplitude.
 
 ## Use cases
 
-1. **User Behavior Analysis:** You can track how users engage with your brand or business through different messaging platforms. This includes monitoring when users open messages, click on links, make inquiries, or complete transactions. This data helps you understand user behavior and preferences.
+1. **User Behavior Analysis:** Track how users engage with your brand or business through different messaging platforms. Monitor when users open messages, click links, make inquiries, or complete transactions. This data helps you understand user behavior and preferences.
 2. **Conversion Tracking:** By sending events related to conversions (e.g., completing a purchase, signing up for a newsletter, or requesting more information) to Amplitude, you can measure the effectiveness of your messaging campaigns on different platforms. This information can help you optimize your marketing strategies.
 3. **User Segmentation:** Amplitude allows you to create user segments based on specific actions and behaviors. You can use Sleekflow's event data to create custom segments of users who have interacted with your business in particular ways on different channels. This segmentation can be used for targeted messaging and marketing efforts.
