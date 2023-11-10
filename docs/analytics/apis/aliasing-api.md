@@ -210,6 +210,7 @@ Get the list of mappings that involve the provided user ids.
 |`user_ids`| Required. A list of user ids. Minimum 1 user id, maximum 100 user ids in a single request. |
 
 === "python" 
+
 ```python
     user_ids = ["<REPLACE ME WITH LIST OF USER IDS>"]
 
