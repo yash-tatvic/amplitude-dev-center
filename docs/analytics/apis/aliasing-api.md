@@ -235,7 +235,7 @@ The response for a POST request contains these fields:
 | <div class="big-column">Name</div> | Description                                                                                               |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | `user id`                          | A user id in the request list.                                                                            |
-| `mappings`                         | The mappings associated with this user id. See next section. If the user is not found, this will be empty |
+| `mappings`                         | The mappings associated with this user id. See next section.  Empty if the requested user isn't found     |
 
 The `mappings` key contains these fields:
 
