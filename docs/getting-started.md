@@ -3,7 +3,7 @@ title: Getting Started with Amplitude
 description: Read this guide to understand the basics of getting started with Amplitude instrumentation.
 ---
 
-This article is for developers, and complements the getting started content in[Amplitude Help Center](https://help.amplitude.com/hc/en-us/categories/16796426958235-Start-Here), which walks through the Amplitude data structure and explains which data you should send to Amplitude.
+This article is for developers, and complements the getting started content in [Amplitude Help Center](https://help.amplitude.com/hc/en-us/categories/16796426958235-Start-Here), which walks through the Amplitude data structure and explains which data you should send to Amplitude.
 
 In this article, find technical best practices for getting up and running with Amplitude.
 
