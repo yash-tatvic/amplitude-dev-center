@@ -2,7 +2,7 @@
 title: Session Replay Standalone SDK
 ---
  
-This article covers the installation of Session Replay using the standalone SDK. If you use a provider other than Amplitude for in-product analytics, choose this option. If your site is already instrumented with Amplitude, use the [Session Replay Browser SDK Plugin](/docs/session-replay/sdks/plugin).
+This article covers the installation of Session Replay using the standalone SDK. If you use a provider other than Amplitude for in-product analytics, choose this option. If your site is already instrumented with Amplitude, use the [Session Replay Browser SDK Plugin](/session-replay/sdks/plugin).
 
 ## Before you begin
 

@@ -2,7 +2,7 @@
 title: Session Replay Browser SDK Plugin
 ---
 
-This article covers the installation of Session Replay using the Browser SDK plugin. If your site is already instrumented with Amplitude, use this option. If you use a provider other than Amplitude for in-product analytics, choose the [standalone implementation](/docs/session-replay/sdks/standalone).
+This article covers the installation of Session Replay using the Browser SDK plugin. If your site is already instrumented with Amplitude, use this option. If you use a provider other than Amplitude for in-product analytics, choose the [standalone implementation](/session-replay/sdks/standalone).
 
 ## Before you begin
 
@@ -208,3 +208,38 @@ Keep the following limitations in mind as you implement Session Replay:
     - Lottie animations
     - `<iframe>` elements from a different origin
     - Assets that require authentication, like fonts, CSS, or images
+
+## Troubleshooting
+
+### Session replays don't appear in Amplitude 
+
+Session replays may not appear in Amplitude due to:
+
+- Content security policy
+- Blocked JavaScript
+- Sampling
+
+#### Content security policy
+
+When you add the Session Replay script to your site, visit a page on which the Session Replay SDK is running, and open your browser's developer tools.
+
+Check for any error messages in the JavaScript console that contain the text `Content Security Policy`. For example, `Refused to connect to 'https://api-secure.amplitude.com/sessions/track' because it violates the document's Content Security Policy`.
+
+To resolve this error, update your site's content security policy to allow connection to Amplitude's APIs.
+
+#### Blocked JavaScript
+
+Browser extensions or network security policy may block the Session Replay SDK. Check your browser's developer tools to see if requests fail, and if so, add an exception for the blocked domains.
+
+#### Sampling
+
+As mentioned above, the default `sampleRate` for Session Replay is `0`. Update the rate to a higher number. For more information see, [Sampling rate](#sampling-rate).
+
+### Session Replay processing errors
+
+In general, replays should be available within minutes of ingestion. Delays or errors may be the result of one or more of the following:
+
+- Mismatching API keys or Device IDs. This can happen if Session Replay and standard event instrumentation use different API keys or Device IDs.
+- Session Replay references the wrong project.
+- Short sessions. If a users bounces within a few seconds of initialization, the SDK may not have time to upload replay data.
+- Page instrumentation. If Session Replay isn't implemented on all pages...
