@@ -1,3 +1,210 @@
 ---
 title: Session Replay Browser SDK Plugin
 ---
+
+This article covers the installation of Session Replay using the Browser SDK plugin. If your site is already instrumented with Amplitude, use this option. If you use a provider other than Amplitude for in-product analytics, choose the [standalone implementation](/docs/session-replay/sdks/standalone).
+
+## Before you begin
+
+For best results, use the latest version of the Session Replay standalone SDK. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/plugin-session-replay-browser/CHANGELOG.md) on GitHub.
+
+Session Replay requires that:
+
+1. Your application is JavaScript-based.
+2. You track sessions with a timestamp, which you can pass to the SDK. You inform the SDK whenever a session timestamp changes.
+3. You can provide a device ID to the SDK.
+
+## Quickstart
+
+Install the standalone SDK with yarn or npm.
+
+=== "npm"
+
+    ```bash
+    npm install @amplitude/plugin-session-replay-browser --save
+    ```
+
+=== "yarn"
+
+    ```bash
+    yarn add @amplitude/plugin-session-replay-browser
+    ```
+
+Configure your application code.
+
+```js
+import * as amplitude from '@amplitude/analytics-browser';
+import { sessionReplayPlugin } from '@amplitude/plugin-session-replay-browser';
+
+// Your existing initialization logic with Browser SDK
+amplitude.init(API_KEY);
+
+// Create and Install Session Replay Plugin
+const sessionReplayTracking = sessionReplayPlugin();
+amplitude.add(sessionReplayTracking);
+```
+
+You can also add the code directly to the `<head>` of your site.
+
+```html
+<script src="https://cdn.amplitude.com/libs/analytics-browser-2.1.3-min.js.gz"></script>
+<script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-0.6.13-min.js.gz"></script>
+<script>
+window.amplitude.init(API_KEY)
+const sessionReplayTracking = window.sessionReplay.plugin();
+window.amplitude.add(sessionReplayTracking);
+</script>
+```
+
+## Configuration
+
+Pass the following option when you initialize the Session Replay plugin:
+
+| Name              | Type      | Required | Default         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------- | --------- | -------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sampleRate`      | `number`  | No       | `0`             | Use this option to control how many sessions to select for replay collection. <br></br>The number should be a decimal between 0 and 1, for example `0.4`, representing the fraction of sessions to have randomly selected for replay collection. Over a large number of sessions, `0.4` would select `40%` of those sessions. |
+
+### Track default session events
+
+Session replay requires that you configure default session event tracking. This ensures that Session Replay captures Session Start and Session End events. If you didn't capture these events before you implement Session Replay, expect an increase in event volume. For more information about session tracking, see [Browser SDK 2.0 | Tracking Sessions](/data/sdks/browser-2/#tracking-sessions).
+
+=== "SDK Configuration"
+
+    Use the Browser SDK configuration to implicitly enable session tracking.
+
+    ```js 
+    amplitude.init(API_KEY, USER, {
+        defaultTracking: {
+            sessions: true
+        }
+    });
+    ```
+
+=== "Plugin Configuration"
+
+    Disable all default tracking by the Browser SDK. In this case, the plugin enables default session tracking.
+
+    ```js
+    amplitude.init(API_KEY, USER, {
+        defaultTracking: false
+    });
+    ```
+
+### Mask on-screen data
+
+The Session Replay SDK offers three ways to mask user input, text, and other HTML elements.
+
+| Element           | Description                                                                                                                                                                                                                                               |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<input>`         | Session Replay masks all text input fields by default. When a users enters text into an input field, Session Replay records asterisks in place of text. To *unmask* a text input, add the class `.amp-unmask`. For example: `<input class="amp-unmask">`. |
+| text              | To mask text within non-input elements, add the class `.amp-mask`. For example, `<p class="amp-mask">Text</p>`. When masked, Session Replay records masked text as a series of asterisks.                                                                 |
+| non-text elements | To block a non-text element, add the class `.amp-block`. For example, `<div class="amp-block"></div>`. Session Replay replaces blocked elements with a placeholder of the same dimensions.                                                                |
+
+### User opt-out
+
+Session Replay provides an option for opt-out configuration. This prevents Amplitude from collecting session replays when passed as part of initialization. For example:
+
+```js
+// Pass a boolean value to indicate a users opt-out status
+await sessionReplay.init(AMPLITUDE_API_KEY, {
+  optOut: true,
+}).promise;
+```
+
+### EU data residency
+
+Session Replay is available to Amplitude Customers who use the EU data center. Set the `serverZone` configuration option to `EU` during initialization. For example:
+
+```js
+// For European users, set the serverZone to "EU" 
+await sessionReplay.init(AMPLITUDE_API_KEY, {
+  serverZone: "EU",
+}).promise;
+```
+
+### Sampling rate
+
+ By default, Session Replay captures 0% of sessions for replay. Use the `sampleRate` configuration option to set the percentage of total sessions that Session Replay captures. For example:
+
+```js
+// This configuration samples 40% of all sessions
+await sessionReplay.init(AMPLITUDE_API_KEY, {
+  sampleRate: 0.4
+}).promise;
+```
+
+To set the `sampleRate` consider the monthly quota on your Session Replay plan. For example, if your monthly quota is 2,500,000 sessions, and you average 3,000,000 monthly visitors, your quota is 83% of your average visitors. In this case, to ensure sampling lasts through the month, set `sampleRate` to `.83` or lower.
+
+### Disable replay collection
+
+Once enabled, Session Replay runs on your site until either:
+
+- The user leaves your site
+- You call `sessionReplay.shutdown()`
+
+Call `sessionReplay.shutdown()` before a user navigates to a restricted area of your site to disable replay collection while the user is in that area. 
+
+Call `sessionReplay.init(API_KEY, {...options})` to re-enable replay collection when the return to an unrestricted area of your site.
+
+You can also use a feature flag product like Amplitude Experiment to create logic that enables or disables replay collection based on criteria like location. For example, you can create a feature flag that targets a specific user group, and add that to your initialization logic:
+
+```javascript
+import * as sessionReplay from "@amplitude/session-replay-browser";
+
+// Your existing initialization logic with Browser SDK
+amplitude.init(API_KEY);
+
+if (nonEUCountryFlagEnabled) {
+  // Create and Install Session Replay Plugin
+  const sessionReplayTracking = sessionReplayPlugin();
+  amplitude.add(sessionReplayTracking);
+}
+```
+
+## Data retention, deletion, and privacy
+
+Session replay uses existing Amplitude tools and APIs to handle privacy and deletion requests.
+
+### Retention period
+
+By default, Amplitude retains raw replay data for 90 days from the date of ingestion. If your use case requires a more strict policy, Amplitude can set the value to 30 days by request.
+
+### DSAR API
+
+The Amplitude [DSAR API](/analytics/apis/ccpa-dsar-api/) returns metadata about session replays, but not the raw replay data. All events that are part of a session replay include a `[Amplitude] Session Recorded` event property. This event provides information about the sessions collected for replay for the user, and includes all metadata collected with each event.
+
+```json
+{
+  "amplitude_id": 123456789,
+  "app": 12345,
+  "event_time": "2020-02-15 01:00:00.123456",
+  "event_type": "first_event",
+  "server_upload_time": "2020-02-18 01:00:00.234567",
+  "device_id": "your device id",
+  "user_properties": { ... }
+  "event_properties": {
+    "[Amplitude] Session Recorded": true
+  }
+  "session_id": 1691076645125,
+}
+```
+
+### Data deletion
+
+Session Replay uses Amplitude's [User Privacy API](/analytics/apis/user-privacy-api/) to handle deletion requests. Successful deletion requests remove all session replays for the specified user.
+
+When you delete the Amplitude project on which you use Session Replay, Amplitude deletes that replay data.
+
+## Known limitations
+
+Keep the following limitations in mind as you implement Session Replay:
+
+- The User Sessions chart doesn't show session replays if your organization uses a custom session definition.
+- Session Replay can't capture the following HTML elements:
+
+    - Canvas
+    - WebGL
+    - `<object>` tags, other than `<object type="image">`
+    - Lottie animations
+    - `<iframe>` elements from a different origin
+    - Assets that require authentication, like fonts, CSS, or images
