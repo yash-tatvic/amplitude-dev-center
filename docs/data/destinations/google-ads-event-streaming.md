@@ -9,7 +9,7 @@ Amplitude Data's Google Ads integration enables you to stream your Amplitude eve
 ## Considerations
 
 - You must enable this integration in each Amplitude project you want to use it in.
-- Amplitude sends custom events using Amplitude event_type as event name.
+- Amplitude sends custom events using Amplitude `event_type` as event name.
 
 ## Setup
 
@@ -17,9 +17,9 @@ Amplitude Data's Google Ads integration enables you to stream your Amplitude eve
 
 To set up event streaming to Google Ads, you need the following:
 
-- A `Google Ads Customer ID`
-- A `Google Ads Conversion Action ID`
-- A `Google Cloud Service Account`
+- A Google Ads Customer ID
+- A Google Ads Conversion Action ID
+- A [Google Cloud Service Account](https://cloud.google.com/iam/docs/service-accounts-create)
 
 ### Amplitude setup
 
