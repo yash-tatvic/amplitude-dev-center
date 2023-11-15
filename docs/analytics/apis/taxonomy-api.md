@@ -30,7 +30,7 @@ For example, if a workspace has:
 * Production environment associated with Project A
 * Development environment associated with Project B
 
-Project A’s key and secret key must be used. Taxonomy API requests with Project B’s key and secret key will fail with `403 Forbidden` error.
+Project A’s key and secret key must be used. Taxonomy API requests with Project B’s key and secret key fail with `403 Forbidden` error.
 
 ## Endpoints
 
@@ -41,10 +41,10 @@ Project A’s key and secret key must be used. Taxonomy API requests with Projec
 
 ## Considerations
 
-- You may have to URL encode special characters in the names of event types, event properties, and user properties.
+* You may have to URL encode special characters in the names of event types, event properties, and user properties.
  For example, encode `Play Song` as `Play%20Song`. Use the [W3Schools](http://www.w3schools.com/tags/ref_urlencode.asp) encoding reference.
-- In responses, custom user properties have a `gp:` prefix. For example, `gp:my_custom_property`.
-- You must plan events or properties in the schema before you can delete them via this API.
+* In responses, custom user properties have a `gp:` prefix. For example, `gp:my_custom_property`.
+* You must plan events or properties in the schema before you can delete them via this API.
 
 ## Limits
 
@@ -54,15 +54,15 @@ For each endpoint, there is a concurrent and a rate limit.
 
 The endpoints use a  cost per query model. Here are the max costs per API Key:
 
-- **Concurrent Cost Limit:** You can run queries that collectively add up to 4 cost at the same time.
-- **Period Cost Limit:** You can run up to 7200 cost per hour.
+* **Concurrent Cost Limit:** You can run queries that collectively add up to 4 cost at the same time.
+* **Period Cost Limit:** You can run up to 7200 cost per hour.
 
 Cost structure of each endpoint:
 
-- GET: 1 cost
-- PUT: 2 cost
-- POST: 2 cost
-- DELETE: 2 cost
+* GET: 1 cost
+* PUT: 2 cost
+* POST: 2 cost
+* DELETE: 2 cost
 
 ## Event category
 
@@ -978,7 +978,7 @@ This is a basic request with only the required parameters.
 |`regex`| <span class="optional">Optional</span>. String. Available with Govern Add-on. Regular expression, custom regex used for pattern matching or more complex values. For example, property zip code must have pattern `[0-9]{5}`|
 |`enum_values`|<span class="optional">Optional</span>. String. Available with Govern Add-on. List of allowed values.|
 |`is_array_type`|<span class="optional">Optional</span>. Boolean. Available with Govern Add-on.|
-|`is_required`|<span class="optional">Optional</span>. Boolean. Available with Govern Add-on. Marks the property as required. When `true`, events that are missing this property are flagged on the Taxonomy page in the web app.|
+|`is_required`|<span class="optional">Optional</span>. Boolean. Available with Govern Add-on. Marks the property as required. When `true`, Amplitude flags events that are missing this property on the Taxonomy page in the web app.|
 
 #### Response
 
@@ -1198,7 +1198,7 @@ A successful request returns a  `200 OK` status and a JSON body containing infor
 
 ##### 400 Bad Request
 
-If Amplitude can't find the event property, or the request is configured incorrectly, it returns a `400 Bad Request` response and an error message.
+If Amplitude can't find the event property, or you configure the request incorrectly, it returns a `400 Bad Request` response and an error message.
 
 ```json
 {
@@ -1828,7 +1828,7 @@ A successful request returns a `200 OK` response and a JSON message.
 }
 ```
 
-##### 409 Conflict
+##### 409 conflict
 
 A failed request returns a `409 Bad Request` status and an error message.
 
