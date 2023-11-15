@@ -68,4 +68,4 @@ Guide to getting started with Amplitude Analytics.
 ## More resources
 
 - *Help Center*: [Amplitude Analytics](https://help.amplitude.com/hc/en-us/categories/360006505092-Amplitude-Analytics)
-- *API Examples*: [Postman Collection](https://www.postman.com/amplitude/workspace/amplitude-developers/collection/20044411-a8a06899-34c5-4d6d-908f-9f70ba5bbdf9)
+- *API Examples*: [Postman Collection](https://www.postman.com/amplitude-dev-docs/)
