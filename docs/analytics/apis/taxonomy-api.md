@@ -9,7 +9,7 @@ The Taxonomy API lets you create, get, update, and delete categories, event type
 You can edit planned events and properties, and not events and properties that already have data in the project.
 
 !!!warning "Getting Access"
-    Customers who intend on using the Taxonomy API should reach out to their Customer Service Manager or Amplitude Support team.
+    The Taxonomy API requires your account to be on the Enterprise plan, or have the Govern add on enabled.
 
 --8<-- "includes/postman-interactive.md"
 
