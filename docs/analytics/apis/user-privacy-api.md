@@ -306,6 +306,7 @@ The response for a POST request contains these fields:
 | `status`                           | The status of the deletion job.                                                     |
 | `amplitude_ids` and `user_ids`     | List of the Amplitude IDs to delete.                                                |
 | `app`                              | The project or app ID. Included when the deletion request is for multiple projects. |
+| `active_scrub_done_date`           | The date that the scrub has completed, and the data is no longer accessible. After this point, the system waits 5 days for any backups to be automatically cleared. The status will change to 'done' only when the backups are removed.                                                            |
 
 The `amplitude_ids` key contains these fields:
 
