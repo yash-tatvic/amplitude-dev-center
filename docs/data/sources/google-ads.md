@@ -22,10 +22,10 @@ To set up, you need the following:
 
 ### Considerations
 
-- This source only imports **metrics data** from Google Ads. Hence, you can not import other types of data (e.g., experiments).
-- Amplitude's Google Ads integration imports data from Google Ads **once a day**, so you will always see your Daily Ad Metrics populated at a certain time. You can check the time of the next sync in the settings.
-- The advertising data you import will be associated with the new Amplitude event called `Daily Ad Metrics` with several event properties, such as `Ad Impressions`, `Ad Clicks`, `Ad Group ID`, etc. For more information, see [Ad-Network Integrations in Amplitude](https://amplitude.com/blog/ad-network-integration)
-- Google Ads import pulls in data and clicks on a **per-ad** level. Hence, the advertising metrics and properties are not tied to users and can only be displayed along with the `Display Ad Metrics` event. Therefore, `Daily Ads Metric` events might be the only event showing up in your users' event stream.
+- This source imports **metrics data** from Google Ads. It doesn't import other types of data, like experiments.
+- Amplitude's Google Ads integration imports data from Google Ads **once a day**, so your Daily Ad Metrics populates all at once. Check the time of the next sync in the settings.
+- The advertising data you import is associated with a new Amplitude event called `Daily Ad Metrics`. This event has several event properties, like `Ad Impressions`, `Ad Clicks`, and `Ad Group ID`. For more information, see [Ad-Network Integrations in Amplitude](https://amplitude.com/blog/ad-network-integration)
+- Google Ads import pulls data and clicks on a **per-ad** level. The advertising metrics and properties aren't tied to users and display along with the `Display Ad Metrics` event. Therefore, `Daily Ads Metric` events might be the only event showing up in your users' event stream.
 
 ### Amplitude setup
 
@@ -52,13 +52,12 @@ For more information, see [About access levels in your Google Ads Account](https
 
 ### Import job ingests no data 
 
-1. Check if you reject unplanned events in your [Schema settings](https://help.amplitude.com/hc/en-us/articles/360055495852-Configure-the-Schema-settings-to-handle-unexpected-data). If you reject unplanned data - Amplitude will not store the event or its properties.
-You can learn more about handling unplanned event types in this article.
-2. Do your users have corresponding accounts in Amplitude and Google Ads? Google Ads import will try to match users between platforms based on the key-value pairs you selected, so your import job will fail if it does not find any corresponding values.
+1. Check if you reject unplanned events in your [Schema settings](https://help.amplitude.com/hc/en-us/articles/360055495852-Configure-the-Schema-settings-to-handle-unexpected-data). If you reject unplanned data,  Amplitude doesn't store the event or its properties.
+2. Do your users have corresponding accounts in Amplitude and Google Ads? Google Ads import tries to match users between platforms based on the key-value pairs you selected. If your import job doesn't find any corresponding values, it fails.
 
-### Daily Ad Metric discrepancies 
+### Daily ad metric discrepancies 
 
-Your metrics may occasionally update days after a click occurs. This can happen for a number of reasons, including but not limited to:
+Your metrics may occasionally update days after a click occurs. This can happen for many  reasons, including but not limited to:
 - When a conversion occurs days after the initial click
 - When the source detects and removes invalid traffic
 Hence, if Google updates the data afterward - the import job will have to run again to get the updated numbers.
