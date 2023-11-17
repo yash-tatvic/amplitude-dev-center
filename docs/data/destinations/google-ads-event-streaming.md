@@ -52,7 +52,7 @@ The final step is enabling the destination. You must enable the destination to s
 
 ### Stuck at the authentication step
 
-If you see `ERR_BLOCKED_BY_CLIENT` in your browser's console, ensure that your ad blocker is disabled, clear your browser's cache and cookies, and try to add the connection again.
+If you see `ERR_BLOCKED_BY_CLIENT` in your browser's console, disable your ad blocker, clear your browser's cache and cookies, and try to add the connection again.
 
 ### "Error: Invalid Customer ID"
 
@@ -62,6 +62,6 @@ Keep in mind, **Manager Account Customer ID** is different from the **Customer I
 ### Insufficient permissions
 
 Amplitude's Google Ads Event Streaming integration requires that your Google Ads Manager account has administrator privileges. This level of permission allows Amplitude to add and remove users from specific user lists in Google Ads.
-In the case of Google Ads, we add and remove users from a specific user list. As such, we need appropriate permissions to create and delete Google Ads account data.
+For Google Ads, Amplitude adds and removes users from a specific user list. As a result, Amplitude needs appropriate permissions to create and delete Google Ads account data.
 For more information, see [About access levels in your Google Ads Account
 ](https://support.google.com/google-ads/answer/9978556) in Google's documentation. 
