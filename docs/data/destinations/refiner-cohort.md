@@ -5,7 +5,7 @@ description: Sync cohorts from Amplitude to Refiner
 
 !!!tip
 
-    This integration is maintained by ABsmartly. Contact the ABsmartly support team for support with this integration. 
+    This integration is maintained by Refiner. Contact the Refiner support team for support with this integration. 
 
 [Refiner](https://refiner.io/) Refiner serves as a user feedback and customer survey solution designed specifically for data-driven SaaS teams. It enables these teams to gain a more profound understanding of their users' needs, gauge customer satisfaction, enhance retention rates, and conduct research to inform their future product development strategies.
 
