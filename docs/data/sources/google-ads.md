@@ -58,6 +58,7 @@ For more information, see [About access levels in your Google Ads Account](https
 ### Daily ad metric discrepancies 
 
 Your metrics may occasionally update days after a click occurs. This can happen for many  reasons, including but not limited to:
+
 - When a conversion occurs days after the initial click
 - When the source detects and removes invalid traffic
 Hence, if Google updates the data afterward - the import job will have to run again to get the updated numbers.
