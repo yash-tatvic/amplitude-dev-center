@@ -52,8 +52,8 @@ For more information, see [About access levels in your Google Ads Account](https
 
 ### Import job ingests no data 
 
-1. Check if you reject unplanned events in your [Schema settings](https://help.amplitude.com/hc/en-us/articles/360055495852-Configure-the-Schema-settings-to-handle-unexpected-data). If you reject unplanned data,  Amplitude doesn't store the event or its properties.
-2. Do your users have corresponding accounts in Amplitude and Google Ads? Google Ads import tries to match users between platforms based on the key-value pairs you selected. If your import job doesn't find any corresponding values, it fails.
+- Unplanned data: check if you reject unplanned events in your [Schema settings](https://help.amplitude.com/hc/en-us/articles/360055495852-Configure-the-Schema-settings-to-handle-unexpected-data). If you reject unplanned data,  Amplitude doesn't store the event or its properties.
+- Matching users: check if your users have corresponding accounts in Amplitude and Google Ads. Google Ads import tries to match users between platforms based on the key-value pairs you selected. If your import job doesn't find any corresponding values, it fails.
 
 ### Daily ad metric discrepancies 
 
