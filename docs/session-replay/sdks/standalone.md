@@ -4,6 +4,13 @@ title: Session Replay Standalone SDK
  
 This article covers the installation of Session Replay using the standalone SDK. If you use a provider other than Amplitude for in-product analytics, choose this option. If your site is already instrumented with Amplitude, use the [Session Replay Browser SDK Plugin](/session-replay/sdks/plugin).
 
+!!! info "Session Replay and performance"
+    Amplitude built Session Replay to minimize impact on the performance of web pages on which it's installed by:
+
+    - Asynchronously capturing and processing replay data, to avoid blocking the main user interface thread.
+    - Using batching and lightweight compression to reduce the number of network connections and bandwidth.
+    - Optimizing libraries for performance.
+
 ## Before you begin
 
 For best results, use the latest version of the Session Replay standalone SDK. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/session-replay-browser/CHANGELOG.md) on GitHub.
@@ -298,7 +305,7 @@ SegmentAnalytics.addSourceMiddleware(({ payload, next, integrations }) => {
 
 ### Amplitude Classic destination (Device-mode)
 
-This version of the Amplitude destination installs the Amplitude Javascript SDK (5.2.2) on the client, and sends events directly to `api.amplitude.com`.
+This version of the Amplitude destination installs the Amplitude JavaScript SDK (5.2.2) on the client, and sends events directly to `api.amplitude.com`.
 
 The Device-mode integration tracks sessions by default, since it includes the amplitude-js SDK. The included SDK version (5.2.2) doesn't include an event for session changes. As a result, use Segment's middleware to update Session Replay when the session ID changes.
 

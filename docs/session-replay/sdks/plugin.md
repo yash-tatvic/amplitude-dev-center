@@ -4,6 +4,13 @@ title: Session Replay Browser SDK Plugin
 
 This article covers the installation of Session Replay using the Browser SDK plugin. If your site is already instrumented with Amplitude, use this option. If you use a provider other than Amplitude for in-product analytics, choose the [standalone implementation](/session-replay/sdks/standalone).
 
+!!! info "Session Replay and performance"
+    Amplitude built Session Replay to minimize impact on the performance of web pages on which it's installed by:
+
+    - Asynchronously capturing and processing replay data, to avoid blocking the main user interface thread.
+    - Using batching and lightweight compression to reduce the number of network connections and bandwidth.
+    - Optimizing libraries for performance.
+
 ## Before you begin
 
 For best results, use the latest version of the Session Replay standalone SDK. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/plugin-session-replay-browser/CHANGELOG.md) on GitHub.
