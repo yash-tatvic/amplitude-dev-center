@@ -3,7 +3,7 @@ title: Send Cohorts to Refiner
 description: Sync cohorts from Amplitude to Refiner
 ---
 
-!!!beta
+!!!tip
 
     This integration is maintained by ABsmartly. Contact the ABsmartly support team for support with this integration. 
 
