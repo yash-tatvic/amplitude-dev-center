@@ -29,7 +29,7 @@ description: Sync cohorts from Amplitude to Refiner
 3. Click **Add another destination**.
 4. Enter **API Key** and **Segment ID**.
 5. Map the Amplitude User_ID field to the Refiner User_ID field. 
-7. Save when finished.
+6. Save when finished.
 
 ## Send a cohort
 
