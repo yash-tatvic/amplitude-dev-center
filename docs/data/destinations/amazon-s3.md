@@ -237,4 +237,3 @@ Less restricting access scope for your destination S3 bucket through (current st
 #### Will it be possible to roll back to the previous bucket policy?
 
 No. Once the old S3 export connection is removed, it will no longer be possible to set up S3 export with the AWS account root principal as a trustee in the bucket policy.
-
