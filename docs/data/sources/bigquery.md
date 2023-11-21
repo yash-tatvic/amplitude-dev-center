@@ -88,7 +88,7 @@ You must include the mandatory fields for the data type when creating the SQL qu
 | `user_properties` | No | JSON | {"city":"chicago", "gender":"female"} |
 | `update_time_column` | No (Yes if using time based import) | TIMESTAMP | 2013-04-05 01:02:03.000 |
 
-Other supported fields can be found in [HTTP V2 API documentation](/analytics/apis/http-v2-api/#upload-request-headers).
+Find other supported fields in the [HTTP V2 API documentation](/analytics/apis/http-v2-api/#upload-request-headers).
 
 ### User properties
 
