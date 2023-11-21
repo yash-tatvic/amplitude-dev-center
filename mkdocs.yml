@@ -245,8 +245,6 @@ nav:
           - Leanplum: data/sources/leanplum.md
           - Mailchimp: data/sources/mailchimp.md
           - MoEngage: data/sources/moengage.md
-        - Marketplace:
-          - Shopify: data/sources/shopify.md
         - Other:
           - Datazoom: data/sources/datazoom.md
           - Kochava: data/sources/kochava.md
