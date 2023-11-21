@@ -98,7 +98,7 @@ Find other supported fields in the [HTTP V2 API documentation](/analytics/apis/h
 | `user_properties` | Yes | JSON | {"city":"chicago", "gender":"female"} |
 | `update_time_column` | No (Yes if using time based import) | TIMESTAMP | 2013-04-05 01:02:03.000 |
 
-Other supported fields can be found in [Identify API documentation](/analytics/apis/identify-api/#identification-parameter-keys).
+Find other supported fields in the [Identify API documentation](/analytics/apis/identify-api/#identification-parameter-keys).
 
 ### Group properties
 
