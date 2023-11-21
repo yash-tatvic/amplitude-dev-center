@@ -71,7 +71,7 @@ The body parameter is required. It's the deletion request object listing the `us
 
     ```bash
     curl --location --request POST 'https://amplitude.com/api/2/deletions/users' \
-    -U 'API_Key:SECRET_Key' \ 
+    -U 'API_KEY:SECRET_KEY' \ 
     --header 'Content-Type: application/json' \
     --data-raw '{
         "amplitude_ids": [
@@ -94,9 +94,8 @@ The body parameter is required. It's the deletion request object listing the `us
     ```bash
     POST /api/2/deletions/users HTTP/1.1
     Host: amplitude.com
-    Authorization: Basic API_Key:SECRET_KEY
+    Authorization: Basic API_KEY:SECRET_KEY
     Content-Type: application/json
-    Content-Length: 238
 
     {
         "amplitude_ids": [
@@ -548,9 +547,10 @@ A successful request returns a response with this schema:
 
 ## Status codes
 
-| Code | Message     |
-| ---- | ----------- |
-| 200  | Success     |
-| 400  | Bad Request |
+| Code | Message      |
+| ---- | ------------ |
+| 200  | Success      |
+| 400  | Bad Request  |
+| 401  | Unauthorized |
 
 --8<-- "includes/abbreviations.md"
