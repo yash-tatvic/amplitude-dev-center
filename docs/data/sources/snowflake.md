@@ -102,7 +102,7 @@ Other supported fields can be found in [HTTP V2 API documentation](/analytics/ap
 | `user_properties`               | Yes                                 | VARIANT (JSON Object) | {"city":"chicago", "gender":"female"} |
 | `update_time_column`            | No (Yes if using time based import) | TIMESTAMP_NTZ         | 2013-04-05 01:02:03.000               |
 
-Other supported fields can be found in [Identify API documentation](/analytics/apis/identify-api/#identification-parameter-keys).
+Find other supported fields in the [Identify API documentation](/analytics/apis/identify-api/#identification-parameter-keys).
 
 <!--vale on-->
 ### Group properties
