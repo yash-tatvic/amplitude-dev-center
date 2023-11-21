@@ -16,7 +16,7 @@ Amplitude provides a plugin for use with Amplitude's Browser SDK and a standalon
 
     Use this Plugin if you instrumented your web app with [Amplitude's Browser SDK 2](/data/sdks/browser-2/).
 
-    [:octicons-arrow-right-24: Plugin SDK](/session-replay/sdks/plugin/)
+    [:octicons-arrow-right-24: Plugin](/session-replay/sdks/plugin/)
 
 - :fontawesome-solid-gear:{ .lg .middle } __Standalone SDK__
 
