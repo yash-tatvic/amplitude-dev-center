@@ -42,7 +42,6 @@
 - :salesforce: [Salesforce](../data/sources/salesforce-group.md)
 - :segment: [Segment](../data/sources/segment.md)
 - :sendgrid: [SendGrid](../data/sources/sendgrid.md)
-- :shopify: [Shopify](../data/sources/shopify.md)
 - :singular: [Singular](../data/sources/singular.md)
 - :split: [Split](../data/sources/split.md)
 - :sprig: [Sprig](../data/sources/sprig.md)
