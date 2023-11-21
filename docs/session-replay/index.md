@@ -24,4 +24,4 @@ Amplitude provides a plugin SDK for use with Amplitude's Browser SDK and a stand
 
     Use this SDK if you instrumented your web app third-party analytics, like Segment.
 
-    [:octicons-arrow-right-24: Plugin SDK](/session-replay/sdks/standalone/)
+    [:octicons-arrow-right-24: Standalone SDK](/session-replay/sdks/standalone/)
