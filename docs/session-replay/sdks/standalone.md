@@ -162,7 +162,7 @@ By default, Amplitude retains raw replay data for 90 days from the date of inges
 
 ### DSAR API
 
-The Amplitude [DSAR API](/analytics/apis/ccpa-dsar-api/) returns metadata about session replays, but not the raw replay data. All events that are part of a session replay include a `[Amplitude] Session Recorded` event property. This event provides information about the sessions collected for replay for the user, and includes all metadata collected with each event.
+The Amplitude [DSAR API](/analytics/apis/ccpa-dsar-api/) returns metadata about session replays, but not the raw replay data. All events that are part of a session replay include a `[Amplitude] Session Replay ID` event property. This event provides information about the sessions collected for replay for the user, and includes all metadata collected with each event.
 
 ```json
 {
@@ -291,7 +291,7 @@ segmentAnalytics.addSourceMiddleware(({ payload, next, integrations }) => {
 
 // Add middleware to always add session replay properties to track calls
 SegmentAnalytics.addSourceMiddleware(({ payload, next, integrations }) => {
-  const sessionReplayProperties = sessionReplay.getSessionRecordingProperties();
+  const sessionReplayProperties = sessionReplay.getSessionReplayProperties();
   if (payload.type() === "track") {
     payload.obj.properties = {
       ...payload.obj.properties,
@@ -351,7 +351,7 @@ SegmentAnalytics.addSourceMiddleware(({ payload, next, integrations }) => {
 
 // Add middleware to always add session replay properties to track calls
 SegmentAnalytics.addSourceMiddleware(({ payload, next, integrations }) => {
-  const sessionReplayProperties = sessionReplay.getSessionRecordingProperties();
+  const sessionReplayProperties = sessionReplay.getSessionReplayProperties();
   if (payload.type() === "track") {
     payload.obj.properties = {
       ...payload.obj.properties,
