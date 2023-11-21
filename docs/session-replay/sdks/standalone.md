@@ -174,9 +174,9 @@ The Amplitude [DSAR API](/analytics/apis/ccpa-dsar-api/) returns metadata about 
   "device_id": "your device id",
   "user_properties": { ... }
   "event_properties": {
-    "[Amplitude] Session Recorded": true
+    "[Amplitude] Session Replay ID": "cb6ade06-cbdf-4e0c-8156-32c2863379d6/1699922971244"
   }
-  "session_id": 1691076645125,
+  "session_id": 1699922971244,
 }
 ```
 
