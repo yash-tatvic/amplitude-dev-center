@@ -6,15 +6,15 @@ This page provides links to documentation that explains how to instrument Sessio
 
 ## SDKs
 
-Amplitude provides a plugin SDK for use with Amplitude's Browser SDK and a standalone SDK for use with third-party analytics providers.
+Amplitude provides a plugin for use with Amplitude's Browser SDK and a standalone SDK for use with third-party analytics providers.
 
 <div class="grid cards" markdown>
 
-- :material-power-plug:{ .lg .middle } __Plugin SDK__
+- :material-power-plug:{ .lg .middle } __Plugin__
 
     ---
 
-    Use this SDK if you instrumented your web app with [Amplitude's Browser SDK 2](/data/sdks/browser-2/).
+    Use this Plugin if you instrumented your web app with [Amplitude's Browser SDK 2](/data/sdks/browser-2/).
 
     [:octicons-arrow-right-24: Plugin SDK](/session-replay/sdks/plugin/)
 
