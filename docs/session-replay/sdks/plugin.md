@@ -220,6 +220,20 @@ Keep the following limitations in mind as you implement Session Replay:
     - `<iframe>` elements from a different origin
     - Assets that require authentication, like fonts, CSS, or images
 
+### Multiple Amplitude instances
+
+Session Replay supports attaching to a single instance of the Amplitude SDK. If you have more than one instance instrumented in your application, make sure to start Session Replay on the instance that most relates to your project.
+
+```html
+<script>
+  const sessionReplayTracking = window.sessionReplay.plugin();
+  const instance = window.amplitude.createInstance();
+  instance.add(sessionReplayTracking);
+  instance.init(API_KEY);
+<script>
+
+```
+
 ## Troubleshooting
 
 ### Session replays don't appear in Amplitude 
