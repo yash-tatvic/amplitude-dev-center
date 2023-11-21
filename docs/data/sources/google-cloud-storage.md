@@ -97,6 +97,8 @@ After you have all the fields needed for the transformation, you can save it. Yo
 
 Although Amplitude needs certain fields to bring data in, it also supports extra fields which you can include by clicking the “Add Mapping” button. Here, Amplitude supports 4 kinds of mappings: Event properties, User Properties, Group Properties and Additional Properties. 
 
+All supported fields can be found in [HTTP V2 API documentation](/analytics/apis/http-v2-api/#keys-for-the-event-argument) (events) and [Identify API documentation](/analytics/apis/identify-api/#identification-parameter-keys) (user properties). Any column not in the list should be added to either `event_properties` or `user_properties`, otherwise it will get ignored. 
+
 After you have added all the fields you wish to bring into Amplitude, you can view samples of this configuration in the Data Preview section. Data Preview automatically updates as you include or remove fields and properties. In Data Preview, you can look at a few sample records based on the source records along with how that data is imported into Amplitude. This ensures that you are bringing in all the data points you need into Amplitude. You can look at 10 different sample source records and their corresponding Amplitude events.
 
 ![Screenshot of a converter preview](../../assets/images/converter-preview.png)

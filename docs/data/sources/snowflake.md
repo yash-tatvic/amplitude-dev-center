@@ -78,7 +78,7 @@ For Amplitude's time-based import option, it's best practice to use a monotonica
 
 ## Data fields
 
-You must include the mandatory fields for the data type when creating the SQL query. These tables outline the mandatory and optional fields for each data type. You can include other columns beyond those listed here.
+You must include the mandatory fields for the data type when creating the SQL query. These tables outline the mandatory and optional fields for each data type. Other supported fields can be found in [HTTP V2 API documentation](/analytics/apis/http-v2-api/#keys-for-the-event-argument) (events) and [Identify API documentation](/analytics/apis/identify-api/#identification-parameter-keys) (user properties). Any column not in the list should be added to either `event_properties` or `user_properties`, otherwise it will get ignored.
 
 ### Events
 <!-- vale off-->
@@ -92,6 +92,8 @@ You must include the mandatory fields for the data type when creating the SQL qu
 | `user_properties`               | No                                  | VARIANT (JSON Object)                | {"city":"chicago", "gender":"female"}         |
 | `update_time_column`            | No (Yes if using time based import) | TIMESTAMP_NTZ                        | 2013-04-05 01:02:03.000                       |
 
+Other supported fields can be found in [HTTP V2 API documentation](/analytics/apis/http-v2-api/#upload-request-headers).
+
 ### User properties
 
 | Column name (must be lowercase) | Mandatory                           | Column data type      | Example                               |
@@ -99,6 +101,9 @@ You must include the mandatory fields for the data type when creating the SQL qu
 | `user_id`                       | Yes                                 | VARCHAR               | datamonster@gmail.com                 |
 | `user_properties`               | Yes                                 | VARIANT (JSON Object) | {"city":"chicago", "gender":"female"} |
 | `update_time_column`            | No (Yes if using time based import) | TIMESTAMP_NTZ         | 2013-04-05 01:02:03.000               |
+
+Other supported fields can be found in [Identify API documentation](/analytics/apis/identify-api/#identification-parameter-keys).
+
 <!--vale on-->
 ### Group properties
 
@@ -108,7 +113,7 @@ You must include the mandatory fields for the data type when creating the SQL qu
 | `group_properties`              | Yes                                 | VARIANT (JSON Object) | {"location":"seattle", "active":"true"}                |
 | `update_time_column`            | No (Yes if using time based import) | TIMESTAMP_NTZ         | 2013-04-05 01:02:03.000                                |
 
-Each group property in `group_properties` would apply to every group in `groups`
+Each group property in `group_properties` would apply to every group in `groups`.
 
 ### Profile properties
 
