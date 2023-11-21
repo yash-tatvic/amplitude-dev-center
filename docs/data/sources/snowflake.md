@@ -78,7 +78,7 @@ For Amplitude's time-based import option, it's best practice to use a monotonica
 
 ## Data fields
 
-You must include the mandatory fields for the data type when creating the SQL query. These tables outline the mandatory and optional fields for each data type. Other supported fields can be found in [HTTP V2 API documentation](/analytics/apis/http-v2-api/#keys-for-the-event-argument) (events) and [Identify API documentation](/analytics/apis/identify-api/#identification-parameter-keys) (user properties). Any column not in the list should be added to either `event_properties` or `user_properties`, otherwise it will get ignored.
+Include the mandatory fields for the data type when you create the SQL query. These tables outline the mandatory and optional fields for each data type. Find a list of other supported fields for events in the [HTTP V2 API documentation](/analytics/apis/http-v2-api/#keys-for-the-event-argument) and  for user properties in the [Identify API documentation](/analytics/apis/identify-api/#identification-parameter-keys). Add any columns not in those lists to either `event_properties` or `user_properties`, otherwise it's ignored. 
 
 ### Events
 <!-- vale off-->
