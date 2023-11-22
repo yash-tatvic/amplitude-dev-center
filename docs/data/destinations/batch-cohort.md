@@ -49,6 +49,6 @@ When the Cohort is syncs to Batch, it appears in the “Audiences” tab of the 
 
 ### Use cases
 
-1. **Targeted Campaigns:** By syncing specific user cohorts from Amplitude, which segments users based on their behavior or attributes, to Batch, companies can create highly targeted push  or In-App campaigns. For example, a cohort of users who have abandoned their shopping carts could be targeted with a notification offering a discount to encourage completion of the purchase.
+- **Targeted Campaigns:** When you sync specific user cohorts from Amplitude to Batch, you can target those users more directly in push or In-App campaigns. For example, target a cohort of users who have abandoned their shopping carts with a notification that offers a discount to encourage completion of the purchase.
 - **User Retention:** Identify cohorts of users who haven't engaged with the app or website for a set period in Amplitude and sync them to Batch. Re-engage these users with personalized content or updates relevant to their previous interactions, aiming to bring them back to the app or website.
 - **Product Feedback and Updates:** For users who engage with certain features of an app or service (a cohort identified in Amplitude), syncing this information to Batch allows for sending specific notifications about updates, improvements, or requests for feedback on those features, ensuring that you reach the most relevant users.
