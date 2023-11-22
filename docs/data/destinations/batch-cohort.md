@@ -30,7 +30,7 @@ description: Sync cohorts from Amplitude to Batch
 2. In the Cohort section, click **Batch**.
 3. Click **Add another destination**.
 4. Enter a **Name** and paste in the **API key** you copied from Batch.
-5. Map the Amplitude User ID field to the Batch User ID field
+5. Map the Amplitude `user_id` field to the Batch `user_id` field.
 6. Save when finished.
 
 ## Send a cohort
