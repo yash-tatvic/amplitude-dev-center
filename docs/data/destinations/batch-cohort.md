@@ -15,7 +15,7 @@ description: Sync cohorts from Amplitude to Batch
 - You must enable this integration in each Amplitude project you want to use it in.
 - This integration requires a paid Batch plan.
 - The integration requires both custom audiences and third-party connections in Batch.
-- Batch expects an identifier that matches the Batch Custom User ID field. This means the User_ID or user property you select in Amplitude must contain the same identifier as the one tracked in Batch.
+- Batch expects an identifier that matches the Batch Custom User ID field. This means the `user_id` or user property you select in Amplitude must contain the same identifier as the one tracked in Batch.
 
 ## Setup
 
