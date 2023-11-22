@@ -35,7 +35,7 @@ description: Sync cohorts from Amplitude to Batch
 
 ## Send a cohort
 
-To sync your first cohort, follow these steps:
+To sync your first cohort:
 
 1. In Amplitude, open the cohort you want to sync, then click **Sync**.
 2. Select **Batch**, then click **Next**.
