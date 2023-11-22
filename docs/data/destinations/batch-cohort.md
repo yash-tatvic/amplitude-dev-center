@@ -22,7 +22,7 @@ description: Sync cohorts from Amplitude to Batch
 ### Batch setup
 
 1. In Batch, navigate to Settings > General.
-2. Copy the API Key ("Live API Key" for mobile or "SDK API Key" for web) of the application you want to use Amplitude’s Cohorts in as well as your account's REST API Key.
+2. Copy the API Key ("Live API Key" for mobile or "SDK API Key" for web) of the application in which you want to use Amplitude’s Cohorts, and your account's REST API Key.
 
 ### Amplitude setup
 
