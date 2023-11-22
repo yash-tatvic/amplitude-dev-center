@@ -11,7 +11,7 @@ description: Sync cohorts from Amplitude to Batch
 
 ## Considerations
 
-- This integration is only available for customers who have paid plans with Amplitude.
+- This integration is available for customers who have paid plans with Amplitude.
 - You must enable this integration in each Amplitude project you want to use it in.
 - You will also need to have a paid Batch plan to enable this integration.
 - You will need to have custom audiences enabled as well as third-party connections on your Batch account.
