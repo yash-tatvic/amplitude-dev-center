@@ -159,6 +159,8 @@ IDFV
 idfv
 IMEI
 incrementality
+InMobi
+inmobi
 Inet
 Infobip
 infobip
