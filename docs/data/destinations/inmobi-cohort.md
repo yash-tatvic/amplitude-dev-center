@@ -49,7 +49,7 @@ To sync your first cohort:
 1. In Amplitude, open the cohort you want to sync, then click **Sync**.
 2. Select **Amazon S3**, then click **Next**.
 3. Select the S3 location. This is what you named the bucket when setting up the integration.
-4.(Optional). Set the following two optional parameters:
+4. (Optional). Set the following two optional parameters:
    - **Routing Key:** Enter a string to be appended to the end of the cohort file name in S3. We recommend using your advertiser_id.
    - **User Property**: Here, you can append a user property to each user exported in this cohort. The user property appears as a column in the exported CSV file.
 5. Choose a sync cadence.
