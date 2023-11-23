@@ -45,7 +45,7 @@ To sync your first cohort:
 
 ## Locating your cohort in Batch
 
-When the Cohort is syncs to Batch, it appears in the “Audiences” tab of the dashboard. Select it in the targeting section of the campaign editor to use it in a Push or In-App campaign. This is useful if you want to include or exclude a segment of users from your campaign.
+When the Cohort is synced to Batch, it appears in the “Audiences” tab of the dashboard. Select it in the targeting section of the campaign editor to use it in a Push or In-App campaign. This is useful if you want to include or exclude a segment of users from your campaign.
 
 ### Use cases
 
