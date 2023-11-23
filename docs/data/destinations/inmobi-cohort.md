@@ -35,6 +35,7 @@ description: Sync cohorts from Amplitude to InMobi
 6. Click **Copy Bucket Policy**.
 
 ### Amazon S3 setup¶
+
 1. In the Amazon S3 console, go to the S3 bucket and navigate to **Permissions** → **Bucket Policy**.
 2. Paste the Amplitude bucket policy into the Amazon S3 console.
 3. Optionally, you can also set the following two parameters for your buckets:
