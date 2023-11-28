@@ -121,7 +121,6 @@ To disable automatic exports, open the integration and click **Manage**. You can
 | `uuid`                               | UUID      | A unique identifier per row (event sent). Example: bf0b9b2a-304d-11e6-934f-22000b56058f                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `version_name`                       | string    | The app version. Example: 1.0.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
-
 ### Raw event file and data format
 
 Data is exported hourly as zipped archive JSON files, and partitioned by the hour with one or multiple files per hour. Each file contains one event JSON object per line.
