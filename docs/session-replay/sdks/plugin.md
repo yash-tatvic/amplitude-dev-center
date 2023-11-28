@@ -142,6 +142,12 @@ await sessionReplay.init(AMPLITUDE_API_KEY, {
 
 To set the `sampleRate` consider the monthly quota on your Session Replay plan. For example, if your monthly quota is 2,500,000 sessions, and you average 3,000,000 monthly visitors, your quota is 83% of your average visitors. In this case, to ensure sampling lasts through the month, set `sampleRate` to `.83` or lower.
 
+Keep the following in mind as you consider your sample rate:
+
+- When you reach your monthly session quote, Amplitude stops capturing sessions for replay.
+- Session quotas reset on the first of every month.
+- Use sample rate to distribute your session quota over the course of a month, rather than using your full quote at the beginning of the month.
+
 ### Disable replay collection
 
 Once enabled, Session Replay runs on your site until either:
@@ -156,7 +162,7 @@ Call `sessionReplay.init(API_KEY, {...options})` to re-enable replay collection 
 You can also use a feature flag product like Amplitude Experiment to create logic that enables or disables replay collection based on criteria like location. For example, you can create a feature flag that targets a specific user group, and add that to your initialization logic:
 
 ```javascript
-import * as sessionReplay from "@amplitude/session-replay-browser";
+import { sessionReplayPlugin } from '@amplitude/plugin-session-replay-browser';
 
 // Your existing initialization logic with Browser SDK
 amplitude.init(API_KEY);
@@ -274,4 +280,4 @@ In general, replays should be available within minutes of ingestion. Delays or e
 - Mismatching API keys or Device IDs. This can happen if Session Replay and standard event instrumentation use different API keys or Device IDs.
 - Session Replay references the wrong project.
 - Short sessions. If a users bounces within a few seconds of initialization, the SDK may not have time to upload replay data.
-- Page instrumentation. If Session Replay isn't implemented on all pages...
+- Page instrumentation. If Session Replay isn't implemented on all pages a user visits, their session may not capture properly

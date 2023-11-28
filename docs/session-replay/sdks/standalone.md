@@ -124,7 +124,13 @@ await sessionReplay.init(AMPLITUDE_API_KEY, {
 }).promise;
 ```
 
-To set the `sampleRate` consider the monthly quota on your Session Replay plan. For example, if your monthly quota is 2,500,000 sessions, and you average 3,000,000 monthly visitors, your quota is 83% of your average visitors. In this case, to ensure sampling lasts through the month, set `sampleRate` to `.83` or lower.
+To set the `sampleRate` consider the monthly quota on your Session Replay plan. For example, if your monthly quota is 2,500,000 sessions, and you average 3,000,000 monthly sessions, your quota is 83% of your average sessions. In this case, to ensure sampling lasts through the month, set `sampleRate` to `.83` or lower.
+
+Keep the following in mind as you consider your sample rate:
+
+- When you reach your monthly session quote, Amplitude stops capturing sessions for replay.
+- Session quotas reset on the first of every month.
+- Use sample rate to distribute your session quota over the course of a month, rather than using your full quote at the beginning of the month.
 
 ### Disable replay collection
 
@@ -140,14 +146,14 @@ Call `sessionReplay.init(API_KEY, {...options})` to re-enable replay collection 
 You can also use a feature flag product like Amplitude Experiment to create logic that enables or disables replay collection based on criteria like location. For example, you can create a feature flag that targets a specific user group, and add that to your initialization logic:
 
 ```javascript
-import * as sessionReplay from "@amplitude/session-replay-browser";
+import { sessionReplayPlugin } from '@amplitude/plugin-session-replay-browser';
 
 // Your existing initialization logic with Browser SDK
 amplitude.init(API_KEY);
 
 if (nonEUCountryFlagEnabled) {
-  // Create and Install Session Replay
-  const sessionReplayTracking = sessionReplay();
+  // Create and Install Session Replay Plugin
+  const sessionReplayTracking = sessionReplayPlugin();
   amplitude.add(sessionReplayTracking);
 }
 ```
@@ -206,7 +212,7 @@ Keep the following limitations in mind as you implement Session Replay:
 
     - Canvas
     - WebGL
-    - `<object>` tags, other than `<object type="image">`
+    - `<object>` tags including plugins like Flash, Silverlight, or Java. Session replay supports `<object type="image">`
     - Lottie animations
     - `<iframe>` elements from a different origin
     - Assets that require authentication, like fonts, CSS, or images
@@ -257,13 +263,13 @@ In general, replays should be available within minutes of ingestion. Delays or e
 - Mismatching API keys or Device IDs. This can happen if Session Replay and standard event instrumentation use different API keys or Device IDs.
 - Session Replay references the wrong project.
 - Short sessions. If a users bounces within a few seconds of initialization, the SDK may not have time to upload replay data.
-- Page instrumentation. If Session Replay isn't implemented on all pages...
+- Page instrumentation. If Session Replay isn't implemented on all pages a user visits, their session may not capture properly
 
 ## Use Session Replay with Segment analytics
 
 Session Replay supports other analytics providers. Follow the information below to add Session Replay to an existing Segment-instrumented site.
 
-- [Amplitide (Actions)](#amplitude-actions-destination)
+- [Amplitude (Actions)](#amplitude-actions-destination)
 - Amplitude Classic (Cloud-mode)
 - Amplitude Classic (Device-mode)
 
