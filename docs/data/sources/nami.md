@@ -9,13 +9,13 @@ description: Nami provides a complete solution for in-app purchases and subscrip
 
 ## About Nami
 
-[Nami](https://Nami.com/) is a platform to help you launch, scale, and optimize your mobile app business. Nami provides a complete solution for in-app purchases and subscriptions including designing no-code paywalls, campaigns to convert and retain your customers, subscription management tools, and real-time revenue analytics. 
+[Nami](https://www.namiml.com/) is a platform to help you launch, scale, and optimize your mobile app business. Nami provides a complete solution for in-app purchases and subscriptions including designing no-code paywalls, campaigns to convert and retain your customers, subscription management tools, and real-time revenue analytics. 
 
 ## Considerations
 
 - You must enable this integration in each Amplitude project you want to use it in.
 - You need a paid plan with Nami to enable this integration.
-- Make sure that you indentify users in Nami using the same user identifier you use in Amplitude. If the user IDs don’t match, Amplitude can't match and merge survey response data with product use data of the same user.
+- Make sure that you identify users in Nami using the same user identifier you use in Amplitude. If the user IDs don’t match, Amplitude can't match and merge survey response data with product use data of the same user.
 
 ## Amplitude setup
 
@@ -23,7 +23,7 @@ description: Nami provides a complete solution for in-app purchases and subscrip
 
 ## Nami setup
 
-1. Log into your Nami.io dashboard.
+1. Log into your Nami.ml dashboard.
 2. Navigate to Integrations and click **Connect to Amplitude**.
 3. Paste your Amplitude API Key.
 4. Choose which events you want to receive.
