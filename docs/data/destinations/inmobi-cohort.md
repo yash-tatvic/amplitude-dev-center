@@ -23,7 +23,6 @@ description: Sync cohorts from Amplitude to InMobi
 
 1. Contact your InMobi CSM team for the following Amazon S3 details as you need this when setting up your Amazon S3 cohort destination in Amplitude.
    - **Bucket Name:** An Amazon bucket name refers to the unique name assigned to a storage container in Amazon.
-   - **Bucket Path:** The "Bucket Path" typically refers to the directory structure or folder hierarchy within a specific S3 bucket
    - **Bucket Region:** The Amazon Bucket Region refers to the geographic location where the Amazon Simple Storage Service (S3) bucket is hosted. 
 
 ### Amplitude setup
