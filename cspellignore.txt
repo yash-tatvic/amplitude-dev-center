@@ -35,6 +35,8 @@ Backgrounded
 backgrounded
 Backoff
 backoff
+Batch
+batch
 Bento
 bento
 Bento’s
