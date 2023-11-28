@@ -33,6 +33,7 @@
 - :metarouter: [MetaRouter](../data/sources/metarouter.md)
 - :moengage: [MoEngage](../data/sources/moengage.md)
 - :mparticle: [mParticle](../data/sources/mparticle.md)
+- :nami: [Nami](../data/sources/nami.md)
 - :onesignal: [OneSignal](../data/sources/onesignal.md)
 - :optimizely: [Optimizely](../data/sources/optimizely.md)
 - :qualtrics-xm: [Qualtrics](../data/sources/qualtrics.md)

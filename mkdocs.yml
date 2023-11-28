@@ -264,6 +264,7 @@ nav:
           - Adapty: data/sources/adapty.md
           - Apphud: data/sources/apphud.md
           - RevenueCat: data/sources/revenuecat.md
+          - Nami: data/sources/nami.md
         - Website:
           - Convizit: data/sources/convizit.md
     - Destinations:

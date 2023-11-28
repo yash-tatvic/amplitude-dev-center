@@ -210,6 +210,8 @@ mparticle
 msclkid
 Mxii
 myusername
+Nami
+nami
 Nationale
 Netcore
 netcore
