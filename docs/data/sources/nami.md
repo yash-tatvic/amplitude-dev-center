@@ -28,7 +28,7 @@ description: Nami provides a complete solution for in-app purchases and subscrip
 3. Paste your Amplitude API Key.
 4. Choose which events you want to receive.
 
-## Use Cases
+## Use cases
 
 Specific use cases include:
 
