@@ -15,7 +15,7 @@ description: Nami provides a complete solution for in-app purchases and subscrip
 
 - You must enable this integration in each Amplitude project you want to use it in.
 - You need a paid plan with Nami to enable this integration.
-- Before setting up this integration, please make sure that you are identifying your users in Nami using the same User_Ids that you also use in Amplitude. using the same User_Ids in both solutions. If your user IDs don’t match up, Amplitude won’t be able to match and merge survey response data with product usage data of the same user.
+- Make sure that you indentify users in Nami using the same user identifier you use in Amplitude. If the user IDs don’t match, Amplitude can't match and merge survey response data with product use data of the same user.
 
 ## Amplitude setup
 
