@@ -588,7 +588,7 @@ Retrieves all event types in a project. This request has no required parameters.
 
 !!!note
 
-    Events that are hidden (i.e. that have a visibility of anything other than "Visible") will not appear in the response.
+    Hidden events, those that have a visibility other than "Visible", don't appear in the response.
     
     By default, deleted events will also not be included, but the `showDeleted` query parameter can be optionally added to the endpoint to include them, e.g.:
 
