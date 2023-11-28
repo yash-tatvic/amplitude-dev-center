@@ -13,7 +13,7 @@ This article covers the installation of Session Replay using the Browser SDK plu
 
 ## Before you begin
 
-For best results, use the latest version of the Session Replay standalone SDK. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/plugin-session-replay-browser/CHANGELOG.md) on GitHub.
+Use the latest version of the Session Replay Plugin above version 0.8.1. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/plugin-session-replay-browser/CHANGELOG.md) on GitHub.
 
 Session Replay requires that:
 
@@ -23,7 +23,7 @@ Session Replay requires that:
 
 ## Quickstart
 
-Install the standalone SDK with yarn or npm.
+Install the plugin with yarn or npm.
 
 === "npm"
 

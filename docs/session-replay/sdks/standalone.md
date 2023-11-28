@@ -13,7 +13,7 @@ This article covers the installation of Session Replay using the standalone SDK.
 
 ## Before you begin
 
-For best results, use the latest version of the Session Replay standalone SDK. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/session-replay-browser/CHANGELOG.md) on GitHub.
+Use the latest version of the Session Replay standalone SDK above version 0.5.0. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/session-replay-browser/CHANGELOG.md) on GitHub.
 
 Session Replay requires that:
 
@@ -146,8 +146,8 @@ import * as sessionReplay from "@amplitude/session-replay-browser";
 amplitude.init(API_KEY);
 
 if (nonEUCountryFlagEnabled) {
-  // Create and Install Session Replay Plugin
-  const sessionReplayTracking = sessionReplayPlugin();
+  // Create and Install Session Replay
+  const sessionReplayTracking = sessionReplay();
   amplitude.add(sessionReplayTracking);
 }
 ```
@@ -188,11 +188,18 @@ When you delete the Amplitude project on which you use Session Replay, Amplitude
 
 ## Session Replay storage
 
-Session Replay doesn't set cookies on the user's browser. Instead, it relies on a browser storage option called [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). This option enables continuous replay collection during a session in which the user navigates browser tabs or closes and reopens a tab. The plugin cleans up the data it stores in IndexedDB and shouldn't impact the user's disk space.
+Session Replay doesn't set cookies on the user's browser. Instead, it relies on a browser storage option called [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). This option enables continuous replay collection during a session in which the user navigates browser tabs or closes and reopens a tab. The SDK cleans up the data it stores in IndexedDB and shouldn't impact the user's disk space.
 
 ## Known limitations
 
 Keep the following limitations in mind as you implement Session Replay:
+
+- Session Replay doesn't stitch together replays from a single user across multiple projects. For example:
+  
+    - You instrument your marketing site and web application as separate Amplitude projects with Session Replay enabled in each.
+    - A known user begins on the marketing site, and logs in to the web application.
+    - Amplitude captures both sessions.
+    - The replay for each session is available for view in the host project.
 
 - The User Sessions chart doesn't show session replays if your organization uses a custom session definition.
 - Session Replay can't capture the following HTML elements:
