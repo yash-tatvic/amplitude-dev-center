@@ -289,4 +289,4 @@ In general, replays should be available within minutes of ingestion. Delays or e
 - Mismatching API keys or Device IDs. This can happen if Session Replay and standard event instrumentation use different API keys or Device IDs.
 - Session Replay references the wrong project.
 - Short sessions. If a users bounces within a few seconds of initialization, the SDK may not have time to upload replay data.
-- Page instrumentation. If Session Replay isn't implemented on all pages a user visits, their session may not capture properly
+- Page instrumentation. If Session Replay isn't implemented on all pages a user visits, their session may not capture properly.
