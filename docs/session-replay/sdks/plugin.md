@@ -210,6 +210,10 @@ Session Replay uses Amplitude's [User Privacy API](/analytics/apis/user-privacy-
 
 When you delete the Amplitude project on which you use Session Replay, Amplitude deletes that replay data.
 
+### Bot filter
+
+Session Replay uses the same [block filter](https://help.amplitude.com/hc/en-us/articles/14884769332507-Block-bot-web-traffic) available in the Amplitude app. Session Replay doesn't block traffic based on event or user properties.
+
 ## Session Replay storage
 
 Session Replay doesn't set cookies on the user's browser. Instead, it relies on a browser storage option called [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). This option enables continuous replay collection during a session in which the user navigates browser tabs or closes and reopens a tab. The plugin cleans up the data it stores in IndexedDB and shouldn't impact the user's disk space.
