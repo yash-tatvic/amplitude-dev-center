@@ -4,14 +4,7 @@ title: Session Replay Browser SDK Plugin
 
 This article covers the installation of Session Replay using the Browser SDK plugin. If your site is already instrumented with Amplitude, use this option. If you use a provider other than Amplitude for in-product analytics, choose the [standalone implementation](/session-replay/sdks/standalone).
 
-!!! info "Session Replay and performance"
-    Amplitude built Session Replay to minimize impact on the performance of web pages on which it's installed by:
-
-    - Asynchronously capturing and processing replay data, to avoid blocking the main user interface thread.
-    - Using batching and lightweight compression to reduce the number of network connections and bandwidth.
-    - Optimizing DOM processing.
-
-Session Replay captures changes to a page's Document Object Model (DOM), then replays these changes to build a video-like replay. For example, at the start of a session, Session Replay captures a full snapshot of the page's DOM. As the user interacts with the page, Session Replay captures each change to the DOM as a diff. When you watch the replay of a session, Session Replay applies each diff back to the original DOM in sequential order, to construct the replay. Session replays have no maximum length.
+--8<-- "includes/session-replay/performance.md"
 
 ## Before you begin
 
@@ -22,9 +15,7 @@ The Session Replay Plugin requires that:
 1. Your application is web-based.
 2. You can provide a device ID to the SDK.
 
-### Supported browsers
-
-Session replay supports the same set of browsers as Amplitude's SDKs. For more information, see [Browser Compatibility](https://help.amplitude.com/hc/en-us/articles/360024709711).
+--8<-- "includes/session-replay/browsers.md"
 
 ## Quickstart
 
@@ -102,56 +93,13 @@ Session replay requires that you configure default session event tracking. This 
     });
     ```
 
-### Mask on-screen data
+--8<-- "includes/session-replay/mask-onscreen-data.md"
 
-The Session Replay SDK offers three ways to mask user input, text, and other HTML elements.
+--8<-- "includes/session-replay/user-opt-out.md"
 
-| Element           | Description                                                                                                                                                                                                                                               |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<input>`         | Session Replay masks all text input fields by default. When a users enters text into an input field, Session Replay captures asterisks in place of text. To *unmask* a text input, add the class `.amp-unmask`. For example: `<input class="amp-unmask">`. |
-| text              | To mask text within non-input elements, add the class `.amp-mask`. For example, `<p class="amp-mask">Text</p>`. When masked, Session Replay captures masked text as a series of asterisks.                                                                 |
-| non-text elements | To block a non-text element, add the class `.amp-block`. For example, `<div class="amp-block"></div>`. Session Replay replaces blocked elements with a placeholder of the same dimensions.                                                                |
+--8<-- "includes/session-replay/eu-data-residency.md"
 
-### User opt-out
-
-Session Replay provides an option for opt-out configuration. This prevents Amplitude from collecting session replays when passed as part of initialization. For example:
-
-```js
-// Pass a boolean value to indicate a users opt-out status
-await sessionReplay.init(AMPLITUDE_API_KEY, {
-  optOut: true,
-}).promise;
-```
-
-### EU data residency
-
-Session Replay is available to Amplitude Customers who use the EU data center. Set the `serverZone` configuration option to `EU` during initialization. For example:
-
-```js
-// For European users, set the serverZone to "EU" 
-await sessionReplay.init(AMPLITUDE_API_KEY, {
-  serverZone: "EU",
-}).promise;
-```
-
-### Sampling rate
-
- By default, Session Replay captures 0% of sessions for replay. Use the `sampleRate` configuration option to set the percentage of total sessions that Session Replay captures. For example:
-
-```js
-// This configuration samples 40% of all sessions
-await sessionReplay.init(AMPLITUDE_API_KEY, {
-  sampleRate: 0.4
-}).promise;
-```
-
-To set the `sampleRate` consider the monthly quota on your Session Replay plan. For example, if your monthly quota is 2,500,000 sessions, and you average 3,000,000 monthly sessions, your quota is 83% of your average sessions. In this case, to ensure sampling lasts through the month, set `sampleRate` to `.83` or lower.
-
-Keep the following in mind as you consider your sample rate:
-
-- When you reach your monthly session quote, Amplitude stops capturing sessions for replay.
-- Session quotas reset on the first of every month.
-- Use sample rate to distribute your session quota over the course of a month, rather than using your full quote at the beginning of the month.
+--8<-- "includes/session-replay/sampling-rate.md"
 
 ### Disable replay collection
 
@@ -181,70 +129,11 @@ if (nonEUCountryFlagEnabled) {
 }
 ```
 
-## Data retention, deletion, and privacy
+--8<-- "includes/session-replay/data-retention.md"
 
-Session replay uses existing Amplitude tools and APIs to handle privacy and deletion requests.
+--8<-- "includes/session-replay/replay-storage.md"
 
-### Retention period
-
-By default, Amplitude retains raw replay data for 90 days from the date of ingestion. If your use case requires a more strict policy, Amplitude can set the value to 30 days by request.
-
-Changes to the retention period impact replays ingested after the change. Sessions captured and ingested before a retention period change retain the previous retention period.
-
-### DSAR API
-
-The Amplitude [DSAR API](/analytics/apis/ccpa-dsar-api/) returns metadata about session replays, but not the raw replay data. All events that are part of a session replay include a `[Amplitude] Session Replay ID` event property. This event provides information about the sessions collected for replay for the user, and includes all metadata collected with each event.
-
-```json
-{
-  "amplitude_id": 123456789,
-  "app": 12345,
-  "event_time": "2020-02-15 01:00:00.123456",
-  "event_type": "first_event",
-  "server_upload_time": "2020-02-18 01:00:00.234567",
-  "device_id": "your device id",
-  "user_properties": { ... }
-  "event_properties": {
-    "[Amplitude] Session Replay ID": "cb6ade06-cbdf-4e0c-8156-32c2863379d6/1699922971244"
-  }
-  "session_id": 1699922971244,
-}
-```
-
-### Data deletion
-
-Session Replay uses Amplitude's [User Privacy API](/analytics/apis/user-privacy-api/) to handle deletion requests. Successful deletion requests remove all session replays for the specified user.
-
-When you delete the Amplitude project on which you use Session Replay, Amplitude deletes that replay data.
-
-### Bot filter
-
-Session Replay uses the same [block filter](https://help.amplitude.com/hc/en-us/articles/14884769332507-Block-bot-web-traffic) available in the Amplitude app. Session Replay doesn't block traffic based on event or user properties.
-
-## Session Replay storage
-
-Session Replay doesn't set cookies on the user's browser. Instead, it relies on a browser storage option called [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). This option enables continuous replay collection during a session in which the user navigates browser tabs or closes and reopens a tab. The plugin cleans up the data it stores in IndexedDB and shouldn't impact the user's disk space.
-
-## Known limitations
-
-Keep the following limitations in mind as you implement Session Replay:
-
-- Session Replay doesn't stitch together replays from a single user across multiple projects. For example:
-  
-    - You instrument your marketing site and web application as separate Amplitude projects with Session Replay enabled in each.
-    - A known user begins on the marketing site, and logs in to the web application.
-    - Amplitude captures both sessions.
-    - The replay for each session is available for view in the host project.
-
-- The User Sessions chart doesn't show session replays if your organization uses a custom session definition.
-- Session Replay can't capture the following HTML elements:
-
-    - Canvas
-    - WebGL
-    - `<object>` tags including plugins like Flash, Silverlight, or Java. Session replay supports `<object type="image">`
-    - Lottie animations
-    - `<iframe>` elements from a different origin
-    - Assets that require authentication, like fonts, CSS, or images
+--8<-- "includes/session-replay/known-limitations.md"
 
 ### Multiple Amplitude instances
 
