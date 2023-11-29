@@ -17,7 +17,7 @@ Session Replay captures changes to a page's Document Object Model (DOM), then re
 
 Use the latest version of the Session Replay standalone SDK above version 0.5.0. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/session-replay-browser/CHANGELOG.md) on GitHub.
 
-Session Replay requires that:
+Session Replay Standalone SDK requires that:
 
 1. Your application is web-based.
 2. You track sessions with a timestamp, which you can pass to the SDK. You inform the SDK whenever a session timestamp changes.
