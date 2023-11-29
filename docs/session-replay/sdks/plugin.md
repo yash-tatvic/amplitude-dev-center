@@ -269,6 +269,7 @@ Session replays may not appear in Amplitude due to:
 
 - Content security policy
 - Blocked JavaScript
+- No events triggered through the browser SDK in the current session
 - Sampling
 
 #### Content security policy
@@ -282,6 +283,16 @@ To resolve this error, update your site's content security policy to allow conne
 #### Blocked JavaScript
 
 Browser extensions or network security policy may block the Session Replay SDK. Check your browser's developer tools to see if requests fail, and if so, add an exception for the blocked domains.
+
+#### No events triggered through the browser SDK in the current session
+
+Session Replay requires that at least one event in the user's session has the `[Amplitude] Session Replay ID` property. If you instrument your events with a method other than the [Browser SDK](/data/sdks/browser-2/), the Browser SDK may send only the default Session Start and Session End events, which don't include this property.
+
+For local testing, you can force a Session Start event to ensure that Session Replay functions. 
+
+1. Open your browser's developer tools, and delete any cookie that begins with `AMP_`. 
+2. Close developer tools and refresh the page.
+3. In Amplitude, in the User Lookup Event Stream, you should see a Session Start event that includes the `[Amplitude] Session Replay ID` property. After processing, the Play Session button should appear for that session.
 
 #### Sampling
 
