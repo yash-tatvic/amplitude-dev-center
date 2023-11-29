@@ -19,7 +19,7 @@ Use the latest version of the Session Replay standalone SDK above version 0.5.0.
 
 Session Replay requires that:
 
-1. Your application is JavaScript-based.
+1. Your application is web-based.
 2. You track sessions with a timestamp, which you can pass to the SDK. You inform the SDK whenever a session timestamp changes.
 3. You can provide a device ID to the SDK.
 
