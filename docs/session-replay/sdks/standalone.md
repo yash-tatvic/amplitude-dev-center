@@ -146,15 +146,20 @@ Call `sessionReplay.init(API_KEY, {...options})` to re-enable replay collection 
 You can also use a feature flag product like Amplitude Experiment to create logic that enables or disables replay collection based on criteria like location. For example, you can create a feature flag that targets a specific user group, and add that to your initialization logic:
 
 ```javascript
-import { sessionReplayPlugin } from '@amplitude/plugin-session-replay-browser';
+import * as sessionReplay from "@amplitude/session-replay-browser";
+import 3rdPartyAnalytics from 'example'
 
-// Your existing initialization logic with Browser SDK
-amplitude.init(API_KEY);
+const AMPLITUDE_API_KEY = <...>
+sessionReplay.init(AMPLITUDE_API_KEY, {
+  deviceId: <string>,
+  sessionId: <number>,
+  optOut: <boolean>,
+  sampleRate: <number>
+})
 
 if (nonEUCountryFlagEnabled) {
-  // Create and Install Session Replay Plugin
-  const sessionReplayTracking = sessionReplayPlugin();
-  amplitude.add(sessionReplayTracking);
+  const sessionReplayProperties = sessionReplay.getSessionReplayProperties();
+  3rdPartyAnalytics.track('event', {...eventProperties, ...sessionReplayProperties})
 }
 ```
 
@@ -270,8 +275,8 @@ In general, replays should be available within minutes of ingestion. Delays or e
 Session Replay supports other analytics providers. Follow the information below to add Session Replay to an existing Segment-instrumented site.
 
 - [Amplitude (Actions)](#amplitude-actions-destination)
-- Amplitude Classic (Cloud-mode)
-- Amplitude Classic (Device-mode)
+- [Amplitude Classic (Cloud-mode)](#amplitude-classic-destination-cloud-mode)
+- [Amplitude Classic (Device-mode)](#amplitude-classic-destination-device-mode)
 
 ### Amplitude (Actions) destination
 

@@ -162,14 +162,16 @@ Call `sessionReplay.init(API_KEY, {...options})` to re-enable replay collection 
 You can also use a feature flag product like Amplitude Experiment to create logic that enables or disables replay collection based on criteria like location. For example, you can create a feature flag that targets a specific user group, and add that to your initialization logic:
 
 ```javascript
-import { sessionReplayPlugin } from '@amplitude/plugin-session-replay-browser';
+import { sessionReplayPlugin } from "@amplitude/plugin-session-replay-browser";
 
 // Your existing initialization logic with Browser SDK
 amplitude.init(API_KEY);
 
 if (nonEUCountryFlagEnabled) {
   // Create and Install Session Replay Plugin
-  const sessionReplayTracking = sessionReplayPlugin();
+  const sessionReplayTracking = sessionReplayPlugin({
+    sampleRate: 0.5,
+  });
   amplitude.add(sessionReplayTracking);
 }
 ```

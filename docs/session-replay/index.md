@@ -14,7 +14,7 @@ Amplitude provides a plugin for use with Amplitude's Browser SDK and a standalon
 
     ---
 
-    Use this Plugin if you instrumented your web app with [Amplitude's Browser SDK 2](/data/sdks/browser-2/).
+    Use this Plugin if you instrumented your web app with [Amplitude's Browser SDK 2.0](/data/sdks/browser-2/).
 
     [:octicons-arrow-right-24: Plugin](/session-replay/sdks/plugin/)
 
