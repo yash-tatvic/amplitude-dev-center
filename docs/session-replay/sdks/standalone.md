@@ -23,6 +23,10 @@ Session Replay requires that:
 2. You track sessions with a timestamp, which you can pass to the SDK. You inform the SDK whenever a session timestamp changes.
 3. You can provide a device ID to the SDK.
 
+### Supported browsers
+
+Session replay supports the same set of browsers as Amplitude's SDKs. For more information, see [Browser Compatibility](https://help.amplitude.com/hc/en-us/articles/360024709711).
+
 ## Quickstart
 
 Install the standalone SDK with yarn or npm.
