@@ -8,6 +8,8 @@ By default, Amplitude retains raw replay data for 90 days from the date of inges
 
 Changes to the retention period impact replays ingested after the change. Sessions captured and ingested before a retention period change retain the previous retention period.
 
+Replays that are outside of the retention period aren't viewable in Amplitude.
+
 ### DSAR API
 
 The Amplitude [DSAR API](/analytics/apis/ccpa-dsar-api/) returns metadata about session replays, but not the raw replay data. All events that are part of a session replay include a `[Amplitude] Session Replay ID` event property. This event provides information about the sessions collected for replay for the user, and includes all metadata collected with each event.

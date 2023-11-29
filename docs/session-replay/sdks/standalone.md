@@ -164,6 +164,7 @@ In general, replays should be available within minutes of ingestion. Delays or e
 - Session Replay references the wrong project.
 - Short sessions. If a users bounces within a few seconds of initialization, the SDK may not have time to upload replay data.
 - Page instrumentation. If Session Replay isn't implemented on all pages a user visits, their session may not capture properly.
+- Replays older than the set [retention period](#retention-period) (defaults to 90 days).
 
 ## Use Session Replay with Segment analytics
 
