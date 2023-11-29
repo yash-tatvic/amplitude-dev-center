@@ -140,7 +140,7 @@ await sessionReplay.init(AMPLITUDE_API_KEY, {
 }).promise;
 ```
 
-To set the `sampleRate` consider the monthly quota on your Session Replay plan. For example, if your monthly quota is 2,500,000 sessions, and you average 3,000,000 monthly visitors, your quota is 83% of your average visitors. In this case, to ensure sampling lasts through the month, set `sampleRate` to `.83` or lower.
+To set the `sampleRate` consider the monthly quota on your Session Replay plan. For example, if your monthly quota is 2,500,000 sessions, and you average 3,000,000 monthly sessions, your quota is 83% of your average sessions. In this case, to ensure sampling lasts through the month, set `sampleRate` to `.83` or lower.
 
 Keep the following in mind as you consider your sample rate:
 
