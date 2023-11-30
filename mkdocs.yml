@@ -434,6 +434,12 @@ nav:
           - Flags: experiment/apis/management-api/flags.md
           - Experiments: experiment/apis/management-api/experiments.md
           - Deployments: experiment/apis/management-api/deployments.md
+  - Session Replay:
+      - session-replay/index.md
+      - Overview: session-replay/index.md
+      - SDKs:
+        - Browser SDK Plugin: session-replay/sdks/plugin.md
+        - Standalone SDK: session-replay/sdks/standalone.md
 - Guides:
   - guides/index.md
   - Accounts Guide: guides/accounts-instrumentation-guide.md
