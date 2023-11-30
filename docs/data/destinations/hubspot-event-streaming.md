@@ -3,14 +3,13 @@ title: HubSpot Event Streaming
 description: Send Amplitude events to HubSpot automatically with just a few clicks.
 ---
 
-!!!beta
-
-    This feature is in open beta and is in active development. Contact your Amplitude support team for support with this integration.
-
 [HubSpot](https://www.hubspot.com/) is an easy to use and powerful CRM platform that enables scaling companies to sell, market and provide customer service from a unified UI. 
 
 Amplitude CDP's HubSpot streaming integration enables you to forward your Amplitude events and event properties straight to HubSpot with just a few clicks.
 
+!!!info "This integration is managed by Amplitude"
+
+    Contact the Amplitude support team for support with this integration.
 
 ## Considerations
 
@@ -48,9 +47,11 @@ Keep these things in mind when sending events to HubSpot:
 10. When finished, enable the destination and **Save**.
 
 ## Use custom behavioral event data in HubSpot
+
 - Click here to learn more about how you can [analyze custom behavioral events](https://knowledge.hubspot.com/analytics-tools/analyze-custom-behavioral-events) in HubSpot.
 
 ### View event completions
+
 1. In your HubSpot account, navigate to **Reports > Analytics Tools**.
 2. Click **Custom Behavioral Events**.
 3. Click the **Analyze** tab.
@@ -59,6 +60,7 @@ Keep these things in mind when sending events to HubSpot:
 6. To view more detail for an event, including completions, unique visitors, and the properties associated with the event, click the name of the **event** in the table.
 
 ### Report on custom behavioral events
+
 1. In your HubSpot account, navigate to **Reports > Reports**.
 2. In the upper right, click **Create custom report**.
 3. In the left sidebar, select **Custom Report Builder**.
@@ -67,6 +69,7 @@ Keep these things in mind when sending events to HubSpot:
 6. Continue [building your report](https://knowledge.hubspot.com/reports/create-reports-with-the-custom-report-builder). To specify which event you want to report on, in the left sidebar, click the **Browse** dropdown menu, then select **Custom behavioral events**. Then, under Custom behavioral events, select the **event** you want to report on.
 
 ### Custom behavioral events in workflows
+
 1. In your HubSpot account, navigate to **Automation > Workflows**.
 2. Click the **name** of a workflow. Or, learn how to create a new workflow.
 3. In the workflow editor, click the **+ plus icon** to add a workflow action.
@@ -82,7 +85,7 @@ Keep these things in mind when sending events to HubSpot:
     ![screenshot of the HubSpot workflow](../../assets/images/hubspot-event-streaming-workflow.png)
 
 ## Use cases
+
 1. **Personalized Marketing:** With the ability to track user behavior and capture user and event properties in Amplitude, businesses can create highly personalized and targeted marketing campaigns in HubSpot. This can lead to increased engagement, conversions, and customer loyalty.
 2. **Lead Scoring and Nurturing:** By tracking user behavior and capturing user and event properties in Amplitude, businesses can score and prioritize leads based on their level of engagement and interests. This can help businesses to optimize their lead nurturing efforts and increase their chances of closing deals.
 3. **Customer Retention:** By tracking user behavior and capturing user and event properties in Amplitude, businesses can identify customers who are at risk of churning and take proactive steps to retain them. For instance, businesses can trigger personalized emails or ads to offer discounts or incentives to encourage customers to stay engaged with the product or service.
-

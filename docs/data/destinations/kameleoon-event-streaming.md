@@ -3,11 +3,11 @@ title: Kameleoon Event Streaming
 description: Stream Amplitude events to Kameleoon with just a few clicks.
 ---
 
-!!!beta
-
-    This feature is in open beta and is in active development. Contact the [Kameleoon support team](https://www.kameleoon.com/en/contact) for support with this integration.
-
 [Kameleoon](https://www.kameleoon.com/en) is a modern feature-management and product experimentation platform that helps you to ship faster by providing actionable causal analysis, meaningful data insights, and automatically running 10 times more experiments.
+
+!!!info "This integration is managed by Kameleoon"
+
+    Contact the [Kameleoon support team](https://www.kameleoon.com/en/contact) for support with this integration.
 
 ## Considerations
 

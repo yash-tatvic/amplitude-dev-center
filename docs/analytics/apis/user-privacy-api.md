@@ -61,7 +61,7 @@ The body parameter is required. It's the deletion request object listing the `us
 | `amplitude_ids`                    | Amplitude IDs for the users to delete.                                                                                                                                                                                                                                                                                                                 |
 | `user_ids`                         | User IDs for the users to delete.                                                                                                                                                                                                                                                                                                                      |
 | `requester`                        | The internal user who requested the deletion. This is useful for auditing.                                                                                                                                                                                                                                                                             |
-| `ignore_invalid_id`                | When `true`, the job ignores invalid user IDs. Invalid user IDs are users that don't exist in the project.                                                                                                                                                                                                                                             |
+| `ignore_invalid_id`                | When `true`, the job ignores invalid user IDs. Invalid user IDs are users that don't exist in the project. Defaults to `false`                                                                                                                                                                                                                          |
 | `delete_from_org`                  | Delete user from the entire org instead of a single project. This feature is available in orgs with the Portfolio feature enabled. Requests must be by `user_ids`. Values can be either `True` or `False`. Defaults to `False`.                                                                                                                        |
 | `include_mapped_user_ids`          | When `true`, this parameter returns the valid `user_id` values that correspond to a supplied `amplitude_id`. This only changes the response object. To delete mapped users set with the [User Mapping API](https://www.docs.developers.amplitude.com/analytics/apis/aliasing-api/), include each `user_id` of the mapped user in the `user_ids` array. |
 
@@ -71,7 +71,7 @@ The body parameter is required. It's the deletion request object listing the `us
 
     ```bash
     curl --location --request POST 'https://amplitude.com/api/2/deletions/users' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}} \ # credentials must be base64-encoded
+    -U 'API_KEY:SECRET_KEY' \ 
     --header 'Content-Type: application/json' \
     --data-raw '{
         "amplitude_ids": [
@@ -94,9 +94,8 @@ The body parameter is required. It's the deletion request object listing the `us
     ```bash
     POST /api/2/deletions/users HTTP/1.1
     Host: amplitude.com
-    Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64-encoded
+    Authorization: Basic API_KEY:SECRET_KEY
     Content-Type: application/json
-    Content-Length: 238
 
     {
         "amplitude_ids": [
@@ -210,7 +209,7 @@ The body parameter is required. It's the deletion request object listing the `us
       "requester": "employee@yourcompany.com"
     })
     headers = {
-      'Authorization': 'Basic {{api-key}}:{{secret-key}}', #credentials must be base64-encoded
+      'Authorization': 'Basic API_KEY:API_SECRET',
       'Content-Type': 'application/json'
     }
 
@@ -277,7 +276,7 @@ The body parameter is required. It's the deletion request object listing the `us
         fmt.Println(err)
         return
       }
-      req.Header.Add("Authorization", "Basic {{api-key}}:{{secret-key}}") // credentials must be base64-encoded
+      req.Header.Add("Authorization", "Basic API_KEY:API_SECRET")
       req.Header.Add("Content-Type", "application/json")
 
       res, err := client.Do(req)
@@ -334,7 +333,7 @@ If the request returns no values, then no jobs are scheduled for that time range
     # You can also use wget
     curl -X GET https://amplitude.com/api/2/deletions/users?start_day=string&end_day=string \
       -H 'Accept: application/json' \
-      -U API_Key:API_Secret # credentials must be base64-encoded
+      -U API_KEY:API_SECRET
     ```
 
 === "HTTP"
@@ -342,7 +341,7 @@ If the request returns no values, then no jobs are scheduled for that time range
     ```bash
     GET https://amplitude.com/api/2/deletions/users?start_day=string&end_day=string HTTP/1.1
     Host: amplitude.com
-    Authorization: Basic {{api-key}}:{{secret_key}} # credentials must be base64-encoded
+    Authorization: Basic API_KEY:API_SECRET
     Accept: application/json
     ```
 === "JavaScript"
@@ -474,11 +473,12 @@ If the request returns no values, then no jobs are scheduled for that time range
 The success response for a `GET` request contains these fields:
 
 | <div class="big-column">Property</div> | Description                                                                                                                                                                                                                                                                                                                                             |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `day`                                  | The day the deletion job is scheduled to begin.                                                                                                                                                                                                                                                                                                         |
-| `status`                               | The deletion job's status.  <br>  <br>**Staging**: The job hasn't started, and you can modify it. More deletion requests may get scheduled into this job and you can remove requests from this job.  <br>  <br>**Submitted**: The job is submitted to run. You can't modify it.  <br>  <br>**Done**: The job has finished running. You can't modify it. |
-| `amplitude_ids`                        | List of the Amplitude Ids of users to delete.                                                                                                                                                                                                                                                                                                           |
-| `app`                                  | Project or app ID. Appears if the deletion is applied to more than one project.                                                                                                                                                                                                                                                                         |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `day`                                  | The day the deletion job is scheduled to begin.                                                                                                                                                                                                                                                                                                           |
+| `status`                               | The deletion job's status.  <br>  <br>**Staging**: The job hasn't started, and you can modify it. More deletion requests may get scheduled into this job and you can remove requests from this job.  <br>  <br>**Submitted**: The job is submitted to run. You can't modify it.  <br>  <br>**Done**: The job has finished running. You can't modify it.  |
+| `amplitude_ids`                        | List of the Amplitude Ids of users to delete.                                                                                                                                                                                                                                                                                                             |
+| `app`                                  | Project or app ID. Appears if the deletion is applied to more than one project.                                                          |                          
+| `active_scrub_done_date`               | The date that the scrub has completed, and the data is no longer accessible. After this point, the system waits 5 days for any backups to be automatically cleared. The status will change to 'done' only when the backups are removed.                                                                                                                 |
 
 The `amplitude_ids` key contains these fields:
 
@@ -504,84 +504,53 @@ The `amplitude_ids` key contains these fields:
 ]
 ```
 
-## Delete deletion job
+## Delete a User from a deletion job
 
-Removes the specified ID from a deletion job.
+Removes the specified Amplitude ID from a deletion job.
 
 `/api/2/deletions/users/AMPLITUDE_ID/YYYY-MM-DD`
 
 ### Example request
 
 ```bash
-DELETE /api/2/deletions/users/12345/ HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64-encoded
-
-{
-  "amplitude_ids": [
-    "amp_id_1",
-    "amp_id_2",
-    "..."
-  ],
-  "user_ids": [
-    "user_id_1",
-    "user_id_2",
-    "..."
-  ],
-  "requester": "employee@yourcompany.com"
-}
+curl -X DELETE \
+  'https://amplitude.com/api/2/deletions/users/AMPLITUDE_ID/JOB_START_DAY' \
+    -H 'Content-Type: application/json' \
+  -U API_KEY:API_SECRET
+}'
 ```
 
 ### Path variables
 
 | <div class="big-column">Name</div> | Description                                                                  |
 | ---------------------------------- | ---------------------------------------------------------------------------- |
-| `amplitude_ids` or `user_ids`      | Required. The `user_ids` or `amplitude_ids` to remove from the deletion job. |
-| `date`                             | Required. Day the deletion is schedule for.                                  |
+| `AMPLITUDE_ID`                     | Required. The `amplitude_id` to be removed from a deletion job.              |
+| `JOB_START_DAY`                    | Required. Day the deletion is schedule for. YYYY-MM-DD                       |
 
 ### Response
 
 A successful request returns a response with this schema:
 
-| <div class="big-column">Property</div> | Description                                              |
-| -------------------------------------- | -------------------------------------------------------- |
-| `amplitude_id`                         | The Amplitude ID of the user to be deleted.              |
-| `requester`                            | The person who requested the Amplitude ID to be deleted. |
-| `requested_on_day`                     | The day this deletion was requested.                     |
+| <div class="big-column">Property</div> | Description                                                 |
+| -------------------------------------- | ----------------------------------------------------------- |
+| `amplitude_id`                         | The Amplitude ID of the user that was removed from the job  |
+| `requester`                            | The person who requested the Amplitude ID to be deleted.    |
+| `requested_on_day`                     | The day this deletion was requested.                        |
 
 ```json
-{
-  "day": "string",
-  "amplitude_ids": [
-    {
-      "amplitude_id": 0,
-      "requested_on_day": "string",
-      "requester": "string"
-    }
-  ],
-  "status": "string"
-}
+ {
+   "amplitude_id": 1234567,
+   "requested_on_day": "string",
+   "requester": "string"
+ }
 ```
-
-| <div class="big-column">Property</div> | Description                                                                                                                                                                                                                                                                                                                                                  |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `day`                                  | The day the deletion job is scheduled to begin.                                                                                                                                                                                                                                                                                                              |
-| `status`                               | The deletion job's status.  <br>  <br>**Staging**: The job hasn't started, and you can still modify it. More deletion requests may get scheduled into this job and you can remove requests from this job.  <br>  <br>**Submitted**: The job is submitted to run. You can't modify it. <br>  <br>**Done**: The job has finished running. You can't modify it. |
-| `amplitude_ids`                        | List of the Amplitude Ids of users to delete.                                                                                                                                                                                                                                                                                                                |
-
-The `amplitude_ids` key contains these fields:
-
-| <div class="big-column">Name</div> | Description                                              |
-| ---------------------------------- | -------------------------------------------------------- |
-| `amplitude_id`                     | The Amplitude ID of the user to be deleted.              |
-| `requester`                        | The person who requested the Amplitude ID to be deleted. |
-| `requested_on_day`                 | The day this deletion was requested.                     |
 
 ## Status codes
 
-| Code | Message     |
-| ---- | ----------- |
-| 200  | Success     |
-| 400  | Bad Request |
+| Code | Message      |
+| ---- | ------------ |
+| 200  | Success      |
+| 400  | Bad Request  |
+| 401  | Unauthorized |
 
 --8<-- "includes/abbreviations.md"

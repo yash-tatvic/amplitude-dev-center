@@ -3,8 +3,6 @@ title: Lantern Event Streaming
 description: Stream Amplitude events to Lantern to help predict when your customers are ready to expand or need help.
 ---
 
---8<-- "includes/open-beta.md"
-
 [Lantern](https://www.withlantern.com/) is a customer success platform designed to predict when customers are ready to expand or in need of help and run workflows to engage them. Lantern helps B2B companies connect with the right customer at the right time and increase Net Dollar Retention.
 
 !!!info "This integration is managed by Lantern"

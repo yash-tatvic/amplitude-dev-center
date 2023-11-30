@@ -3,11 +3,11 @@ title: Send Cohorts to Plotline
 description: Send Amplitude cohorts to Plotline for use in in-app nudges with just a few clicks.
 ---
 
-!!!beta 
-
-    This feature is in open beta and is in active development. Contact the [Plotline support team](https://www.plotline.so/) for support with this integration.
-
 [Plotline](https://www.plotline.so/) enables Product and marketing teams to configure in-app nudges to improve feature adoption and drive conversions. Fully no-code.
+
+!!!info "This integration is managed by Plotline"
+
+    Contact the [Plotline support team](https://www.plotline.so/) for support with this integration.
 
 ## Considerations
 

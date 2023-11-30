@@ -35,6 +35,8 @@ Backgrounded
 backgrounded
 Backoff
 backoff
+Batch
+batch
 Bento
 bento
 Bento’s
@@ -210,6 +212,8 @@ mparticle
 msclkid
 Mxii
 myusername
+Nami
+nami
 Nationale
 Netcore
 netcore

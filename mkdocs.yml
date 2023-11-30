@@ -129,7 +129,7 @@ extra:
   help_site: https://help.amplitude.com
   status_page: https://status.amplitude.com/
   training_site: https://academy.amplitude.com/
-  postman_workspace: https://www.postman.com/amplitude/workspace/amplitude-developers/overview
+  postman_workspace: https://www.postman.com/amplitude-dev-docs/workspace/amplitude-developers/overview
   report_issue: https://github.com/amplitude/amplitude-dev-center/issues/new/?title=[Feedback]+{{page.title}}+-+{{page.url}}
   getting_started_guide: https://docs.developers.amplitude.com/getting-started
   sdk_quickstart: /data/sdks/sdk-quickstart/
@@ -267,6 +267,7 @@ nav:
           - Adapty: data/sources/adapty.md
           - Apphud: data/sources/apphud.md
           - RevenueCat: data/sources/revenuecat.md
+          - Nami: data/sources/nami.md
         - Website:
           - Convizit: data/sources/convizit.md
     - Destinations:
@@ -330,6 +331,7 @@ nav:
         - Appcues: data/destinations/appcues-cohort.md
         - AppsFlyer: data/destinations/appsflyer-cohort.md
         - Apxor: data/destinations/apxor-cohort.md
+        - Batch: data/destinations/batch-cohort.md
         - Blitzllama: data/destinations/blitzllama-cohort.md
         - Bento: data/destinations/bento-cohort.md
         - Braze: data/destinations/braze-cohort.md

@@ -3,12 +3,8 @@ title: CleverTap Event Streaming
 description: Stream Amplitude events to CleverTap
 ---
 
-!!!beta "This feature is in open beta"
-
-    This feature is in open beta and is in active development. Contact the [CleverTap Support team]((https://www.CleverTap.so/) for support with this integration.
-
 ## About CleverTap
-                                                                                                                                                                                                                                             
+
 [CleverTap](https://www.CleverTap.com) is a modern, integrated retention cloud that empowers digital consumer brands to increase customer retention and lifetime value. With this integration, you can ingest event data from Amplitude into CleverTap for further engagement.
 
 !!!note "Other Amplitude + CleverTap integrations"
@@ -17,6 +13,10 @@ description: Stream Amplitude events to CleverTap
 
     - [Import CleverTap Data](/data/sources/clevertap)
     - [Send Amplitude Cohorts to CleverTap](/data/destinations/clevertap-cohort)
+
+!!!info "This integration is maintained by CleverTap"
+
+    Contact the [CleverTap Support team](https://www.clevertap.com/) for support with this integration.
 
 ## Considerations
 

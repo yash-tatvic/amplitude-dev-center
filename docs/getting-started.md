@@ -3,9 +3,9 @@ title: Getting Started with Amplitude
 description: Read this guide to understand the basics of getting started with Amplitude instrumentation.
 ---
 
-This article is for developers, and complements the [Amplitude Quick Start Guide](https://help.amplitude.com/hc/en-us/sections/201146908-Amplitude-Quick-Start-Guide), which walks through the Amplitude data structure and explains which data you should send to Amplitude.
+This article is for developers, and complements the getting started content in [Amplitude Help Center](https://help.amplitude.com/hc/en-us/categories/16796426958235-Start-Here), which walks through the Amplitude data structure and explains which data you should send to Amplitude.
 
-In this article, you'll find technical best practices for getting up and running with Amplitude.
+In this article, find technical best practices for getting up and running with Amplitude.
 
 ## Instrumentation best practices
 
@@ -76,7 +76,7 @@ Amplitude SDKs include several user property operations you can use to update us
 - **`append`:** Append the value to the property array
 - **`prepend`:** Prepend the value to the property array
 
-You can also use the [Identify API](../analytics/apis/identify-api) to update the values of a user's user properties without having to send another event. The new values are applied to the next event sent organically by that user. 
+You can also use the [Identify API](../analytics/apis/identify-api) to update the values of a user's user properties without having to send another event. The new values apply to the next event sent organically by that user. 
 
 ### Instrument group types
 
@@ -88,7 +88,7 @@ To use Amplitude's [account-level reporting](https://help.amplitude.com/hc/en-u
 
 Amplitude tracks unique users through a system of user IDs, device IDs, and Amplitude IDs. To learn more, check out this article on [tracking unique users](https://help.amplitude.com/hc/en-us/articles/115003135607-Tracking-Unique-Users).
 
-In Amplitude, a session is a single continuous period of time a user is active within your product. Session IDs are sent with every event, enabling Amplitude to track them. To find out more about how this works, see the Help Center article on [tracking sessions in Amplitude](https://help.amplitude.com/hc/en-us/articles/115002323627-Tracking-Sessions).
+In Amplitude, a session is a single continuous period of time a user is active within your product. Session IDs send with every event, enabling Amplitude to track them. To find out more about how this works, see the Help Center article on [tracking sessions in Amplitude](https://help.amplitude.com/hc/en-us/articles/115002323627-Tracking-Sessions).
 
 ## Popular SDK configuration options
 
@@ -102,7 +102,7 @@ This section details some Amplitude SDK configuration options that are popularly
 - **`optOut`:** When enabled, opts the current user out of tracking.
 - **`offline`:** Prevents the sending of events.
 - **`saveEvents`:** This is enabled by default for all the SDKs, and allows the SDK to save unsent events onto the device.
-- **`savedMaxCount`:** The maximum number of unsent events that are saved on a device. The default is 1000. 
+- **`savedMaxCount`:** The maximum number of unsent events saved on a device. The default is 1000. 
 
 ## Backfilling data
 

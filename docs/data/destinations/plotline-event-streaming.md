@@ -3,11 +3,11 @@ title: Plotline Event Streaming
 description: Stream Amplitude events to Plotline
 ---
 
-!!!beta "This feature is in open beta"
-
-    This feature is in open beta and is in active development. Contact the [Plotline Support team](https://www.plotline.so/) for support with this integration.
-
 [Plotline](https://www.plotline.so/) enables Product and marketing teams to configure in-app nudges to improve feature adoption and drive conversions. Fully no-code.
+
+!!!info "This integration is managed by Plotline"
+
+    Contact the [Plotline Support team](https://www.plotline.so/) for support with this integration.
 
 ## Considerations
 

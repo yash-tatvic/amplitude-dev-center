@@ -10,6 +10,104 @@
 {% block site_meta %}
     {{super()}}
     <meta name="google-site-verification" content="UHLjtoO7DV30dx3hVhwTOIWguEUr_VzS41msmq-uYKA" />
+    {% if page.meta %}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "datePublished": "{{ page.meta.git_creation_date_localized_raw_iso_datetime }}",
+            "dateModified": "{{ page.meta.git_revision_date_localized_raw_iso_datetime }}",
+            "headline": "{{ page.meta.title }}",
+            "description": "{{ page.meta.description }}",
+            "url": "{{page.url}}",
+            "primaryImageOfPage": {
+                "@id": "/assets/images/amplitude-default-seo.png"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Amplitude",
+                "legalName": "Amplitude Inc.",
+                "url": "https://amplitude.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://amplitude.com/nextjs-public/amplitude-default-seo.png"
+                },
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "201 3rd St #200",
+                    "addressLocality": "San Francisco",
+                    "addressRegion": "CA",
+                    "postalCode": "94103",
+                    "addressCountry": "USA"
+                },
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "Customer Support",
+                    "telephone": "[+650-988-5131]",
+                    "email": "sales@amplitude.com"
+                },
+                "sameAs": [
+                    "https://twitter.com/Amplitude_HQ",
+                    "https://www.facebook.com/AmplitudeAnalytics/",
+                    "https://www.linkedin.com/company/amplitude-analytics"
+                ]
+            }
+        } 
+      </script>
+    {% if page.meta.toplevel != true %}
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "{{page.meta.title}}",
+          "description": "{{page.meta.description}}",
+          "url": "{{ page.url }}",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Amplitude",
+            "legalName": "Amplitude, Inc.",
+            "url": "https://amplitude.com",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://amplitude.com/nextjs-public/amplitude-default-seo.png"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "201 3rd St #200",
+              "addressLocality": "San Francisco",
+              "addressRegion": "CA",
+              "postalCode": "94103",
+              "addressCountry": "USA"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "[+650-988-5131]",
+              "contactType": "Customer Support",
+              "email": "sales@amplitude.com"
+            },
+            "sameAs": [
+              "https://twitter.com/Amplitude_HQ",
+              "https://www.facebook.com/AmplitudeAnalytics/",
+              "https://www.linkedin.com/company/amplitude-analytics"
+            ]
+          },
+          "datePublished": "{{ page.meta.git_creation_date_localized_raw_iso_datetime }}",
+          "dateModified": "{{ page.meta.git_revision_date_localized_raw_iso_datetime }}",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ page.url }}"
+          },
+          "author": [
+            {
+              "@type": "Organization",
+              "name": "Amplitude"
+            }
+          ]
+        }
+
+    {% endif %}
+  </script>
+    {% endif %}
 {% endblock %}
 
 {% block scripts %}
@@ -41,7 +139,6 @@
 
 {{ super() }}
 
-<script src="https://unpkg.com/@amplitude/experiment-js-client@1.9.0/dist/experiment.umd.js"></script>
 <script>
 function getPageInfo() {
     return {
@@ -53,11 +150,12 @@ function getPageInfo() {
 
 const initKapa = function () {
     var script = document.createElement("script");
-    script.src = "https://widget.kapa.ai/kapa-widget-v1.1.0.bundle.js";
+    script.src = "https://widget.kapa.ai/kapa-widget.bundle.js";
     script.setAttribute("data-website-id", "ad8ecaa4-5c43-413b-9d0a-8114b6e1f831");
     script.setAttribute("data-project-name", "Amplitude");
     script.setAttribute("data-project-color", "#301661");
     script.setAttribute("data-project-logo", "https://avatars.githubusercontent.com/u/2291562?s=280&v=4");
+    script.setAttribute("data-modal-example-questions","How do I install Amplitude on my website?,How do I install Amplitude in my mobile App?,How do I get started with Experiment in my application?")
     script.async = true;
     document.head.appendChild(script);
     // Tracking stuff starts here. 
@@ -94,24 +192,7 @@ const initKapa = function () {
     // });
 }
 
-window.experiment = Experiment.Experiment.initializeWithAmplitudeAnalytics(
-    'client-TF7RK1kKHIpd9sS2tn63MrevvXTmriJv', {
-        fetchOnStart: true
-    }
-);
-
-// await experiment.start();
-experiment.start().then(() => {
-    const variant = experiment.variant('kapa-ai-widget');
-    if (variant.value === 'on') {
-        if (document.readyState != 'loading') {
-          initKapa()
-        } else {
-          document.addEventListener("DOMContentLoaded", initKapa())
-        }
-        
-    }
-})
+initKapa()
 </script>
 
 {% endblock %}
