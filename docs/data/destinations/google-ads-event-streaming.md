@@ -10,6 +10,7 @@ Amplitude Data's Google Ads integration enables you to stream your Amplitude eve
 
 - You must enable this integration in each Amplitude project you want to use it in.
 - Amplitude sends custom events using Amplitude `event_type` as event name.
+- This integration uses the [Upload Click Conversions API](https://developers.google.com/google-ads/api/docs/conversions/upload-clicks)).
 
 ## Setup
 
